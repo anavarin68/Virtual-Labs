@@ -1,0 +1,493 @@
+//*--Ready function---------
+var ListOptions,gt,ctx;
+var primaryCellIndx=0,secondaryCellIndx=0;
+var controlLabel_1,controlLabel_2,controlValues;
+var rheoResistance=1;
+var cellSrc;
+var droped=false;
+var startX,startY;
+var wireColor=['#000000','#ff0000'];
+var connectionWires;
+var connectedWires=0;
+var oneWayClosed=false,twoWayClosed=false;
+var keyPosition;
+var NumberOfClose=2;
+var I,L1,L2,galvoUnit,E,r;
+var HelpMsg;
+var shuntResistance=0;
+var x,y;
+var gt=$;
+
+function setResistance(val){
+	rheoResistance=parseInt(val);
+	$("#sliderspan").html(rheoResistance+' &#x2126;');
+	$("#rheostatTop").css({'left':453-rheoResistance*10+'px'});
+	I=2/(38+rheoResistance);
+	if(oneWayClosed){
+		$("#ammeterValue").html(I.toFixed(3));	
+	}
+	calculateLength();
+}
+function calculateLength(){
+
+	L1=E[primaryCellIndx]/(I*3.8);
+	L2=(shuntResistance*L1)/(r[primaryCellIndx]+shuntResistance);
+	$("#resultLabel").html("Internal resistance = "+(Math.round((shuntResistance*(L1-L2)/L2)*10)/10)+"");
+	L1=L1*100;
+	L2=L2*100;
+	if(twoWayClosed){
+		galvoUnit=L2;//galvoUnit=L2/30;
+	}else{
+		galvoUnit=L1;//galvoUnit=L1/30;
+	}
+}
+function twoWayOver(){
+	if(connectionWires.length==connectedWires && shuntResistance==0 && !twoWayClosed && oneWayClosed){
+		$("#popupMsg").show();
+	}
+}
+function twoWayOut(){
+	$("#popupMsg").hide();
+}
+I=2/(38+rheoResistance);
+E=[1.5,1.08];
+r=[2.5,1.5];
+window.onload = function() { 
+	
+	document.getElementById("expName").innerHTML=gt.gettext("Potentiometer - Internal Resistance of a Cell");
+	$('#olabmenuBar li:first-child a').html(gt.gettext("HELP"));
+	$('#olabmenuBar li:nth-child(2) a').html(gt.gettext("FULL SCREEN"));
+	$('#olabmenuBar li:last-child a').html(gt.gettext("EXIT"));
+	controlLabel_1=[gt.gettext("Reset"),gt.gettext("Insert first key"),gt.gettext("Insert second key"),gt.gettext("Insert third key")];
+	controlLabel_2=[gt.gettext('Select the primary cell: '),gt.gettext("Add weighs(kg)"),gt.gettext("Select the second primary cell:"),gt.gettext("Emf of first cell:"),gt.gettext('Rheostat reistance:'),gt.gettext('Emf of second cell:'),0.5,5,0.1,600,300,gt.gettext('Position of bridge A:'),gt.gettext('Position of bridge B:')];	
+	controlValues=[2,5,0.5,10,1];
+	HelpMsg=[gt.gettext('Drag and connect the terminal</br>of each apparatus as shown</br>in the circuit diagram.'),gt.gettext('Drag the key near to switch.'),gt.gettext('Drag the jockey over the potentiometer wire.')];
+	keyPosition=[['295px','291px'],['297px','297px']];
+	connectionWires=['rheo_ammeter','ammeter_1w_T1','oneWay_T2_batteryNegative','batteryPositive_terminalP_1','firstCellPos_terminalP_2','secondCellPos_terminalP_3','firstCellNeg_twoWay_T1','secondCellNeg_twoWay_T2','twoWay_T3_resisBox_T1','resisBox_T2_galvanoPos','galvanoNeg_jockeyPoint','terminalQ_rheoTop'];
+	ListOptions=[gt.gettext("Leclanche cell"),gt.gettext("Daniel cell")];
+	cellSrc=["dechlacheCell.png","daniellCell.png"];
+	$(document).ready(function() {
+		mainTop=$('#mainDiv').position().top;
+		mainLeft=$('#mainDiv').position().left;	
+		$('#mainDiv').mousedown(function(event){event.preventDefault();});	
+		addLabel();			
+		addintoDropDown( $('#firstCell'),ListOptions);
+		addintoDropDown( $('#secondCell'),ListOptions);
+		var c = document.getElementById("connectionDrawing");
+		ctx = c.getContext("2d");
+		var mainDivLft=$("#canvasBox").offset().left;
+		var mainDivTop=$("#canvasBox").offset().top;
+		var mouseLeft,mouseTop;mouseDown=false;
+		calculateLength()
+	function connector(startPoint,endPoint,connector,wireColor){
+		var elemX,elemY
+		$(startPoint).draggable({containment:"#canvasBox",
+			revert:function(){
+				if(!droped){
+					ctx.clearRect(0,0,570,345);
+					$(startPoint).css({
+						left:elemX,
+						top:elemY		
+					});
+				}
+			},
+			start:function(){
+				elemX=$(startPoint).css('left');
+				elemY=$(startPoint).css('top');
+				droperInitPos=$(startPoint).css('left');
+				startX=(parseInt(elemX.substring(0, elemX.length-2))/2)+(parseInt(elemX.substring(0, elemX.length-2))/35)+7;
+				startY=(parseInt(elemY.substring(0, elemY.length-2))/2)-(parseInt(elemY.substring(0, elemY.length-2))/16)+5;
+				},
+			stop:function(){
+				
+			},
+			drag:function(){
+				var elemXX=$(startPoint).css('left');
+				var elemYY=$(startPoint).css('top');
+				mouseX=(parseInt(elemXX.substring(0, elemXX.length-2))/2)+(parseInt(elemXX.substring(0, elemXX.length-2))/35)+10;
+				mouseY=(parseInt(elemYY.substring(0, elemYY.length-2))/2)-(parseInt(elemYY.substring(0, elemYY.length-2))/16)+8;
+				ctx.clearRect(0,0,570,345);
+				ctx.strokeStyle=wireColor;
+				ctx.beginPath();
+				ctx.moveTo(startX, startY);
+				ctx.lineTo(mouseX,mouseY);
+				ctx.stroke();
+			}
+		});
+		$(endPoint).droppable({accept:startPoint,
+			drop:function(){
+				droped=true;
+				$(startPoint).css({
+					left:$(endPoint).css('left'),
+					top:$(endPoint).css('top')		
+				});
+				$(endPoint).draggable('disable');
+				$(startPoint).draggable('disable');
+				$(endPoint+','+startPoint).css({'cursor':'default'});
+				$(endPoint).hide();
+				$(startPoint).hide();
+				ctx.clearRect(0,0,570,345);
+				$(connector).show();
+				droped=false;
+				connectedWires=0;
+				for(i=0;i<connectionWires.length;i++){
+					if($("#"+connectionWires[i]).css('display')=='block'){
+						connectedWires++;
+					}else{
+						break;
+					}	
+				}
+				if(connectionWires.length==connectedWires){
+					$('#popup_txt').html(gt.gettext("Insert key"));
+					$("#popupMsg").css({'left':'76px','top':'62px'});
+					$("#popup_txt").css({'top':'22px'});
+					$("#popupMsg").show();
+					if(!twoWayClosed){
+						
+					}
+					$("#oneWayKey").draggable('enable');
+					if(shuntResistance!=0){
+						$("#twoWayKey").draggable('enable');
+					}
+					
+				}
+				
+			}
+		});
+	}
+	$("#oneWayKey").draggable({containment:"#canvasBox",
+		revert:function(){
+			if(!droped){
+				$("#oneWayKey").animate({
+					left:'60px',
+					top:'125px'		
+				});
+				$("#ammeterValue").html("0.000");
+				$("#jockey").draggable('disable');
+			}
+		},
+		start:function(){
+			if(droped){
+				droped=false;
+				oneWayClosed=false;
+			}
+			$("#popupMsg").hide();
+			$('#popup_txt').html(gt.gettext("Set shunt resistance"));
+			$("#popupMsg").css({'left':'322px','top':'185px'});
+			$("#popup_txt").css({'top':'14px'});
+		}
+	});
+	$("#oneWayKey").draggable('disable');
+	$("#oneWayDropArea").droppable({accept:"#oneWayKey",
+		drop:function(){
+			droped=true;
+			oneWayClosed=true;
+			$("#oneWayKey").css({
+				left:'60px',
+				top:'152px'
+			});
+			calculateLength();
+			$("#ammeterValue").html(I.toFixed(3));
+			$("#jockey").draggable('enable');
+			
+		}
+	});
+	$("#twoWayKey").draggable({containment:"#canvasBox",
+		revert:function(){
+			if(!droped){
+				$("#twoWayKey").animate({
+					left:'306px',
+					top:'250px'		
+				});
+				//$("#ammeterValue").html("0.000");
+				if(!oneWayClosed){
+					$("#jockey").draggable('disable');
+				}
+				if(shuntResistance==0){
+					$("#twoWayKey").draggable('disable');
+				}
+				
+			}
+		},
+		start:function(){
+			if(droped){
+				droped=false;
+				twoWayClosed=false;
+				calculateLength();
+			}
+		}
+	});
+	$("#twoWayKey").draggable('disable');
+	$("#twoWayDropArea").droppable({accept:"#twoWayKey",
+		drop:function(){
+			droped=true;
+			twoWayClosed=true;
+			$("#twoWayKey").css({
+				left:'306px',
+				top:'297px'
+			});
+			calculateLength();
+			//$("#ammeterValue").html(I.toFixed(3));
+			if(oneWayClosed){
+				$("#jockey").draggable('enable');
+			}
+		}
+	});
+	$("#jockey").draggable({containment:"#canvasBox",
+		revert:function(){
+			if(x<240 || x>440 || y<105 || y>192){
+				$("#jockey").animate({
+					left:'239px',
+					top:'187px'		
+				});
+				$("#jockeyReading").html(0);
+				$("#galvanoValue").html("0");
+				$("#popup_img,#jockeyReading").hide();
+				$("#lineGlow").hide();
+				ctx.clearRect(0,0,570,345);
+			}
+		},
+		drag:function(){
+			var jockeyDistance;
+			x=$("#jockey").css('left');
+			y=$("#jockey").css('top');
+			//$("#jockey").animate('top','264px');
+			x=parseInt(x.substring(0,x.length-2));
+			y=parseInt(y.substring(0,y.length-2));
+			if(x>=240 && x<=440 && y>105 &&y<192){
+				if(y<=191 && y>=186){
+					$("#lineGlow").css({'top':'197px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html((x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=(x-240)/2;
+				}else if(y<=184 && y>=177){
+					$("#lineGlow").css({'top':'189px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(200-(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=200-(x-240)/2;
+				}else if(y<=175 && y>=169){
+					$("#lineGlow").css({'top':'180px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(200+(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=200+(x-240)/2;
+				}else if(y<=166 && y>=161){
+					$("#lineGlow").css({'top':'172px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(400-(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=400-(x-240)/2;
+				}else if(y<=158 && y>=153){
+					$("#lineGlow").css({'top':'164px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(400+(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=400+(x-240)/2;
+				}else if(y<=150 && y>=145){
+					$("#lineGlow").css({'top':'156px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(600-(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=600-(x-240)/2;
+				}else if(y<=142 && y>=136){
+					$("#lineGlow").css({'top':'148px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(600+(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=600+(x-240)/2;
+				}else if(y<=133 && y>=128){
+					$("#lineGlow").css({'top':'139px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(800-(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=800-(x-240)/2;
+				}else if(y<=126 && y>=119){
+					$("#lineGlow").css({'top':'131px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(800+(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=800+(x-240)/2;
+				}else if(y<=117 && y>=112){
+					$("#lineGlow").css({'top':'123px'});
+					$("#lineGlow").show();
+					$("#jockeyReading").html(1000-(x-240)/2);
+					$("#popup_img,#jockeyReading").show();
+					jockeyDistance=1000-(x-240)/2;
+				}else{
+					$("#popup_img,#jockeyReading").hide();
+					$("#lineGlow").hide();
+					$("#galvanoValue").html(0);
+				}
+				
+			}else{
+				$("#popup_img,#jockeyReading").hide();
+				$("#lineGlow").hide();
+			}
+			/*if(isNaN(30-parseInt(jockeyDistance/galvoUnit))){
+				$("#galvanoValue").html("0");
+			}else{
+				if((30-parseInt(jockeyDistance/galvoUnit))>0){console.log(jockeyDistance);
+					$("#galvanoValue").html(30-parseInt(jockeyDistance/galvoUnit));
+				}else{
+					if ((30-parseInt(jockeyDistance/galvoUnit))>=-30) {console.log("------ "+jockeyDistance);
+						$("#galvanoValue").html((30-parseInt(jockeyDistance/galvoUnit))*-1);
+					}else{
+						$("#galvanoValue").html(30);
+					}					
+				}
+			}*/
+			if(galvoUnit-30<=jockeyDistance && galvoUnit+1>=jockeyDistance){
+				$("#galvanoValue").html(30-parseInt(jockeyDistance-(galvoUnit-30)));
+			}else if(galvoUnit+30>=jockeyDistance && galvoUnit+1<=jockeyDistance){
+				$("#galvanoValue").html((30-(parseInt(jockeyDistance-(galvoUnit+31))*-1))*-1);
+			}else{
+				if($("#lineGlow").css('display')=='none'){
+					$("#galvanoValue").html(0);
+				}else{
+					$("#galvanoValue").html(30);
+					if(galvoUnit+30<jockeyDistance){
+						$("#galvanoValue").html(-30);
+					}
+				}
+			}
+			
+			var elemXX=$("#jockey").css('left');
+			var elemYY=$("#jockey").css('top');
+			var mouseX=(parseInt(elemXX.substring(0, elemXX.length-2))/2)+(parseInt(elemXX.substring(0, elemXX.length-2))/35)+10;
+			var mouseY=(parseInt(elemYY.substring(0, elemYY.length-2))/2)-(parseInt(elemYY.substring(0, elemYY.length-2))/16)+8;
+			ctx.clearRect(0,0,570,345);
+			ctx.strokeStyle="#000000";
+			ctx.beginPath();
+			ctx.moveTo(132, 98);
+			ctx.lineTo(mouseX-4,mouseY+8);
+			ctx.stroke();
+		}
+
+	});
+	$("#jockey").draggable('disable');
+	connector('#rheoBottom','#ammeterPosi','#rheo_ammeter',wireColor[1]);
+	connector('#ammeterPosi','#rheoBottom','#rheo_ammeter',wireColor[1]);
+	connector('#ammeterNegative','#switch_1w_T1','#ammeter_1w_T1',wireColor[0]);
+	connector('#switch_1w_T1','#ammeterNegative','#ammeter_1w_T1',wireColor[0]);
+	connector('#switch_1w_T2','#batteryNegative','#oneWay_T2_batteryNegative',wireColor[0]);
+	connector('#batteryNegative','#switch_1w_T2','#oneWay_T2_batteryNegative',wireColor[0]);
+	connector('#batteryPositive','#terminalP_1','#batteryPositive_terminalP_1',wireColor[1]);
+	connector('#terminalP_1','#batteryPositive','#batteryPositive_terminalP_1',wireColor[1]);
+	connector('#firstCellPos','#terminalP_2','#firstCellPos_terminalP_2',wireColor[1]);
+	connector('#terminalP_2','#firstCellPos','#firstCellPos_terminalP_2',wireColor[1]);
+	connector('#secondCellPos','#terminalP_3','#secondCellPos_terminalP_3',wireColor[1]);
+	connector('#terminalP_3','#secondCellPos','#secondCellPos_terminalP_3',wireColor[1]);
+	connector('#firstCellNeg','#twoWay_T1','#firstCellNeg_twoWay_T1',wireColor[1]);
+	connector('#twoWay_T1','#firstCellNeg','#firstCellNeg_twoWay_T1',wireColor[1]);
+	connector('#secondCellNeg','#twoWay_T2','#secondCellNeg_twoWay_T2',wireColor[0]);
+	connector('#twoWay_T2','#secondCellNeg','#secondCellNeg_twoWay_T2',wireColor[0]);
+	connector('#twoWay_T3','#resisBox_T1','#twoWay_T3_resisBox_T1',wireColor[0]);
+	connector('#resisBox_T1','#twoWay_T3','#twoWay_T3_resisBox_T1',wireColor[0]);
+	connector('#resisBox_T2','#galvanoPos','#resisBox_T2_galvanoPos',wireColor[1]);
+	connector('#galvanoPos','#resisBox_T2','#resisBox_T2_galvanoPos',wireColor[1]);
+	connector('#galvanoNeg','#jockeyPoint','#galvanoNeg_jockeyPoint',wireColor[0]);
+	connector('#jockeyPoint','#galvanoNeg','#galvanoNeg_jockeyPoint',wireColor[0]);
+	connector('#terminalQ','#rheoTop','#terminalQ_rheoTop',wireColor[0]);
+	connector('#rheoTop','#terminalQ','#terminalQ_rheoTop',wireColor[0]);
+		function getMousePos(canvas, evt) {
+		    var rect = canvas.getBoundingClientRect();
+		    return {
+		      x: evt.clientX - rect.left,
+		      y: evt.clientY - rect.top
+		    };
+		}
+		//combo_sliderchange();
+		function addLabel(){//Function for adding label for all controls---	
+			$('#reload').attr('value',controlLabel_1[0]);
+			$('#inserKey_1').attr('value',controlLabel_1[1]);
+			$('#inserKey_2').attr('value',controlLabel_1[2]);
+			$('#inserKey_3').attr('value',controlLabel_1[3]);
+			$('#Ins1').html(controlLabel_2[0]);
+			$('#Ins2').html(controlLabel_2[2]);
+			$('#Ins01').html(controlLabel_2[5]);
+			$('#rightmaxvals2,#rightmaxvals').html(controlValues[0]);
+			//$('#rightmaxvals').html(controlValues[1]);
+		
+			$('#slidertxt').html(controlLabel_2[4]);	
+			$('#sliderspan').html(rheoResistance+' &#x2126;');
+			$('#slidertxt1').html(controlLabel_2[3]);	
+			$('#rightminvals2,#rightminvals').html(controlValues[2]);
+			$('#rightmaxvals1').html(controlValues[3]);
+			$('#rightminvals1').html(controlValues[4]);
+			$('#circuit_txt').html(gt.gettext("Show circuit diagram"));
+			$('#popup_txt').html(gt.gettext("Set shunt resistance"));
+			$('#shuntResTitle').html(gt.gettext("Shunt resistance"));
+			$('#resultFinal_txt').html(gt.gettext("Show result"));
+			//$('#resultLabel').html(gt.gettext("L1/L2 = 1.2"));
+			
+		}
+		function addintoDropDown(getId,valueSet){//Function for adding option in combo box---		
+			var selected = getId;
+			$.each(valueSet, function(val, text) {
+			selected.append($('<option></option>').val(val).html(text));});			
+		}
+		$("#firstCell").change(function(){	//on change function of combo box. 
+			primaryCellIndx=$(this).find('option:selected').val();
+			$("#secondPrimCell").attr("src","./saved_resource_files/"+cellSrc[primaryCellIndx]);
+			calculateLength();
+			//Resetitems();
+		});
+		$("#circuit").change(function(){
+			if($("#circuit").is(':checked')){
+				$("#circuit_img").show();
+			}else{
+				$("#circuit_img").hide();
+			}
+		});
+		$("#result").change(function(){
+			if($("#result").is(':checked')){
+				$("#resultLabel").show();
+			}else{
+				$("#resultLabel").hide();
+			}
+		});
+		$(".resisVal,.resisValSingle").change(function(){
+			if($(this).is(':checked')){
+				shuntResistance-=parseFloat(this.value);
+				shuntResistance=Math.round(shuntResistance*10)/10;
+			}else{				
+				
+				shuntResistance+=parseFloat(this.value);
+				
+			}
+			calculateLength();
+			if(connectionWires.length==connectedWires && shuntResistance!=0){
+				$("#twoWayKey").draggable('enable');
+			}else{
+				if(!twoWayClosed){
+					$("#twoWayKey").draggable('disable');
+				}
+				
+			}
+			if(shuntResistance==0){
+				$("#resultLabel").hide();
+				$("#result").attr('disabled','disabled');
+				$("#result").attr('checked',false);
+			}else{
+				$("#result").removeAttr('disabled');
+			}
+		});
+		function resetItems(){//resetting slider value and appartus position
+			rheoResistance=1;
+			$("#resultLabel").hide();
+			$("#result").attr('disabled','disabled');
+			$("#result").attr('checked',false);
+			$("#slide_val3").val(rheoResistance);
+			$("#sliderspan").html(rheoResistance+' &#x2126;');
+			$("#Hanging_right").css({height:12+'px'});
+			$("#popup").hide();
+		}
+		resetItems();
+		$("#reload").click(function(){//*--Function to click reload button to reset all events---
+			window.location.reload();	   
+		});
+	});	 			
+};
+

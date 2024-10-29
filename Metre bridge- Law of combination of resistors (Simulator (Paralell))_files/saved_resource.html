@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class=" js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/reset.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/grid.css">
+<link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+<script src="./saved_resource_files/jquery-latest.js.download"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.i18n.js.download"></script>
+<script language="javascript">
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	var gt=$;
+	gt.gettext.setLocale(language);
+</script>
+<script type="text/javascript" src="./saved_resource_files/language.json"></script>
+
+
+
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./saved_resource_files/modernizr-custom.js.download"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+// Set up the yepnope (Modernizr.load) directives... 
+/*Modernizr.load([
+{
+	
+    // Test if Input Range is supported using Modernizr
+    test: Modernizr.inputtypes.range,
+	    // If ranges are not supported, load the slider script and CSS file
+	
+    nope: 
+	
+	[     
+        // The slider CSS file
+        'js/js-webshim/minified/extras/mousepress.js'       
+        // The slider JS file
+        ,'js/js-webshim/minified/polyfiller.js'     
+    ],
+    complete : function () {
+	$.webshims.setOptions("waitReady", false);
+      $.webshims.polyfill('forms-ext');
+    }
+}
+]);*/
+
+</script>
+
+</head>
+<body style="cursor: default;">
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName">Equivalent Resistance of Resistors (Parallel)</p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+		<script type="text/javascript" language="javascript">
+	var simPath="./saved_resource_files/";
+</script>
+<canvas id="mainCanvas" width="570" height="440"></canvas>
+<canvas id="mBridge" width="928" height="98"></canvas>
+<canvas id="galvanometer" width="81" height="71"></canvas>
+<canvas id="zoomBG" style="border:#CCC solid;" width="271" height="180"></canvas>
+<canvas id="zoomgalvanometer" width="250" height="160"></canvas>
+<canvas id="scale" style="border:#CCC solid;" width="1300" height="250"></canvas>
+<canvas id="line1" width="105" height="75"></canvas>
+<canvas id="line2" width="105" height="105"></canvas>
+<canvas id="jockey" width="25" height="23"></canvas>
+<canvas id="smalljockey"></canvas>
+<canvas id="wireGal" width="195" height="87"></canvas>
+<canvas id="wireJockey" width="362" height="121"></canvas>
+<canvas id="wireJockey2"></canvas>
+<canvas id="battery" width="116" height="96" style="visibility: hidden;"></canvas>
+<canvas id="resistor" name="resistor" width="76" height="82" style="visibility: hidden;"></canvas>
+<canvas id="rshadow" width="59" height="33" style="visibility: hidden;"></canvas>
+<canvas id="bshadow" width="83" height="33" style="visibility: hidden;"></canvas>
+<canvas id="gshadow" width="81" height="38"></canvas>
+<canvas id="wireBattery" width="372" height="124" style="visibility: hidden;"></canvas>
+<canvas id="wireRes" width="47" height="63" style="visibility: hidden;"></canvas>
+<img id="connector2" src="./saved_resource_files/connector.png" style="visibility: hidden;">
+<img id="connector" src="./saved_resource_files/connector2.png" style="visibility: hidden;">
+<div id="needleRotate1"><img id="needleRotate3Img" src="./saved_resource_files/needle.png"></div> 
+<div id="needleRotate2"><img id="needleRotate4Img" src="./saved_resource_files/smallneedle.png"></div>
+<div id="needleRotate3"><img id="needleRotate5Img" src="./saved_resource_files/needlerotate3.png"></div>
+<div id="firstneedleRotate1"><img id="firstneedleRotate3Img" src="./saved_resource_files/firstneedle.png"></div> 
+<div id="firstneedleRotate2"><img id="firstneedleRotate4Img" src="./saved_resource_files/firstsmallneedle.png"></div>
+<div id="firstneedleRotate3"><img id="firstneedleRotate3Img" src="./saved_resource_files/needlerotate5.png"></div>
+<div id="tooltip" style="background:url(./saved_resource_files/tooltipImg.png) top left no-repeat;">1cm</div>
+<div id="tooltip1" style="background: url(&quot;./saved_resource_files/tooltip1.png&quot;) left top no-repeat; visibility: hidden;">Please select Resistance</div>
+<div id="tooltip2" style="background: url(&quot;./saved_resource_files/tooltipImg.png&quot;) left top no-repeat; visibility: hidden;">0ohm</div>
+<div id="box" style="visibility: hidden;"><img id="box1Img" src="./saved_resource_files/box.png"> </div>
+<div id="close" onclick="closeBox()" style="visibility: hidden;"><img id="closeImg" src="./saved_resource_files/close.png"> </div>
+<div id="scaleImg"><img id="scalezoom" src="./saved_resource_files/scale.png"></div> 
+<div id="wireJockey2"><img id="wireJockeyImg2" src="./saved_resource_files/wJockey1.png"></div> 
+<div id="wire"><img id="wireImg" src="./saved_resource_files/wire.png"></div> 
+ <div id="dot"><img id="dotImg" src="./saved_resource_files/Dot.png"></div>
+ <div id="Smalldot"><img id="SmalldotImg" src="./saved_resource_files/Dot.png"></div>
+<div id="wireTotal" style="visibility:hidden"><img id="wireTotalImg" src="./saved_resource_files/RtotalWire.png"></div> 
+<div id="wireOnStage" onmouseover="changeCursor()" onmouseout="defaultCursor()" style="visibility: hidden;"><img id="wireImg3" src="./saved_resource_files/parallelWire.png"></div> 
+<div id="resValue" style="visibility: hidden;">
+	<p id="ResBoxLbl">Select Resistance</p>
+     <form name="listForm">
+    <p>&nbsp;&nbsp;<input type="radio" checked="choice"><span id="small">Small</span></p>
+   <p>&nbsp;&nbsp;</p>
+    <p><input type="checkbox" name="choice" onchange="checkTotal()" value="1" checked="checked"><span>1</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="choice" onchange="checkTotal()" value="2" checked="checked"><span>2</span></p>
+    <p><input type="checkbox" name="choice" onchange="checkTotal()" value="2" checked="checked"> <span>2</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="choice" onchange="checkTotal()" value="5" checked="checked"><span>5</span> </p>
+   
+    <p><input type="checkbox" name="choice" onchange="checkTotal()" value="50" checked="checked"> <span>50</span> &nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="choice" onchange="checkTotal()" value="20" checked="checked"><span>20</span></p>  
+      
+    <p><input type="checkbox" name="choice" onchange="checkTotal()" value="20" checked="checked"> <span>20</span> &nbsp;&nbsp;&nbsp;
+    <input type="checkbox" value="10" name="choice" onchange="checkTotal()" checked="checked"><span>10</span></p>
+   
+</form>
+ </div>
+<script "type="text/javascript" src="./saved_resource_files/simcontrols.js.download"></script>
+	</div>
+</div>
+<div class="g198 controlHolder">
+	<ul><li>
+  <div class="varBox">      
+
+        <p class="varTitle" id="resistorLbl">Arrangement of Resistors:</p>
+        <select class="dropBox" name="resistors" id="resistors" onchange="resistorsCombo(this, &#39;environment&#39;)">
+<!--        <option value="Single">Single</option>
+        <option value="Parallel">Parallel</option>
+-->        <option value="0">Single</option><option value="1">Parallel</option></select>
+
+<div id="materials1" style="position:relative">
+  <div id="resistor_control" name="resimg" style="position:absolute;width:40px;height:50px;left:30px;top:10px;" onmouseover="changeCursor()" onmouseout="defaultCursor()" onclick="showResistor(this)"><img id="drag1" style="position:absolute;" src="./saved_resource_files/smallresistor.png"> </div>
+  <div id="battery_control" name="batimg" style="position:absolute;width:40px;height:50px;left:120px;top:10px;" onmouseover="changeCursor()" onmouseout="defaultCursor()" onclick="showBattery(this)"><img id="drag2" src="./saved_resource_files/smallBattery.png" style="position:absolute;"> </div>
+  <div id="resistorInsbleImg" name="resistorInsbleImg" style="position:absolute;width:40px;height:50px;left:30px;top:10px;visibility:hidden;" onmouseover="changeCursor()" onmouseout="defaultCursor()"><img src="./saved_resource_files/res.png"> </div>
+  <div id="bateryInsbleImg" name="bateryInsbleImg" style="position:absolute;width:40px;height:50px;left:120px;top:10px;visibility:hidden;" onmouseover="changeCursor()" onmouseout="defaultCursor()"><img src="./saved_resource_files/bat.png"> </div>
+</div>
+<div id="materials2" style="position:relative">
+  <div id="parallelWire1" style="position:absolute;width:40px;height:50px;left:30px;top:80px;" onmouseover="changeCursor()" onmouseout="defaultCursor()" onclick="showParellelWire(this)"><img id="parallelWire1" src="./saved_resource_files/parallelWire.png" style="position:absolute; "> </div>
+  <div id="parallelWire2" style="position:absolute;width:40px;height:50px;left:120px;top:80px;" onmouseover="changeCursor()" onmouseout="defaultCursor()" onclick="showParellelWire(this)"><img id="parallelWire2" src="./saved_resource_files/parallelWire.png" style="position:absolute;"> </div>
+  <div id="Pwire" style="position:absolute;width:40px;height:50px;left:30px;top:80px;visibility:hidden;" onmouseover="changeCursor()" onmouseout="defaultCursor()"><img src="./saved_resource_files/Pwire.png"> </div>
+  <div id="Pwire2" style="position:absolute;width:40px;height:50px;left:120px;top:80px;visibility:hidden;" onmouseover="changeCursor()" onmouseout="defaultCursor()"><img src="./saved_resource_files/Pwire.png"> </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p align="center"><input type="button" class="subButton" id="exp" name="exp" value="Start Experiment" disabled="disabled" onclick="startExp()"></p><br><br>
+  <p align="center"><input type="button" class="subButton" id="key" name="key" value="Insert Key" disabled="disabled" onclick="insertKey()"></p><br><br>
+<!-- <p class="varTitle">Jockey Position(cm):  <span id="input1">0.01</span></p>
+-->
+  <p class="varTitle" id="input1">Jockey Position(cm): 1</p> 
+
+<input type="range" class="rangeSlider jock" min="1" max="100" id="jock" name="jock" value="1" oninput="jockeyPosition(this.value)" step="0.1" disabled="disabled">
+  <div class="rangeVals">
+  <span class="minrange">1</span><span class="maxrange">100</span>
+  
+  <div class="clear"></div><br><br>
+  <p align="center"><input type="button" class="subButton" id="reset" name="reset" value="Reset" disabled="disabled" onclick="window.location.reload()"></p>
+  </div> 
+</div>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var inputs = document.getElementsByTagName('input');
+ for(var i = 0; i < inputs.length; i++) {
+    if(inputs[i].type == 'range') {
+      inputs[i].addEventListener('click', function() {
+        this.focus(); 
+      });
+    }
+  }
+</script>
+
+
+</div>
+<script type="text/javascript">
+ var expTitle="Equivalent Resistance of Resistors(Parallel)";
+ document.getElementById("expName").innerHTML=expTitle;
+ 	//get test variable from the url.
+	function getTypeOfTest( name ) {	   
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec( window.location.href );
+	  if( results != null )
+		return results[1];
+	  else
+		return false;
+	  }
+	  
+	var testType=getTypeOfTest("class");		
+	if(!testType){
+		testType="10"; 
+	}
+</script>    
+ 
+</div>
+
+
+</body></html>

@@ -1,0 +1,268 @@
+@font-face {
+	font-family: MRKGPEN;
+	src: url(MRKGPEN.TTF);
+}
+@font-face {
+	font-family: digi;
+	src: url(DS-DIGII.TTF);
+}
+.main {
+	overflow: hidden;
+}
+.varResult {
+	padding: 5px 0px 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	color: #000;
+	text-align: left;
+}
+.posAbso{
+	position:absolute;
+}
+.maxValue{
+	padding-left: 100px;
+}
+.minValue{
+	padding-left: 30px;
+}
+.sliderValueLbl{
+	padding-left: 0px;
+}
+.terminals{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 15px;
+	background-color: #ff0000;
+	opacity: 0;
+}
+.connections{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 570px;
+	height: 345px;
+}
+.hide{
+	position: absolute;
+	display: none;
+}
+.digiReading{
+	position: absolute;
+	font-size: 33px;
+	color: #000;
+	width: 72px;
+	height: 30px;
+	text-align: center;
+	font-family: digi;
+}
+.dim{
+	opacity: 0.4;
+}
+.bright{
+	opacity: 1;
+}
+#help_terminal{
+	position: absolute;
+	left: 148px;
+	top: 62px;
+	width: 5px;
+	height: 5px; 
+}
+#show_hide_wrap{
+	position: absolute;
+	left: 7px;
+	top: 7px;
+}
+#key_top{
+	position: absolute;
+	left: 224px;
+	top: 120px;
+}
+#key{
+	position: absolute;
+	left: 250px;
+	top: 95px;
+	cursor: pointer;
+}
+#rheo_move{
+	position: absolute;
+	left: 366px;
+	top: 55px;
+}
+#ammeter_reding{
+	position: absolute;
+	left: 346px;
+	top: 189px;
+	display: none;
+}
+#voltmeter_reding{
+	position: absolute;
+	left: 113px;
+	top: 164px;
+	display: none;
+}
+#battery_switch{
+	left: 148px;
+	top: 32px;
+}
+#switch_rheo{
+	left: 274px;
+	top: 101px;
+}
+#rheo_resist{
+	left: 522px;
+	top: 65px;
+}
+#resist_ammeter{
+	left: 426px;
+	top: 205px;
+}
+#ammeter_volt{
+	position: absolute;
+	left: 181px;
+	top: 209px;
+}
+#ammeter_diode{
+	position: absolute;
+	left: 149px;
+	top: 235px;
+}
+#diode_volt{
+	position: absolute;
+	left: 47px;
+	top: 208px;
+}
+#volt_battery{
+	position: absolute;
+	left: 34px;
+	top: 35px;
+}
+#volt_rheo{
+	position: absolute;
+	left: 107px;
+	top: 120px;
+}
+#key_ammeter{
+	position: absolute;
+	left: 111px;
+	top: 222px;
+	display: none;
+}
+#ammeter_glavano{
+	position: absolute;
+	left: 308px;
+	top: 260px;
+	display: none;
+}
+#galvano_rheo{
+	position: absolute;
+	left: 515px;
+	top: 94px;
+	display: none;
+}
+#rheo_battery{
+	position: absolute;
+	left: 171px;
+	top: 42px;
+	display: none;
+}
+#battery_red{
+	left: 136px;
+	top: 31px;
+}
+#switch_T1{
+	left: 225px;
+	top: 100px;
+}
+#switch_T2{
+	left: 261px;
+	top: 100px;
+}
+#ammeter_black{
+	left: 338px;
+	top: 230px;
+}
+#ammeter_black_diode{
+	left: 338px;
+	top: 230px;
+}
+#ammeter_red{
+	left: 413px;
+	top: 230px;
+}
+#volt_black{
+	left: 94px;
+	top: 204px;
+}
+#volt_black_cell{
+	left: 94px;
+	top: 204px;
+}
+#volt_black_rheo{
+	left: 94px;
+	top: 204px;
+}
+#volt_red{
+	left: 169px;
+	top: 204px;
+}
+#rheo_top{
+	left: 512px;
+	top: 55px;
+}
+#rheo_bottom_lft{
+	left: 359px;
+	top: 109px;
+}
+#rheo_bottom_rgt{
+	left: 472px;
+	top: 109px;
+}
+#battery_black{
+	left: 70px;
+	top: 31px;
+}
+#diode_pos{
+	left: 73px;
+	top: 283px;
+}
+#diode_neg{
+	left: 142px;
+	top: 283px;
+}
+#resist_lft{
+	left: 436px;
+	top: 195px;
+}
+#resist_rgt{
+	left: 510px;
+	top: 195px;
+}
+#key_drop{
+	position: absolute;
+	left: 235px;
+	top: 92px;
+	width: 47px;
+	height: 53px;
+}
+#cir_diagram{
+	position: absolute;
+	background-color: #ECECEC;
+	opacity: 0.9;
+	width: 570px;
+	height: 345px;
+	display: none;
+	left: 0;
+	top: 0;
+}
+#cir_img{
+	display: block;
+	margin: 40px auto;
+}
+#show_hide_txt{
+	color: #FFFFFF;
+	font-family: MRKGPEN;
+}

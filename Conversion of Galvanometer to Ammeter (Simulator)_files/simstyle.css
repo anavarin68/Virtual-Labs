@@ -1,0 +1,399 @@
+@font-face {
+	font-family: MRKGPEN;
+	src: url(MRKGPEN.TTF);
+}
+@font-face {
+	font-family: digi;
+	src: url(DS-DIGII.TTF);
+}
+.userSelect {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.main {
+	overflow: hidden;
+}
+.varResult {
+	padding: 5px 0px 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	color: #000;
+	text-align: left;
+}
+.posAbso{
+	position:absolute;
+}
+.lblHeight{
+	height: 13px;
+	cursor: default;
+}
+.maxValue{
+	padding-left: 100px;
+}
+.minValue{
+	padding-left: 30px;
+}
+.sliderValueLbl{
+	padding-left: 0px;
+}
+.terminals{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 15px;
+	background-color: #ff0000;
+	opacity: 0;
+}
+.connections{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 570px;
+	height: 345px;
+}
+.hide{
+	display: none;
+}
+#radius{
+	padding-left: 0px;
+}
+#shunt_resistance{
+	width: 147px;
+}
+#ammeter{
+	left: 189px;
+	top: 183px;
+}
+#galvano{
+	left: 386px;
+	top: 182px;
+}
+#unit_ma{
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: 800;
+	color: #000;
+	left: 255px;
+	top: 229px;
+	cursor: default;
+}
+#unit_g{
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: 800;
+	color: #000;
+	left: 460px;
+	top: 226px;
+	cursor: default;
+}
+#ammeter_needle{
+	left: 261px;
+	top: 218px;
+	transform-origin: 2px 44px;
+    -moz-transform-origin: 2px 44px;
+    -webkit-transform-origin:2px 44px;
+    -o-transform-origin:2px 44px;
+    -ms-transform-origin: 2px 44px;
+    -ms-transform: rotate(-75deg);   /* IE9 ? */
+	-moz-transform: rotate(-75deg);  /* FF3.5+ */
+	-o-transform: rotate(-75deg);  /* Opera 10.5 */
+	-webkit-transform: rotate(-75deg);  /* Saf3.1+, Chrome */
+	transform: rotate(-75deg);  /* CSS3 (for when it gets supported) */
+}
+#ammeter_digital_bg{
+	left: 232px;
+	top: 250px;
+}
+#ammeter_reding{
+	left: 232px;
+}
+#galvo_needle{
+	left: 466px;
+	top: 217px;
+	transform-origin: 2px 44px;
+    -moz-transform-origin: 2px 44px;
+    -webkit-transform-origin:2px 44px;
+    -o-transform-origin:2px 44px;
+    -ms-transform-origin: 2px 44px;
+    -ms-transform: rotate(0deg);   /* IE9 ? */
+	-moz-transform: rotate(0deg);  /* FF3.5+ */
+	-o-transform: rotate(0deg);  /* Opera 10.5 */
+	-webkit-transform: rotate(0deg);  /* Saf3.1+, Chrome */
+	transform: rotate(0deg);  /* CSS3 (for when it gets supported) */
+}
+#galvo_digital_bg{
+	left: 437px;
+	top: 250px;
+}
+#galvo_reding{
+	left: 435px;
+	
+}
+.digiReading{
+	position: absolute;
+	font-size: 27px;
+	color: #000;
+	top: 248px;
+	width: 64px;
+	height: 24px;
+	text-align: center;
+	font-family: digi;
+}
+#key_top{
+	position: absolute;
+	left: 41px;
+	top: 246px;
+}
+#key_img{
+	position: absolute;
+	left: 77px;
+	top: 207px;
+	cursor: pointer;
+}
+#rheo_move{
+	position: absolute;
+	left: 365px;
+	top: 85px;
+}
+#battery_key{
+	position: absolute;
+	left: 29px;
+	top: 45px;
+	display: none;
+}
+#key_ammeter{
+	position: absolute;
+	left: 111px;
+	top: 222px;
+	display: none;
+}
+#ammeter_glavano{
+	position: absolute;
+	left: 308px;
+	top: 260px;
+	display: none;
+}
+#galvano_rheo{
+	position: absolute;
+	left: 515px;
+	top: 94px;
+	display: none;
+}
+#rheo_battery{
+	position: absolute;
+	left: 171px;
+	top: 42px;
+	display: none;
+}
+#wire_resistance{
+	position: absolute;
+	left: 433px;
+	top: 266px;
+}
+
+
+
+#battery_red{
+	left: 83px;
+	top: 43px;
+}
+#switch_T1{
+	left: 43px;
+	top: 224px;
+}
+#switch_T2{
+	left: 99px;
+	top: 224px;
+}
+#ammeter_black{
+	left: 203px;
+	top: 258px;
+}
+#ammeter_red{
+	left: 294px;
+	top: 258px;
+}
+#galvo_black{
+	left: 415px;
+	top: 258px;
+}
+#galvo_red{
+	left: 506px;
+	top: 258px;
+}
+#rheo_top{
+	left: 522px;
+	top: 82px;
+}
+#rheo_bottom{
+	left: 359px;
+	top: 140px;
+}
+#battery_black{
+	left: 160px;
+	top: 43px;
+}
+#key_drop{
+	position: absolute;
+	left: 60px;
+	top: 215px;
+	width: 47px;
+	height: 53px;
+}
+#cir_diagram{
+	position: absolute;
+	background-color: #ECECEC;
+	opacity: 0.9;
+	width: 570px;
+	height: 345px;
+	display: none;
+}
+#cir_img{
+	display: block;
+	width: 445px;
+	height: 257px;
+	margin: 40px auto;
+}
+#show_hide_txt{
+	color: #FFFFFF;
+	font-family: MRKGPEN;
+	font-size: 15px;
+}
+/*  =======Scene one elements=======  */
+.canText{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000;
+	cursor: default;
+	width: 140px;
+	text-align: right;
+	height: 14px;
+}
+table{
+	margin: 20px 0px;
+}
+tr{
+	height: 26px;
+}
+#whiteboard{
+	position: absolute;
+	text-align: center;
+	left: 20px;
+	top: 10px;
+	width: 280px;
+	height: 160px;
+	background-color: #D6E4F5;
+}
+.align_lft{
+	text-align: left;
+	margin-left: 3px;
+}
+#s_input,#l_input{
+	width: 55px;
+	margin-top: -15px;
+	margin-left: 5px;
+	-webkit-user-select:text !important;
+}
+#density_txt,#l_txt,#l_txt_2{
+	height: 26px;
+	width: 170px;
+}
+#submit_1,#submit_2{
+	padding-left: 5px;
+	cursor: pointer;
+	opacity: 0.5;
+
+}
+tr{
+	height: 24px;
+}
+#mainDiv{
+	-webkit-user-select:text !important;
+}
+#check_mark,#check_mark_2{
+	display: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input[type=number] {-moz-appearance: textfield;}
+#next{
+	display: none;
+	cursor: pointer;
+}
+#shunt_wire{
+	position: absolute;
+	left: 16px;
+	top: 200px;
+	width: 540px;
+	height: 49px;
+}
+.bright{
+	opacity: 1;
+}
+.dim{
+	opacity: 0.4;
+}
+#proceed{
+	position: absolute;
+	left: 435px;
+	top: 275px;
+	cursor: pointer;
+	display: none;
+}
+#proceed_txt{
+	position: absolute;
+	margin: 7px 0px 0px 13px;
+	font-family: MRKGPEN;
+	font-size: 23px;
+	font-weight: 500;
+	color: #FFFFFF;
+	
+}
+#help_elem_1{
+	position: absolute;
+	width: 10px;
+	height: 1px;
+	left: 190px;
+	top: 104px;
+}
+#help_elem_2{
+	position: absolute;
+	width: 10px;
+	height: 1px;
+	left: 180px;
+	top: 124px;
+}
+#help_elem_3{
+	position: absolute;
+	width: 10px;
+	height: 1px;
+	left: 167px;
+	top:77px;
+}
+#popup{
+	position: absolute;
+	left: 181px;
+	top:26px;
+	display: none;
+}
+#popup_msg{
+	position: absolute;
+	padding: 22px 0 0 2px;
+	width: 123px;
+	height: 50px;
+	font-family: MRKGPEN;
+	text-align: center;
+	font-size: 14px;
+}

@@ -1,0 +1,260 @@
+/*Controls*/
+/*@font-face {
+  font-family:digiface;
+  src: url(<?php getSimPath(); ?>css/DS-DIGII.TTF);
+}*/
+@font-face {
+  font-family: MRKGPEN;
+   src: url(MRKGPEN.TTF);
+
+}
+#showAns{
+	position: relative;
+}
+#answer{
+	margin: 9px 0px 0px 7px;
+}
+#answerLabel{
+	padding:8px 26px 0px 23px;
+}
+#resultLabel{
+	padding: 4px 0px 0px 2px;
+}
+.rangeSlider
+{
+  margin: 0px 0px 0px 20px;
+}
+.rightminval{
+float: left;
+padding-left:23px;
+}
+.rightmaxval{
+  float: right;
+  padding-right: 28px;
+}
+.slidervals{
+ 
+ font-weight: 500;
+ color: #626262; 
+     font-size: 12px;
+}
+.posAbso{
+  position:absolute;
+  width: 102px;
+  height: 69px;
+}
+#popup_txt{
+    position: absolute;
+    left: -2px;
+    top: 23px;
+    font-size: 1.7em;
+    font-family: MRKGPEN;
+    width: 114px;
+    text-align: center;
+    cursor: default;
+}
+
+#popupMsg{
+    position: absolute;
+    left: 289px;
+    top: 176px;
+  display: none;
+}
+/*Canvas*/
+.selectable
+{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor:default;
+}
+#mainDiv{
+  position: absolute;
+  width: 570px;
+  height: 341px;
+  top: 0px;
+  left: 0px;  
+}
+#bgDiv {
+	position: absolute;
+	width: 570px;
+	height: 440px;
+  top: 0px;
+  left: -6px;
+}
+#apparatus_div{
+  position: absolute;
+  top: 41px;
+  left: 11px;
+  width:554px;
+  height:283px;
+  
+}
+#apparatus_img{
+  position: absolute;
+  top:0px;
+  left:0px;
+
+}
+#Diodeforward_img{
+    position: absolute;
+    top: 88px;
+    left: 270px;
+}
+#rheoKey_Div{
+    position: absolute;
+    top: 42px;
+    left: 46px;
+    width: 132px;
+    height: 100px; 
+}
+#rheostatmovemnt_img{
+position: absolute;
+    top: 0px;
+    left: 0px; 
+}
+#wireCanvas {
+	z-index:5;
+	opacity:0.9;
+}
+/*Switch*/
+#switchKeyDiv{
+    left: 278px;
+    top: 242px;
+    position: absolute;
+    width: 11px;
+    height: 13px;
+}
+#key_cover1{
+    left: -35px;
+    top: 15px;
+    position: absolute;
+    display:none;
+}
+/*Reading box*/
+.digireadng{
+    position: absolute;
+    width: 52px;
+    height: 17px;
+    font-family: digiface;
+    color: #000;
+
+    text-align: center;
+    font-weight:700;
+}
+#Volt_readng{
+    left: 434px;
+    top: 202px;
+    font-size: 25px;
+}
+#Amm_readng{
+left: 402px;
+top: 74px;
+font-size: 20px; 
+}
+#key_img{
+  position: absolute;
+  top: 3px;
+  left: -1px;
+}
+/*Wires Img*/
+#Rheo_diodeImg{     
+    position: absolute;
+    top: 94px;
+    left: 215px;
+    display:none; 
+}
+#Rheostat_ammeterImg{    
+    position: absolute;
+    top: 94px;
+    left: 218px;
+display:none; 
+}
+#Rheostatfront_keyImg{    
+    position: absolute;
+    top: 152px;
+    left: 184px;
+display:none; 
+}
+#Rheostatfront_ammeterImg{    
+    position: absolute;
+    top: 156px;
+    left: 184px;
+display:none; 
+}
+#Rheostatfront_voltmeterImg{    
+    position: absolute;
+    top: 112px;
+    left: 185px;
+ display:none; 
+  }
+#Diode_voltmeterImg{    
+    position: absolute;
+    top: 114px;
+    left: 285px;
+  display:none; 
+}
+#Rheostatfront_batteryImg{
+    position: absolute;
+    top: 157px;
+    left: 6px;
+     display:none; 
+}
+#Battery_keyImg{
+    position: absolute;
+    top: 196px;
+    left: 140px;
+    display:none; 
+}
+/*Div class*/
+.connection_prop{
+ position: absolute;
+ z-index:10;
+    width: 44px;
+    height: 42px;
+
+
+
+}
+/*Circuit diagram*/
+#circuitCheckBox {
+	left: 11px;
+	top: 9px;
+	position: absolute;
+	width: 17px;
+	height: 19px;
+	cursor:pointer;
+}
+#circuitdiaDiv {
+    position: absolute;
+    z-index: 9;
+    left: 15px;
+    top: 32px;
+    width: 536px;
+    height: 296px;
+    overflow: hidden;
+	display:none;
+}
+#circuitdiaImg{
+  width: 532px;
+  height: 296px;
+}
+#checkLbl {
+	position: absolute;
+	left: 30px;
+	top: 8px;
+	color: #E0E0E0;
+      height: 19px;
+}
+
+#box5_bg{
+    position: absolute;
+    top: 84px;
+    left: 226px;
+    width: 117px;
+    height: 61px;
+   
+  
+}

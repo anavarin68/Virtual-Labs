@@ -1,0 +1,602 @@
+
+// Variable declaration
+var labelArray=[],helpArray=[],variableArray=[],resistance=2,wireLen=0.1,diameter=0.2,wireCount=0,len=0,timer,t=0,decimals=0,WireRadius=0.5;
+var row=0.652,resistance=0,voltage=7.61,ammeterCurrent=2.39,LabelString="00.000",SetKey=false,resiswireWidth=30,resiswireTop=26,resiswireImgTop=231,resistanceWire=.0506369,emf=10;
+var metals,selectedMetalIndex,rheoRes=1,reswireFlag=false,resisPerCm=0.31847,radius=0.0001,metals_rho,rho,rho_pow="-8",rho_disp_val=1.59;
+// canvas for draw image
+var bgCanvas = document.getElementById('wireCanvas');
+bgCanvas.width = 568;
+bgCanvas.height = 440;
+var bgCanvasctx = bgCanvas.getContext('2d');
+var WireCanvas = document.getElementById('wireCanvas');
+WireCanvas.width = 568;
+WireCanvas.height = 440;
+var WireCanvasctx = WireCanvas.getContext('2d');
+var canvasOffset=$("#wireCanvas").offset();
+var xPos,yPos,nextx,nexty,flag = false;
+setInitialXYpos($("#batteryPos"));
+var alerttrip,alertMsg,alerttripFlag=false;
+// function called on loading..
+
+window.onload = function init(){
+	
+	// gt = new Gettext({ 'domain' : 'messages' });	
+	
+	/*--------------- Experiment heading--------------- */
+	$('#expName').html(gt.gettext("Ohm's Law"));
+	/*--------------- Template icon labels--------------- */
+	$('#olabmenuBar li:first-child a').html(gt.gettext("HELP"));	
+	variableArray=[gt.gettext('Readings'),gt.gettext('Voltage (V) :'),gt.gettext('Ammeter reading (I) :'),gt.gettext('Rheostat resistance :'),gt.gettext('Length of the wire:'),gt.gettext('Show circuit diagram'),gt.gettext('Results'),gt.gettext('Enter the resistance of the wire:'),gt.gettext('Enter the resistance / cm of the wire:'),gt.gettext('Please enter the value'),gt.gettext(' V'),gt.gettext(' A'),gt.gettext(' Show result'),gt.gettext('Enter the resistivity of the wire:'),gt.gettext('Resistance of the rheostat:'),gt.gettext('Resistivity of the wire: ')];
+	helpArray=[gt.gettext('Drag and connect the terminal</br>of each apparatus as shown</br>in the circuit diagram'),gt.gettext('Drag the resistance wire</br>to the voltmeter'),gt.gettext('Drag the switch key</br>to the switch'),gt.gettext('Drag the rheostat key to</br>adjust the rheostat resistance'),gt.gettext('Change the length of</br>the resistance wire.'),gt.gettext('Change the diameter of</br>the resistance wire.'),gt.gettext('Select the material of the wire.')];
+	metals=[gt.gettext('Silver'),gt.gettext('Copper'),gt.gettext('Gold'),gt.gettext('Aluminium'),gt.gettext('Iron'),gt.gettext('Nichrome'),gt.gettext('Stainless steel') ];
+	$('#resetBtn').attr('value',gt.gettext('Reset'));
+	$('#submit').attr('value',gt.gettext('Check'));	
+	$('#selectMetalLbl').html(gt.gettext("Select the metal:"));	
+	$('#diamterLbl').html(gt.gettext("Diameter of the wire:"));
+	alertMsg=gt.gettext("Connect the resistance wire");
+	$("#resultLabel").html(variableArray[12]);	
+	metals_rho=[0.0000000159,0.0000000168,0.0000000244,0.0000000282,0.0000000971,0.000001,0.00000059];
+	metals_rho_disp=[1.59,1.68,2.44,2.82,9.71,100,5.9];	
+	metals_rho_pow=["-8","-8","-8","-8","-8","-8","-7"];
+	wireTypes=["wireSilver","wireCopper","wireGold","wireSilver","wireIron","wireNicrome","wireSteel"];
+	wireGlazingTypes=["wireSilverGlazing","wireCopperGlazing","wireGoldGlazing","wireSilverGlazing","wireIronGlazing","wireNicromeGlazing","wireSteelGlazing"]
+	resiswireTypes=["resiswireSilver","resiswireCopper","resiswireGold","resiswireSilver","resiswireIron","resiswireNicrome","resiswireSteel"]
+	resiswireGlazingTypes=["resiswireSilverGlazing","resiswireCopperGlazing","resiswireGoldGlazing","resiswireSilverGlazing","resiswireIronGlazing","resiswireNicromeGlazing","resiswireSteelGlazing"]
+	rho=metals_rho[0];
+	alerttrip = new Trip([
+	{
+		sel : $('#resiswireDiv'),
+		position :'n',
+		content : alertMsg,
+		expose : false,
+		delay : 6000
+	}
+	])
+	$(document).ready(function() {	
+
+		$('#readingHdng').html(variableArray[0]);	
+		$('#voltageLbl').html(variableArray[1]);	
+		$('#currentLbl').html(variableArray[2]);	
+		$('#voltReading').html(LabelString);	
+		$('#ammeterReading').html(LabelString);	
+		$('#sliderLbl').html(variableArray[4]);	
+		$('#checkLbl').html(variableArray[5]);	
+		$('#resultLbl').html(variableArray[6]);	
+		$('#inputTxtLbl1').html(variableArray[7]);
+		$('#rheostatLbl').html(variableArray[14]);		
+		$('#ohmLabel').html("Ω");	
+		$('#ohmLabel1').html("Ω/cm");
+		$('#ohmLabel3').html("Ωm");	
+		$('#inputTxtLbl2').html(variableArray[8]);	
+		$('#inputTxtLbl3').html(variableArray[13]);	
+		$('#sliderVal').html('10cm');		
+		$('#diamterVal').html('0.2mm');		
+		$('#voltMeasure').html('0 V');		
+		$('#currentMeasure').html('0 A');
+		$('#rheostatVal').html('1');		
+		$('#WarningLbl').html(variableArray[9]);	
+		$('#WarningLbl1').html(variableArray[9]);
+		$('#WarningLbl3').html(variableArray[9]);
+		$('#minVal').html(10);	
+		$('#maxVal').html(100);	
+		$('#minDiamterVal').html(0.2);	
+		$('#maxDiamterVal').html(1);
+		$('#rheostatminVal').html(1);	
+		$('#rheostatmaxVal').html(100);		
+		DragKey();
+		DragRheostat();	
+		addintoDropDown($('#selectMetal'),metals);		
+		//-------Function to add values into combobox------
+		function addintoDropDown(getId,valueSet){
+			$.each(valueSet, function(val, text) {
+				getId.append(
+					$('<option ></option>').val(val).html(text) 
+				);
+			});
+		}
+		$("#showAns").click(function () { 			
+	 		$("#answerLabel").html(variableArray[15]+'<b> '+rho_disp_val+"*10"+rho_pow.sup()+'</b>' +"Ωm").toggle(this.checked);
+		});
+		
+	});
+}
+//---------Function to change combobox--------	
+function changeMetal(){
+	selectedMetalIndex = $('#selectMetal').val();
+	rho=metals_rho[selectedMetalIndex];
+	rho_disp_val=metals_rho_disp[selectedMetalIndex];
+	rho_pow=metals_rho_pow[selectedMetalIndex];		
+	 $('#resisImg2').attr('src','./saved_resource_files/'+wireGlazingTypes[selectedMetalIndex]+'.png');
+	 $('#resisImg').attr('src','./saved_resource_files/'+wireTypes[selectedMetalIndex]+'.png');
+	 $('#resiswireImg2').attr('src','./saved_resource_files/'+resiswireGlazingTypes[selectedMetalIndex]+'.png');
+	 $('#resiswireImg').attr('src','./saved_resource_files/'+resiswireTypes[selectedMetalIndex]+'.png');
+	resistanceCalculation();
+}
+//---------Add values into combobox--------	
+function DragRheostat(){//adjust the rheostat resistance
+	$("#rheoKeyImg").draggable({ axis: "x",containment:"#rheoKeyDiv",
+	drag:function(){		
+		rheoRes=($("#rheoKeyImg").position().left/10);
+		if(rheoRes==0)
+		{
+			rheoRes=0.1;
+		}
+		rheoRes=rheoRes*10;
+		$("#rheostatVal").html(rheoRes);
+		$('#rheostatRange').val(rheoRes);	
+		CalculateResistance(rheoRes);
+		}
+	});
+}
+//connections 
+$("#ammeterPos").draggable({disabled:false,
+	drag:function(e){
+		drawWire(e,78, 229);	
+	},stop:function(e){
+		clearBg();
+		if($("#ammeterPos").position().left>=110&&$("#ammeterPos").position().left<=130&&
+		$("#ammeterPos").position().top>=100&&$("#ammeterPos").position().top<=130){	
+			$("#voltmetertobatteryImg").css({display:"block"});
+			$("#batteryPos,#ammeterPos").css({display:"none"});	
+			wireCount++;
+			DragKey();
+		}
+		else{	
+			$("#ammeterPos").css({left:"65px",top:"227px"});
+		}	
+	}
+})
+ 
+//connection battery pos
+$("#batteryNeg").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,145,138);	
+	},stop:function(e){
+		clearBg();	
+		//if($("#batteryNeg").position().left>=216&&$("#batteryNeg").position().left<=250&&
+		if($("#batteryNeg").position().left>=139&&$("#batteryNeg").position().left<=250&&
+	$("#batteryNeg").position().top>=146&&$("#batteryNeg").position().top<=181){		
+			$("#batterytoKeyImg").css({display:"block"});
+			$("#keyNeg,#batteryNeg").css({display:"none"});
+			wireCount++;
+			DragKey();
+		}
+		else{
+			$("#batteryNeg").css({left:"140px",top:"125px"});
+			setInitialXYpos($("#batteryNeg"));
+		}	
+	}
+}) 
+ //connect key neg to battery Pos
+$("#keyNeg").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,245,160);	
+	},stop:function(e){
+		clearBg();		
+		if($("#keyNeg").position().left>=125&&$("#keyNeg").position().left<=150&&
+		$("#keyNeg").position().top>=100&&$("#keyNeg").position().top<=140){			
+			$("#batterytoKeyImg").css({display:"block"});
+			$("#keyNeg,#batteryNeg").css({display:"none"});
+			wireCount++;
+			DragKey();
+		}
+		else{
+			$("#keyNeg").css({left:"236px",top:"155px"});	
+			setInitialXYpos($("#keyNeg"));
+		}	
+	}
+})   
+ //// rheo neg to key pos
+$("#rheoNeg").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,353,133);	
+	},stop:function(e){
+		clearBg();		
+		if($("#rheoNeg").position().left>=263&&$("#rheoNeg").position().left<=298&&
+		$("#rheoNeg").position().top>=146&&$("#rheoNeg").position().top<=178){		
+			$("#keytoRheostatImg").css({display:"block"});
+			$("#rheoNeg,#keyPos").css({display:"none"});
+			wireCount++;
+			DragKey();		
+		}
+		else{
+			$("#rheoNeg").css({left:"345px",top:"123px"});	
+			setInitialXYpos($("#rheoNeg"));
+		}	
+	}
+}) 
+ //key pos to rheo neg
+$("#keyPos").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,291,160);	
+	},stop:function(e){
+		clearBg();		
+		if($("#keyPos").position().left>=329&&$("#keyPos").position().left<=364&&
+		$("#keyPos").position().top>=103&&$("#keyPos").position().top<=140){		
+			$("#keytoRheostatImg").css({display:"block"});
+			$("#rheoNeg,#keyPos").css({display:"none"});
+			wireCount++;
+			DragKey();	
+		}
+		else{
+			$("#keyPos").css({left:"278px",top:"155px"});	
+			setInitialXYpos($("#rheoNeg"));
+		}	
+	}
+}) 
+//battery neg to ammeter pos
+$("#batteryPos").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,130,138);	
+	},stop:function(e){
+		clearBg();
+		if($("#batteryPos").position().left>=45&&$("#batteryPos").position().left<=89&&
+	$("#batteryPos").position().top>=208&&$("#batteryPos").position().top<=291){	
+			$("#voltmetertobatteryImg").css({display:"block"});
+			$("#batteryPos,#ammeterPos").css({display:"none"});	
+			wireCount++;
+			DragKey();
+		}
+		else{
+			console.log("hello");
+			$("#batteryPos").css({left:"123px",top:"126px"});
+			setInitialXYpos($("#batteryPos"));
+		}	
+	}
+})
+ ///ammeter neg to volt pos 
+$("#ammeterNeg").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,135,229);	
+	},stop:function(e){
+	clearBg();	
+		if($("#ammeterNeg").position().left>=379&&$("#ammeterNeg").position().left<=421&&
+	$("#ammeterNeg").position().top>=205&&$("#ammeterNeg").position().top<=248){	
+			$("#voltmetertoammeterImg").css({display:"block"});
+			$("#ammeterNeg,#voltPos").css({display:"none"});
+			wireCount++;
+			DragKey();	
+		}
+		else{
+			$("#ammeterNeg").css({left:"124px",top:"227px"});	
+			setInitialXYpos($("#ammeterNeg"));
+		}	
+	}
+}) 
+ //voltPos to amme neg
+$("#voltPos").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,410,228);	
+	},stop:function(e){
+		clearBg();		
+		if($("#voltPos").position().left>=105&&$("#voltPos").position().left<=147&&
+		$("#voltPos").position().top>=207&&$("#voltPos").position().top<=250){	
+			$("#voltmetertoammeterImg").css({display:"block"});
+			$("#ammeterNeg,#voltPos").css({display:"none"});
+			wireCount++;
+			DragKey();		
+		}
+		else{
+			$("#voltPos").css({left:"401px",top:"225px"});	
+			setInitialXYpos($("#voltPos"));
+		}	
+	}
+})
+ //volt Neg to rheo pos
+$("#voltNeg").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,465,228);	
+	},stop:function(e){
+		clearBg();	
+		if($("#voltNeg").position().left>=488&&$("#voltNeg").position().left<=518&&
+		$("#voltNeg").position().top>=49&&$("#voltNeg").position().top<=85){	
+			$("#rheotoAmmeImg").css({display:"block"});
+			$("#voltNeg,#rheoPos").css({display:"none"});
+			wireCount++;
+			DragKey();	
+		}
+		else{
+			$("#voltNeg").css({left:"454px",top:"225px"});	
+			setInitialXYpos($("#voltNeg"));
+		}	
+	}
+})
+ //rheoPos to volt neg 
+$("#rheoPos").draggable({disabled:false,
+	drag:function(e){	
+		drawWire(e,515,74);	
+	},stop:function(e){
+		clearBg();	
+		if($("#rheoPos").position().left>=441&&$("#voltNeg").position().left<=472&&
+		$("#rheoPos").position().top>=205&&$("#voltNeg").position().top<=256)
+		{	
+			$("#rheotoAmmeImg").css({display:"block"});
+			$("#voltNeg,#rheoPos").css({display:"none"});
+			wireCount++;
+			DragKey();	
+		}
+		else{
+			$("#rheoPos").css({left:"504px",top:"64px"});	
+			setInitialXYpos($("#voltNeg"));
+		}		
+	}
+}) // end connections 
+function drawWire(e,pos1,pos2){//draw wire from one point to another
+	$("#wireCanvas").css({zIndex:9999});	
+	WireCanvasctx.beginPath();	
+	nextx = e.clientX-canvasOffset.left; 
+	nexty = e.clientY-canvasOffset.top; 
+	WireCanvasctx.lineJoin = 'round';
+	WireCanvasctx.lineCap = 'round';
+	WireCanvasctx.lineWidth = 5;
+	WireCanvasctx.strokeStyle = 'black';
+	WireCanvasctx.closePath();
+	WireCanvasctx.stroke();
+	xPos = nextx;
+	yPos = nexty;	
+	WireCanvasctx.beginPath();
+	WireCanvasctx.strokeStyle = "black";
+	WireCanvasctx.lineWidth = "5";
+	clearBg();
+	WireCanvasctx.moveTo(pos1,pos2); 
+	WireCanvasctx.arcTo(xPos,yPos, nextx, nexty, 70); // Create an arc.
+	WireCanvasctx.stroke(); 
+}
+function clearBg(){//for clearing the canvas for line drawing
+	bgCanvasctx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+} 
+ /////initial x y position
+function setInitialXYpos(ObjElmt){//setting the initial xpos and ypos
+	xPos = ObjElmt.position().left+10;// 51;
+	yPos =  ObjElmt.position().top+10;//40;
+}
+
+//drag the resistance wire to the volt meter
+$("#resiswireDiv").draggable({
+	drag:function()
+	{	
+		if(alerttripFlag==true){
+			alerttrip.stop(); 
+		}	
+		$("#resisShadowImg").css({opacity:0});
+	},stop:function(){
+		if($("#resiswireDiv").position().left>=300&&
+		$("#resiswireDiv").position().left<=490&&
+		$("#resiswireDiv").position().top>=130&&$("#resiswireDiv").position().top<=251){
+			$("#resisImg,#resisImg2,#resisImg3,#resisImg4,#resisShadowImg").css({display:"none"});
+			$("#resiswireImg,#resiswireImg2").css({opacity:1});
+			$('#lengthRange').attr("disabled", "disabled");
+			$('#diamterRange').attr("disabled", "disabled");
+			$('#selectMetal').attr("disabled", "disabled");
+			$("#resiswireDiv").css({left:"418px",top:"231px"});
+			$("#resiswireDiv").draggable({disabled:true});
+			reswireFlag=true;
+			DragKey();
+		}
+		else{
+			$("#resiswireDiv").css({left:"230px",top:"187px"});
+			$("#resisShadowImg").css({opacity:1});
+		}
+	}
+});
+function DragKey(){//connect the key to the switch
+	if(wireCount==5){
+		$("#switchKeyDiv").draggable({disabled:false,
+		drag:function(e){
+			if(reswireFlag==false){
+				alerttrip.start(); 
+				window.alerttrip = alerttrip; 
+			}
+		},stop:function(e){
+			if($("#switchKeyDiv").position().left>=221&&$("#switchKeyDiv").position().left<=273&&$("#switchKeyDiv").position().top>=131&&$("#switchKeyDiv").position().top<=169){	
+				if(reswireFlag==true){					
+					$(this).css({left: "253px",top:"145px"});
+					SetKey=true;
+					$("#switchKeyDiv").draggable({disabled:true});
+					startCurrentFlow();
+				}else{	
+					alerttripFlag=true;			
+					$(this).css({left: "248px",top:"123px"});
+				}
+			}
+			else{
+					$(this).css({left: "248px",top:"123px"});
+				}		
+			}
+		})
+	}
+}//end drag key
+function changeResisLength(val){//change the resistance wire length	
+	wireLen=val/100;	
+	var resisLength=resiswireWidth+((wireLen*100)*0.3);
+	$("#resiswireDiv").css({width:resisLength+"px"});//resis wire length
+	$("#sliderVal").html(val+'cm');
+	resistanceCalculation();
+}
+function changeRheostat(val){//change the resistance wire length	
+	$("#rheostatVal").html(val);
+	$("#rheoKeyImg").css({left:val+'px'}) 
+	rheoRes=($("#rheoKeyImg").position().left/10);
+	if(rheoRes==0)
+	{
+		rheoRes=0.1;
+	}
+	rheoRes=rheoRes*10;		
+	CalculateResistance(rheoRes);
+}
+
+function resistanceCalculation(){
+	radius=(diameter/2);	
+	radiusInMeter=radius/1000;
+	resistanceWire=(wireLen*rho)/(3.14*radiusInMeter*radiusInMeter);
+}
+function changeDiameter(val){//change the resistance wire diameter
+	diameter=val;
+	var resisWidth=resiswireTop-(diameter*2);
+	var resiswireImg2Width=resiswireImgTop-(diameter*2);
+	$("#diamterVal").html(diameter+'mm');
+	$("#resisImg").css({top:resisWidth+"px"});//resis wire length
+	$("#resiswireImg").css({top:resiswireImg2Width+"px"});//resis wire length
+	resistanceCalculation();
+}
+function showCircuit(Cb){//check box for showing the circuit
+	if(Cb.checked){
+		//code for show circuit diagram
+		$("#circuitdiaDiv").css({display:"block"});
+	}
+	else{
+		//code for hide circuit diagram
+		$("#circuitdiaDiv").css({display:"none"});
+	}
+}
+function startCurrentFlow(){//start current flowing on insert key
+	document.getElementById("answer1").disabled=false;
+	document.getElementById("answer2").disabled=false;
+	document.getElementById("answer3").disabled=false;
+	document.getElementById("submit").disabled=false;
+	$("#showAns").removeAttr("disabled","disabled");
+	CalculateResistance(rheoRes);
+}
+function CalculateResistance(rheoRes){//calculating the resistance
+	ammeterCurrent=emf/(rheoRes+resistanceWire);	
+	voltage=ammeterCurrent*resistanceWire;
+	resisPerCm=Number(resistanceWire/(wireLen*100));
+	if(SetKey){
+		startVoltmeter(voltage,ammeterCurrent);
+	}	
+}
+function startVoltmeter(voltage,ammeterCurrent){//voltmeter reading
+	voltage=voltage.toFixed(3);
+	var strVol=voltage.toString();
+	var numarrayVol=strVol.split('.');	
+	ammeterCurrent=ammeterCurrent.toFixed(3);
+	var str=ammeterCurrent.toString();
+	var numarray=str.split('.');		
+	if(numarrayVol[0].toString().length<2){
+	numarrayVol[0]="0"+numarrayVol[0];
+	}
+	if(numarrayVol[1].toString().length<2){
+	numarrayVol[1]="0"+numarrayVol[1];
+	}	
+	if(numarray[0].toString().length<2){
+	numarray[0]="0"+numarray[0];
+	}
+	if(numarray[1].toString().length<2){
+	numarray[1]="0"+numarray[1];
+	}	
+	$("#voltMeasure").html(voltage+variableArray[10]);	
+	$("#currentMeasure").html(ammeterCurrent+variableArray[11]);	
+	$("#voltReading").html(numarrayVol[0]+"."+numarrayVol[1]);	
+	$("#ammeterReading").html(numarray[0]+"."+numarray[1]);
+}
+function checkAnswer(){//check the answer entered in the text box 
+	var resistanceLow=resistanceWire-0.2;
+	var resistanceHigh=resistanceWire+0.2;
+	var resisPerCmLow=resisPerCm-0.005;
+	var resisPerCmHigh=resisPerCm+0.004;
+	if(document.getElementById("answer1").value==""){
+		$("#WarningLbl").css({'display':'block'});		
+		$("#wrongImg,#correctImg").css({'display':'none'});			
+	}
+	else{
+		$("#WarningLbl").css({'display':'none'});
+		if(document.getElementById("answer1").value<=Number(resistanceHigh)&&document.getElementById("answer1").value>=Number(resistanceLow)){
+			$("#wrongImg").css({'display':'none'});	
+			$("#correctImg").css({'display':'block'});	
+		}//check resistance
+		else{
+			$("#wrongImg").css({'display':'block'});	
+			$("#correctImg").css({'display':'none'});	
+		}
+	}	
+	if(document.getElementById("answer2").value==""){
+		$("#WarningLbl1").css({'display':'block'});
+		$("#wrongImg1,#correctImg1").css({'display':'none'});	
+	}
+	else
+	{
+		$("#WarningLbl1").css({'display':'none'});	
+		if(document.getElementById("answer2").value<=Number(resisPerCmHigh)&&document.getElementById("answer2").value>=Number(resisPerCmLow)){
+			$("#wrongImg1").css({'display':'none'});	
+			$("#correctImg1").css({'display':'block'});	
+		}//check resistance per cm 
+		else{
+			$("#wrongImg1").css({'display':'block'});	
+			$("#correctImg1").css({'display':'none'});	
+		}
+	}
+	if(document.getElementById("answer3").value==""){
+		$("#WarningLbl3").css({'display':'block'});		
+		$("#wrongImg3,#correctImg3").css({'display':'none'});			
+	}
+	else{
+		$("#WarningLbl3").css({'display':'none'});
+		rho_rounded=rho*1000000;	
+		var rhoAnswer=document.getElementById("answer3").value;
+		rhoAnswer=rhoAnswer*1000000;
+		rhoAnswer=decimalAdjust('round',rhoAnswer, -1);	
+		rho_rounded=decimalAdjust('round',rho_rounded, -1);
+		if(rhoAnswer==rho_rounded){
+			$("#wrongImg3").css({'display':'none'});	
+			$("#correctImg3").css({'display':'block'});	
+		}//check resistance
+		else{
+			$("#wrongImg3").css({'display':'block'});	
+			$("#correctImg3").css({'display':'none'});	
+		}
+	}		
+}
+//Show the resistivity 
+function showAnswer(){
+	//$("#answerLabel").html(variableArray[15]+'<b> '+rho+'</b>' +"Ωm").toggle(this.checked);
+}
+//validate the input text box
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode(key);
+  //alert(key);
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;	
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+//restrict the value
+function dotRestrict(e){	
+	var count=0;
+	var str=e.value;
+	var a1 = new Array();
+	a1=str.split("");
+	var len=a1.length;
+	for(var i=0;i<len;i++){
+		if(a1[i]=="."){
+			count++;
+		}
+	}
+	if(a1[len-1]=="."){
+		e.value="";
+		
+	}
+	if(count>1){
+		e.value="";
+	}
+}
+function decimalAdjust(type, value, exp) {
+	// If the exp is undefined or zero...
+	if (typeof exp === 'undefined' || +exp === 0) {
+	  return Math[type](value);
+	}
+	value = +value;
+	exp = +exp;
+	// If the value is not a number or the exp is not an integer...
+	if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+	  return NaN;
+	}
+	// Shift
+	value = value.toString().split('e');
+	value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+	// Shift back
+	value = value.toString().split('e');
+	return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+}

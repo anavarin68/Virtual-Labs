@@ -1,0 +1,271 @@
+//*--Ready function---------
+var c,ctx;
+var control_labels,control_values;
+var character_type;
+var Rh1,Rh2,base_volt,base_curr;
+var collector_volt,collector_curr;
+var droped,droped_2,connectionWires,key_1_droped,key_2_droped;
+var gt=$;
+function setCharacterType(value){
+	character_type = value;
+	$("#rheo_resistance").attr('value','1');
+	$("#rheo_resistance_2").attr('value','1');
+	$("#popup").css({'visibility': 'hidden','opacity':0});
+	setRheoResistance(1);
+	setRheo2Resistance(1);	
+}
+function setRheoResistance(value){
+	Rh1 = parseInt(value);
+	$("#rheo_resistance_val").html(value+"&#937;");
+	$("#rheo_move").css({'left':(161 - ((Rh1-1) * 1.03)) + 'px'});
+	firstRheoCalculations();
+}
+function setRheo2Resistance(value){
+	Rh2 = parseInt(value);
+	$("#rheo_resistance_val_2").html(value+"&#937;");
+	$("#rheo_move_2").css({'left':(353 + ((Rh2-1) * 1.03)) + 'px'});
+	secondRheoCalculations();console.log(value)
+}
+function firstRheoCalculations(){
+	base_volt = Rh1 * 0.02;
+	if(character_type == 0){
+		base_curr = 2 * Math.exp(base_volt/0.7);
+	}else{
+		base_curr = 10 * Math.exp(base_volt/0.7);
+	}
+	$("#voltmeter_1_reding").html(base_volt.toFixed(2));
+	$("#ammeter_1_reding").html(base_curr.toFixed(2));
+}
+function secondRheoCalculations(){
+	collector_volt = Rh2 * 0.1;
+	collector_curr = base_curr * Math.sqrt(base_curr) * (Math.exp(collector_volt) - Math.exp(-collector_volt))/(Math.exp(collector_volt) + Math.exp(-collector_volt));
+	$("#voltmeter_2_reding").html(collector_volt.toFixed(2));
+	$("#ammeter_2_reding").html(collector_curr.toFixed(collector_curr>999?0:1));
+}
+function insertKey(){
+	if(key_1_droped && key_2_droped){
+		$("#ammeter_1_reding,#voltmeter_1_reding").show();
+		$("#ammeter_2_reding,#voltmeter_2_reding").show();
+		$("#rheo_resistance").attr('disabled',false);
+		$("#rheo_resistance_2").attr('disabled',false);
+		$("#rheo_resistance,#rheo_resistance_2").removeClass('dim');
+		$("#rheo_resistance,#rheo_resistance_2").addClass('bright');
+	}
+}
+function showHidediagram(value){
+	if(value.checked){
+		$("#cir_diagram").show();
+	}else{
+		$("#cir_diagram").hide();
+	}
+}
+window.onload = function() { 
+	document.getElementById("expName").innerHTML=gt.gettext("Transistor Characteristics");
+	$('#olabmenuBar li:first-child a').html(gt.gettext("HELP"));
+	var c = document.getElementById("connectionDrawing");
+	ctx = c.getContext("2d");
+	control_labels=[gt.gettext("Select characteristics:"),gt.gettext("Rheostat resistance(Rh1):"),gt.gettext("Show/hide circuit diagram"),gt.gettext("Reset"),gt.gettext("Rheostat resistance(Rh2):")];
+	control_values=[1,100];
+	character_types = [gt.gettext("Input characteristics"),gt.gettext("Output characteristics")];
+	connectionWires = ['ammeter_trans','trans_rheo','trans_ammeter','ammeter_rheo','rheo_volt_2','rheo_cell_2',
+		'cell_key_2','key_volt_2','rheo_bottom_vol_2','rheo_rheo','rheo_bottom_vol_1','key_volt_1',
+		'rheo_volt_1','micro_rheo','cell_key_1','rheo_cell_1'];
+	helpArray=[gt.gettext('Drag and connect the terminal</br>of each apparatus as shown</br>in the circuit diagram.'),gt.gettext('Insert the key.')];
+	wireColor = ['#FF0000','#000000'];
+	$("#rheo_resistance").addClass('dim');
+	$("#rheo_resistance_2").addClass('dim');
+	function initVariables(){
+		droped = droped_2 = false;
+		key_1_droped = false;
+		key_2_droped = false;
+		character_type = 0;
+		Rh1 = Rh2 = 1;
+		firstRheoCalculations();
+		secondRheoCalculations();
+	}
+	initVariables();
+	$(document).ready(function() {
+		mainTop=$('#mainDiv').position().top;
+		mainLeft=$('#mainDiv').position().left;	
+		$('#mainDiv').mousedown(function(event){event.preventDefault();});	
+		addLabel();
+		addintoDropDown( $('#character_type'),character_types);
+		//combo_sliderchange();
+		function addLabel(){//Function for adding label for all controls---	
+			$('#diode_type_lbl').html(control_labels[0]);
+			$('#rheo_resistance_lbl').html(control_labels[1]);
+			$('#rheo_resistance_val').html(control_values[0]+"&#937");
+			$('#rheo_resistance_min_lbl').html(control_values[0]);
+			$('#rheo_resistance_max_lbl').html(control_values[1]);
+			$('#rheo_resistance_lbl_2').html(control_labels[4]);
+			$('#rheo_resistance_val_2').html(control_values[0]+"&#937");
+			$('#rheo_resistance_min_lbl_2').html(control_values[0]);
+			$('#rheo_resistance_max_lbl_2').html(control_values[1]);
+			$('#show_hide_txt').html( control_labels[2]);
+			$('#reload').attr('value',control_labels[3]);
+			$('#popup_txt').html(gt.gettext("Insert both keys"))
+		}
+		function addintoDropDown(getId,valueSet){//Function for adding option in combo box---		
+			var selected = getId;
+			$.each(valueSet, function(val, text) {
+			selected.append($('<option></option>').val(val).html(text));});			
+		}
+		$("#key_1").draggable({containment:"#canvasBox",
+			revert:function(){
+				if(!droped){
+					$("#key_1").css({
+						left:'130px',
+						top:'295px'		
+					});
+				}
+			},
+			start: function(){
+				$("#popup").css({'visibility': 'hidden','opacity':0});
+			}
+		});
+		$("#key_1").draggable({disabled:true});
+		$("#key_1_drop").droppable({accept:'#key_1',
+			drop:function(){
+				droped=true;
+				$("#key_1").draggable({disabled:true});
+				$("#key_1").attr('disabled',true);
+				$("#key_1").draggable({disabled:true});
+				$("#key_1").css({'top':'317px','left':'130px'});
+				key_1_droped = true;
+				insertKey();
+			}
+		});
+		$("#key_2").draggable({containment:"#canvasBox",
+			revert:function(){
+				if(!droped_2){
+					$("#key_2").css({
+						left:'414px',
+						top:'295px'		
+					});
+				}
+			},
+			start: function(){
+				$("#popup").css({'visibility': 'hidden','opacity':0});
+			}
+		});
+		$("#key_2").draggable({disabled:true});
+		$("#key_2_drop").droppable({accept:'#key_2',
+			drop:function(){
+				droped_2=true;
+				$("#key_2").draggable({disabled:true});
+				$("#key_2").attr('disabled',true);
+				$("#key_2").draggable({disabled:true});
+				$("#key_2").css({'top':'317px','left':'407px'});
+				key_2_droped = true;
+				insertKey();
+			}
+		});
+		connector('#ammeter_1_black','#trans_base','#ammeter_trans',wireColor[1]);
+		connector('#trans_base','#ammeter_1_black','#ammeter_trans',wireColor[1]);
+		connector('#trans_emiter','#rheo_1_rgt_emi','#trans_rheo',wireColor[1]);
+		connector('#rheo_1_rgt_emi','#trans_emiter','#trans_rheo',wireColor[1]);
+		connector('#trans_collector','#ammeter_2_black','#trans_ammeter',wireColor[1]);
+		connector('#ammeter_2_black','#trans_collector','#trans_ammeter',wireColor[1]);
+		connector('#ammeter_2_red','#rheo_2_top_amtr','#ammeter_rheo',wireColor[0]);
+		connector('#rheo_2_top_amtr','#ammeter_2_red','#ammeter_rheo',wireColor[0]);
+		connector('#rheo_2_top_volt','#volt_2_red','#rheo_volt_2',wireColor[0]);
+		connector('#volt_2_red','#rheo_2_top_volt','#rheo_volt_2',wireColor[0]);
+		connector('#rheo_2_rgt','#cell_2_red','#rheo_cell_2',wireColor[1]);
+		connector('#cell_2_red','#rheo_2_rgt','#rheo_cell_2',wireColor[1]);
+		connector('#cell_2_black','#switch_2_cell','#cell_key_2',wireColor[0]);
+		connector('#switch_2_cell','#cell_2_black','#cell_key_2',wireColor[0]);
+		connector('#switch_2_volt','#volt_2_black_rheo','#key_volt_2',wireColor[1]);
+		connector('#volt_2_black_rheo','#switch_2_volt','#key_volt_2',wireColor[1]);
+		connector('#volt_2_black','#rheo_2_lft_volt','#rheo_bottom_vol_2',wireColor[1]);
+		connector('#rheo_2_lft_volt','#volt_2_black','#rheo_bottom_vol_2',wireColor[1]);
+		connector('#rheo_2_lft_rheo','#rheo_1_rgt_rheo','#rheo_rheo',wireColor[1]);
+		connector('#rheo_1_rgt_rheo','#rheo_2_lft_rheo','#rheo_rheo',wireColor[1]);
+		connector('#volt_1_black_rheo','#rheo_1_rgt_volt_1','#rheo_bottom_vol_1',wireColor[1]);
+		connector('#rheo_1_rgt_volt_1','#volt_1_black_rheo','#rheo_bottom_vol_1',wireColor[1]);
+		connector('#volt_1_black_switch','#switch_1_volt','#key_volt_1',wireColor[1]);
+		connector('#switch_1_volt','#volt_1_black_switch','#key_volt_1',wireColor[1]);
+		connector('#volt_1_red_rheo','#rheo_1_top_volt','#rheo_volt_1',wireColor[0]);
+		connector('#rheo_1_top_volt','#volt_1_red_rheo','#rheo_volt_1',wireColor[0]);
+		connector('#rheo_1_top_amtr','#ammeter_1_red','#micro_rheo',wireColor[0]);
+		connector('#ammeter_1_red','#rheo_1_top_amtr','#micro_rheo',wireColor[0]);
+		connector('#switch_1_cell','#cell_1_black','#cell_key_1',wireColor[1]);		
+		connector('#cell_1_black','#switch_1_cell','#cell_key_1',wireColor[1]);		
+		connector('#cell_1_red','#rheo_1_lft','#rheo_cell_1',wireColor[0]);
+		connector('#rheo_1_lft','#cell_1_red','#rheo_cell_1',wireColor[0]);
+		function connector(startPoint,endPoint,connector,wireColor){
+			var elemX,elemY
+			$(startPoint).draggable({containment:"#canvasBox",
+				revert:function(){
+					if(!droped){
+						ctx.clearRect(0,0,570,345);
+						$(startPoint).css({
+							left:elemX,
+							top:elemY		
+						});
+						$(endPoint).css({'opacity':0});
+					}
+				},
+				start:function(){
+					elemX=$(startPoint).css('left');
+					elemY=$(startPoint).css('top');
+					droperInitPos=$(startPoint).css('left');
+					startX=(parseInt(elemX.substring(0, elemX.length-2))/2)+(parseInt(elemX.substring(0, elemX.length-2))/35)+7;
+					startY=(parseInt(elemY.substring(0, elemY.length-2))/2)-(parseInt(elemY.substring(0, elemY.length-2))/16)+5;
+					$(endPoint).css({'opacity':0.5});
+					},
+				stop:function(){
+					
+				},
+				drag:function(){
+					var elemXX=$(startPoint).css('left');
+					var elemYY=$(startPoint).css('top');
+					mouseX=(parseInt(elemXX.substring(0, elemXX.length-2))/2)+(parseInt(elemXX.substring(0, elemXX.length-2))/35)+10;
+					mouseY=(parseInt(elemYY.substring(0, elemYY.length-2))/2)-(parseInt(elemYY.substring(0, elemYY.length-2))/16)+8;
+					ctx.clearRect(0,0,570,345);
+					ctx.strokeStyle=wireColor;
+					ctx.beginPath();
+					ctx.moveTo(startX, startY);
+					ctx.lineTo(mouseX,mouseY);
+					ctx.stroke();
+				}
+			});
+			$(endPoint).droppable({accept:startPoint,
+				drop:function(){
+					droped=true;
+					$(startPoint).css({
+						left:$(endPoint).css('left'),
+						top:$(endPoint).css('top')		
+					});
+					$(endPoint).draggable('disable');
+					$(startPoint).draggable('disable');
+					$(endPoint+','+startPoint).css({'cursor':'default'});
+					$(endPoint).hide();
+					$(startPoint).hide();
+					ctx.clearRect(0,0,570,345);
+					$(connector).show();
+					droped=false;
+					connectedWires=0;
+					for(i=0;i<connectionWires.length;i++){
+						if($("#"+connectionWires[i]).css('display')!='none'){
+							connectedWires++;
+						}else{
+							break;
+						}	
+					}
+					if(connectionWires.length==connectedWires){
+						$("#key_1").draggable({disabled:false});
+						$("#key_2").draggable({disabled:false});
+						$("#popup").css({'visibility': 'visible','opacity':1});
+					}
+					if($("#"+connectionWires[0]).css('display')!='none'){$("#base").show();}
+					if($("#"+connectionWires[1]).css('display')!='none'){$("#emitter").show();}
+					if($("#"+connectionWires[2]).css('display')!='none'){$("#collector").show();}
+				}
+			});
+		}
+		$("#reload").click(function(){//*--Function to click reload button to reset all events---
+			window.location.reload();	   
+		});
+	});	 			
+};
+

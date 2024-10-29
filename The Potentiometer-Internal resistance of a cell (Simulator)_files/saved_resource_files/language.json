@@ -1,0 +1,25 @@
+$.i18n.en = {};
+ jQuery.i18n.en.strings ={
+	"Potentiometer - Comparison of emf": "Potentiometer - Comparison of emf",
+	"HELP": "HELP",
+	"FULL SCREEN": "FULL SCREEN",
+	"EXIT": "EXIT",
+	"Reset": "Reset",
+	"Insert first key": "Insert first key",
+	"Insert second key": "Insert second key",
+	"Insert third key": "Insert third key",
+	"Select the first primary cell: ": "Select the first primary cell: ",
+	"Add weighs(kg)": "Add weighs(kg)",
+	"Select the second primary cell:": "Select the second primary cell:",
+	"Emf of first cell:": "Emf of first cell:",
+	"Rheostat reistance:": "Rheostat reistance:",
+	"Emf of second cell:": "Emf of second cell:",
+	"Position of bridge A:": "Position of bridge A:",
+	"Position of bridge B:": "Position of bridge B:",
+	"Drag and connect the terminal</br>of each apparatus as shown</br>in the circuit diagram.": "Drag and connect the terminal</br>of each apparatus as shown</br>in the circuit diagram.",
+	"Drag the key near to switch.": "Drag the key near to switch.",
+	"Drag the jockey over the potentiometer wire.": "Drag the jockey over the potentiometer wire.",
+	"Leclanche cell": "Leclanche cell",
+	"Daniel cell": "Daniel cell",
+	"Show circuit diagram": "Show circuit diagram"
+}

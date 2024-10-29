@@ -1,0 +1,565 @@
+.varBox,#bgCanvas1,#scene1,#scene2
+{-webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+img,.sim-buttons .sim-btn,#changeScreenBtn,#simHelp{
+  -webkit-user-drag: none;
+  -khtml-user-drag:none;
+-moz-user-drag:none;
+-ms-user-drag:none;
+
+}
+
+#mainDiv div{
+  position: absolute;
+
+}
+.terminals {
+  width: 5%;
+  height: 5%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #ff0000;
+  opacity: 0;
+}
+
+#mainDiv img{
+  position: absolute;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag:none;
+-moz-user-drag:none;
+-ms-user-drag:none;
+}
+.userSelect,#mainDiv,.sim-footer div,.sim-body { 
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select: none;
+ }
+#bg{
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+}
+.flexbox {
+  display: flex;
+}
+.leftVal{
+  flex:1;
+  /* padding-left: 0%; */
+}
+/* .rightVal{
+
+
+   padding-left: 60%; 
+
+}*/ 
+#text{
+  PADDING-LEFT: 7%;
+  font-weight : bold;
+}
+#check{
+  width: 10%;
+}
+#resultData{
+  display: none;
+  /* margin-left: 9%; */
+}
+#battery{
+  /*position: absolute;*/
+  left: 57%;
+  top: 51%;
+  width: 28%;
+  height: 26%;
+}
+#keyboard{
+  /*position: absolute;*/
+  width: 23%;
+  /* height: 32%; */
+  left: 9%;
+  Top: 64%;
+  height: 10%;
+
+}
+#keyboardpiece{
+  width: 16.5%;
+  left: 11.7%;
+  Top: 68.8%;
+  height: 2.5%;
+  /* z-index: 100; */
+}
+#inductor{
+  /* transform: rotate(90deg); */
+  left: 35%;
+  top: 41.8%;
+  width: 20%;
+  height: 9%;
+}
+#bulb{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+}
+/* #bulbConn{
+  top: 33%;
+  left: 40%;
+ 
+} */
+#bulbConnLeft{
+  width: 6%;
+  top: -8%;
+  height: 19%;
+  left: 103.8%;
+
+}
+#bulbLefInductLefWireMain{
+  height: 16.6%;
+  left: 32%;
+  top: 33%;
+  width: 10%;
+  display: none;
+}
+#bulbRigInductRigWireMain{
+  height: 16.6%;
+  left: 46.4%;
+  top: 33%;
+  width: 10%;
+  display: none;
+}
+
+
+#bulbConnRight{
+  top: -8%;
+  height: 21%;
+  width: 7%;
+  left: -12%;
+
+}
+/* #inductConn{
+
+} */
+
+#inductConnLeft{
+
+  left: 37.4%;
+  top: 82.7%;
+  width: 25%;
+  height: 7%;
+}
+#inductConnRight{
+  top: 83.9%;
+  left: 48%;
+  width: 29%;
+  height: 5%;
+}
+#inductConnLeft1{
+  left: 82.4%;
+  top: 17.6%;
+  width: 9%;
+  height: 5%;
+}
+#inductConnRight1{
+  top: 16.9%;
+  left: 0%;
+  width: 8%;
+  height: 3%;
+ 
+}
+#bulbLow{
+  height: 21%;
+    top: 15%;
+    left: 40.1%;
+    width: 7%;
+
+  display: none;
+
+}
+#bulbMedium{
+
+  height: 21%;
+    top: 15%;
+    left: 40.1%;
+    width: 7%;
+  display: none;
+}
+#bulbBright{
+
+  height: 21%;
+  top: 15%;
+  left: 40.1%;
+  width: 7%;
+  display: none;
+}
+
+#bulbLeft
+{       /*position: absolute;*/
+  width: 4%;
+  left: 41%;
+  height: 6%;
+  /* border: solid; */
+  top: 33%;
+  /* z-index: 100; */
+  cursor: pointer;
+
+}
+#bulbRight{
+  width: 4%;
+  left: 45%;
+  height: 6%;
+  /* border: solid; */
+  top: 33%;
+  /* z-index: 100; */
+  cursor: pointer;
+
+
+}
+#inductLeft{
+  width: 4%;
+  left: 38%;
+  height: 6%;
+  /* border: solid; */
+  top: 47%;
+  z-index: 100;
+  cursor: pointer;
+
+
+}
+#inductRight{
+  width: 4%;
+  left: 50%;
+  height: 6%;
+  /* border: solid; */
+  top: 47.5%;
+  z-index: 100;
+  cursor: pointer;
+
+
+
+}
+#inductBulbLeft{
+  width: 4%;
+  left: 36%;
+  height: 6%;
+  /* border: solid; */
+  top: 47%;
+  z-index: 100;
+  cursor: pointer;
+
+
+}
+#inductBulbRight{
+  width: 4%;
+  left: 53%;
+  height: 6%;
+  /* border: solid; */
+  top: 47%;
+  z-index: 100;
+  cursor: pointer;
+
+
+}
+#switchLeft{
+  width: 4%;
+  left: 15%;
+  height: 6%;
+  /* border: solid; */
+  top: 65%;
+  /* z-index: 100; */
+  cursor: pointer;
+
+
+}
+#switchRight{
+   width: 4%;
+  left: 25.5%;
+  height: 6%;
+  /* border: solid; */
+  top: 65%;
+  z-index: 100;
+  cursor: pointer;
+
+
+}
+#cirHelp{
+  width: 4%;
+  left: 43.5%;
+  height: 6%;
+  /* border: solid; */
+  top: 56%;
+  z-index: 100;
+  cursor: pointer;
+}
+#batPos{
+  width: 4%;
+  left: 77%;
+  height: 6%;
+  /* border: solid; */
+  top: 73%;
+  z-index: 100;
+  cursor: pointer;
+
+
+}
+#batNeg{
+  width: 4%;
+  height: 6%;
+  left: 80%;
+  top: 72.9%;
+  /* border: solid; */
+  cursor: pointer;
+
+  z-index: 100;
+}
+#bulbLefInductLefWire{
+  height: 76.6%;
+  left: -7%;
+  top: 10%;
+  width: 115%;
+
+     
+}
+#bulbRigInductRigWire{
+     /* position: absolute; */
+     height: 75.2%;
+     left: -8.7%;
+     top: 12%;
+     width: 128.6%;
+  }
+#inducLefSwitchLefWireMain{
+  height: 30%;
+  left: 14.2%;
+  top: 41.1%;
+  width: 25.3%;
+    display: none;
+
+}
+#inducRigBatNegWireMain{
+    /* position: absolute; */
+    left: 50.7%;
+    top: 40%;
+    height: 40%;
+    width: 40.1%;
+    display: none;
+
+
+}
+#inducLefSwitchLefWire{
+  height: 67%;
+  left: 0.9%;
+  top: 16.4%;
+  width: 80.3%;
+
+}
+#inducRigBatNegWire{
+  /* position: absolute; */
+  left: 8%;
+  top: 13.7%;
+  height: 98%;
+  width: 99.3%;
+
+}
+#switchRigBatPosWire{
+  /*position: absolute;*/
+  height: 25.3%;
+  top: 58.8%;
+  left: 25.2%;
+  width: 54.5%;
+  display: none;
+
+}
+#checkCir{
+  height: 6%;
+  top: 4%;
+  width: 3%;
+  left: 56%;
+  cursor: pointer;
+  position: absolute;
+}
+
+#text1 {
+  position: absolute;
+  top: 5.1%;
+  left: 61%;
+}
+#circuitDiagram{
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  /* z-index: 100; */
+  display: none;
+  left: 0%;
+}
+#connectionDrawing {
+  position: absolute;
+  /* left: 0%; */
+  /* z-index: 100; */
+  /* top: 0%; */
+  height: 100%;
+  width: 100%;
+}
+#key{
+  /*position: absolute;*/
+  width: 3%;
+  height: 5%;
+  top: 64%;
+  left: 38%;
+  z-index: 100;
+
+}
+
+#keyDropArea{
+  /*position: absolute;*/
+  height: 23%;
+  width: 23%;
+  left: 9%;
+  top: 53%;
+  display: none;
+  /* border: solid; */
+  z-index: 100;
+}
+#keyOutArea{
+  height: 23%;
+  width: 22%;
+  top: 73%;
+  /* display: none; */
+  left: 9%;
+  /* border: solid; */
+  z-index: 100;
+
+
+}
+#keyOutArea1{
+  height: 61%;
+  width: 98%;
+  top: 1%;
+  display: none;
+  left: 1%;
+  /* border: solid; */
+  z-index: 100;
+
+}
+#keyOutArea2{
+  height: 30%;
+  width: 67%;
+  top: 63%;
+  display: none;
+  left: 32%;
+  /* border: solid; */
+  z-index: 100;
+
+}
+#keyOutArea3{
+  height: 30%;
+  width: 8%;
+  top: 63%;
+  display: none;
+  left: 0%;
+  /* border: solid; */
+  z-index: 100;
+
+
+}
+#inferenceImg{
+  /*position: absolute;*/
+  left: 4%;
+  top: 5%;
+  display: none;
+  cursor: pointer;
+}
+#shadowCircuit{
+  top: 36%;
+  height: 49%;
+  left: 15%;
+  width: 79%;
+display: none;
+}
+.newBulbLowAnimation {
+
+  width: 210%;
+  height: 166%;
+  top: -47%;
+  left: -76.3%;
+  display: none;
+
+}
+
+.bulbLowAnimation {
+  width: 5%;
+  height: 21%;
+  top: 14%;
+  left: 42.7%;
+
+}
+#bulbLow1{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+}
+#bulbLow2{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+  display: none;
+}
+#bulbMedium1{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+}
+#bulbMedium2{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+  display: none;
+}
+#bulbBright1{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+}
+#bulbBright2{
+  height: 33%;
+  top: 5%;
+  left: 39.1%;
+  width: 10%;
+  display: none;
+}
+td {
+  text-align: left;
+}
+th{
+  text-align: left;
+  width: 59%;
+}
+/* #reset{
+  width: 46%;
+  margin-top: 11%;
+  font: caption;
+  border-color: #AAAAAA #AAAAAA #888888;
+  border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 20%) inset;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 114%;
+  background: linear-gradient(to bottom, #eeeeee 0%,#c8c8c8 100%);
+} */

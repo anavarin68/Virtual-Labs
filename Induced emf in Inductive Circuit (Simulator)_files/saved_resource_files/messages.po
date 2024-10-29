@@ -1,0 +1,290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hf\\n\n"
+"POT-Creation-Date: 2022-03-16 15:50+0530\n"
+"PO-Revision-Date: 2022-03-16 15:51+0530\n"
+"Last-Translator: \n"
+"Language-Team: h<h>\\n\n"
+"Language: en_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ../../js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: simcontrols.js\n"
+
+#: simcontrols.js:10
+msgid "Modification_of_Roots"
+msgstr "Modification_of_Roots"
+
+#: simcontrols.js:11
+msgid "HELP"
+msgstr "HELP"
+
+#: simcontrols.js:12
+msgid "Select and <br> drag the correct statement"
+msgstr "Select and <br> drag the correct statement"
+
+#: simcontrols.js:13
+msgid "RESET"
+msgstr "RESET"
+
+#: simcontrols.js:14
+msgid "Instructions: Select and <br> drag the correct <br> statement below:"
+msgstr "Instructions: Select and <br> drag the correct <br> statement below:"
+
+#: simcontrols.js:16
+msgid "BANYAN TREE"
+msgstr "BANYAN TREE"
+
+#: simcontrols.js:17
+msgid "RADISH"
+msgstr "RADISH"
+
+#: simcontrols.js:19 simcontrols.js:29
+msgid "Adventitious Root"
+msgstr "Adventitious Root"
+
+#: simcontrols.js:21 simcontrols.js:29
+msgid "Prop Root"
+msgstr "Prop Root"
+
+#: simcontrols.js:22 simcontrols.js:29
+msgid "Mechanical Support"
+msgstr "Mechanical Support"
+
+#: simcontrols.js:23 simcontrols.js:29 simcontrols.js:39 simcontrols.js:41
+#: simcontrols.js:49
+msgid "Climbing root"
+msgstr "Climbing root"
+
+#: simcontrols.js:24 simcontrols.js:29 simcontrols.js:39 simcontrols.js:41
+#: simcontrols.js:43 simcontrols.js:45 simcontrols.js:47 simcontrols.js:49
+#: simcontrols.js:51 simcontrols.js:53 simcontrols.js:55 simcontrols.js:57
+#: simcontrols.js:59 simcontrols.js:61 simcontrols.js:63 simcontrols.js:65
+#: simcontrols.js:67 simcontrols.js:69
+msgid "Tap root"
+msgstr "Tap root"
+
+#: simcontrols.js:25 simcontrols.js:29
+msgid "Climbing"
+msgstr "Climbing"
+
+#: simcontrols.js:27
+msgid "Banyan Tree"
+msgstr "Banyan Tree"
+
+#: simcontrols.js:31 simcontrols.js:33 simcontrols.js:35 simcontrols.js:37
+msgid "Tap Root"
+msgstr "Tap Root"
+
+#: simcontrols.js:31 simcontrols.js:43
+msgid "Spindle shaped"
+msgstr "Spindle shaped"
+
+#: simcontrols.js:31 simcontrols.js:33 simcontrols.js:35 simcontrols.js:37
+#: simcontrols.js:43 simcontrols.js:55
+msgid "food storage"
+msgstr "food storage"
+
+#: simcontrols.js:31 simcontrols.js:35 simcontrols.js:39 simcontrols.js:41
+#: simcontrols.js:43 simcontrols.js:45 simcontrols.js:49 simcontrols.js:53
+msgid "Mechanical support"
+msgstr "Mechanical support"
+
+#: simcontrols.js:31 simcontrols.js:33 simcontrols.js:37 simcontrols.js:39
+#: simcontrols.js:41 simcontrols.js:43 simcontrols.js:45 simcontrols.js:47
+#: simcontrols.js:49 simcontrols.js:53 simcontrols.js:55 simcontrols.js:57
+#: simcontrols.js:59 simcontrols.js:61 simcontrols.js:63 simcontrols.js:65
+#: simcontrols.js:67 simcontrols.js:69
+msgid "Adventitious root"
+msgstr "Adventitious root"
+
+#: simcontrols.js:31 simcontrols.js:35
+msgid "Cone shaped"
+msgstr "Cone shaped"
+
+#: simcontrols.js:33
+msgid "Cone Shape"
+msgstr "Cone Shape"
+
+#: simcontrols.js:33 simcontrols.js:37
+msgid "Absorbing minerals"
+msgstr "Absorbing minerals"
+
+#: simcontrols.js:33 simcontrols.js:35 simcontrols.js:37 simcontrols.js:55
+msgid "Top shaped"
+msgstr "Top shaped"
+
+#: simcontrols.js:35
+msgid "Napiform"
+msgstr "Napiform"
+
+#: simcontrols.js:37 simcontrols.js:43 simcontrols.js:55
+msgid "Indefinite shape"
+msgstr "Indefinite shape"
+
+#: simcontrols.js:39 simcontrols.js:55
+msgid "Photosynthesis"
+msgstr "Photosynthesis"
+
+#: simcontrols.js:39 simcontrols.js:41
+msgid "Haustauria"
+msgstr "Haustauria"
+
+#: simcontrols.js:41 simcontrols.js:63 simcontrols.js:67 simcontrols.js:69
+msgid "Breathing"
+msgstr "Breathing"
+
+#: simcontrols.js:45 simcontrols.js:53
+msgid "Stilt root"
+msgstr "Stilt root"
+
+#: simcontrols.js:45 simcontrols.js:53
+msgid "Prop root"
+msgstr "Prop root"
+
+#: simcontrols.js:45 simcontrols.js:53
+msgid "Storage of food"
+msgstr "Storage of food"
+
+#: simcontrols.js:47 simcontrols.js:51
+msgid "Pneumatophores"
+msgstr "Pneumatophores"
+
+#: simcontrols.js:47
+msgid "gaseous exchange"
+msgstr "gaseous exchange"
+
+#: simcontrols.js:47 simcontrols.js:49
+msgid "Haustoria"
+msgstr "Haustoria"
+
+#: simcontrols.js:47
+msgid "Floating"
+msgstr "Floating"
+
+#: simcontrols.js:49
+msgid "Sucking nutrition from host"
+msgstr "Sucking nutrition from host"
+
+#: simcontrols.js:51
+msgid "Root nodules"
+msgstr "Root nodules"
+
+#: simcontrols.js:51 simcontrols.js:61
+msgid "Nitrogen fixation"
+msgstr "Nitrogen fixation"
+
+#: simcontrols.js:51
+msgid "Rhizobium"
+msgstr "Rhizobium"
+
+#: simcontrols.js:51
+msgid "E.coli"
+msgstr "E.coli"
+
+#: simcontrols.js:57 simcontrols.js:59 simcontrols.js:65 simcontrols.js:69
+msgid "Assimilatory roots"
+msgstr "Assimilatory roots"
+
+#: simcontrols.js:57 simcontrols.js:59 simcontrols.js:69
+msgid "photosynthesis"
+msgstr "photosynthesis"
+
+#: simcontrols.js:57 simcontrols.js:59 simcontrols.js:69
+msgid "Chlorophyll"
+msgstr "Chlorophyll"
+
+#: simcontrols.js:57 simcontrols.js:59
+msgid "Gaseous exchange"
+msgstr "Gaseous exchange"
+
+#: simcontrols.js:61 simcontrols.js:63 simcontrols.js:67
+msgid "Nodulose root"
+msgstr "Nodulose root"
+
+#: simcontrols.js:61 simcontrols.js:63 simcontrols.js:65 simcontrols.js:67
+msgid "Food storage"
+msgstr "Food storage"
+
+#: simcontrols.js:61
+msgid "Fasciculated root"
+msgstr "Fasciculated root"
+
+#: simcontrols.js:63 simcontrols.js:67
+msgid "Moniliform root"
+msgstr "Moniliform root"
+
+#: simcontrols.js:65
+msgid "haustoria"
+msgstr "haustoria"
+
+#: simcontrols.js:65
+msgid "sucking nutrition from host"
+msgstr "sucking nutrition from host"
+
+#: simcontrols.js:71 simcontrols.js:72 simcontrols.js:73 simcontrols.js:75
+#: simcontrols.js:76 simcontrols.js:77 simcontrols.js:78 simcontrols.js:79
+#: simcontrols.js:80 simcontrols.js:81 simcontrols.js:82 simcontrols.js:83
+#: simcontrols.js:84 simcontrols.js:85 simcontrols.js:86 simcontrols.js:87
+#: simcontrols.js:88 simcontrols.js:89 simcontrols.js:90 simcontrols.js:91
+#: simcontrols.js:92 simcontrols.js:106
+msgid "Root Type:"
+msgstr "Root Type:"
+
+#: simcontrols.js:71 simcontrols.js:77 simcontrols.js:78 simcontrols.js:80
+#: simcontrols.js:82 simcontrols.js:84 simcontrols.js:90 simcontrols.js:107
+msgid "Name of Root:"
+msgstr "Name of Root:"
+
+#: simcontrols.js:71 simcontrols.js:72 simcontrols.js:73 simcontrols.js:75
+#: simcontrols.js:76 simcontrols.js:77 simcontrols.js:78 simcontrols.js:79
+#: simcontrols.js:80 simcontrols.js:81 simcontrols.js:82 simcontrols.js:84
+#: simcontrols.js:86 simcontrols.js:87 simcontrols.js:89 simcontrols.js:90
+#: simcontrols.js:108
+msgid "Modification for:"
+msgstr "Modification for:"
+
+#: simcontrols.js:72 simcontrols.js:73
+msgid "Shape of root:"
+msgstr "Shape of root:"
+
+#: simcontrols.js:75
+msgid "Type of Root:"
+msgstr "Type of Root:"
+
+#: simcontrols.js:76
+msgid "Shape of Root:"
+msgstr "Shape of Root:"
+
+#: simcontrols.js:79 simcontrols.js:81 simcontrols.js:85
+msgid "Shape of root"
+msgstr "Shape of root"
+
+#: simcontrols.js:83
+msgid "Swellings in root:"
+msgstr "Swellings in root:"
+
+#: simcontrols.js:83 simcontrols.js:85 simcontrols.js:88 simcontrols.js:91
+#: simcontrols.js:92
+msgid "Modified for:"
+msgstr "Modified for:"
+
+#: simcontrols.js:83
+msgid "Contains a bacteria:"
+msgstr "Contains a bacteria:"
+
+#: simcontrols.js:86 simcontrols.js:87 simcontrols.js:92
+msgid "Name of root:"
+msgstr "Name of root:"
+
+#: simcontrols.js:86 simcontrols.js:87 simcontrols.js:92
+msgid "Root contains:"
+msgstr "Root contains:"
+
+#: simcontrols.js:88 simcontrols.js:89 simcontrols.js:91
+msgid "Known as:"
+msgstr "Known as:"

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Enable IE9 Standards mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  
+  <title></title>
+  <link rel="stylesheet" type="text/css" media="all" href="./font(1).css">
+  <link rel="stylesheet" type="text/css" media="all" href="./reset.css">
+  <link rel="stylesheet" type="text/css" media="all" href="./grid.css">
+  <link href="./mainstyle.css" rel="stylesheet" type="text/css">
+  <link href="./nanoscroller.css" rel="stylesheet" type="text/css">
+  <script src="./overthrow.min.js.download"></script>
+  <script src="./jquery-1.7.1.js.download"></script>
+  <script src="./jquery.nanoscroller.js.download"></script>
+  <script type="text/javascript" src="./touchready.js.download"></script>
+  <script type="text/javascript" src="./main.js.download"></script>
+  <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+  <script type="text/javascript" language="javascript">var simPath="../PHY/CLA/Galvanometer_into_ammeter_and_voltmeter/";</script>
+  
+  <link href="./simstyle.css" rel="stylesheet" type="text/css">
+  <link href="./trip.css" rel="stylesheet" type="text/css">
+  <script language="javascript" type="text/javascript" src="./jquery.i18n.js.download"></script>
+  <script language="javascript" type="text/javascript" src="./help.js.download"></script>
+  <script language="javascript" type="text/javascript" src="./trip.min.js.download"></script>
+  <script type="text/javascript" src="./simcontrols.js.download"></script>
+  <script src="./jquery-ui.min.js.download" language="javascript"></script>
+  
+  
+  <script type="text/javascript" language="javascript" src="./touchconvert.js.download"></script>
+  <script language="javascript">
+  var language_script= 'en-IN';
+  var language=language_script.toString();
+    language=language.slice(0, 2);
+    gt.gettext.setLocale(language);
+  </script>
+  <script type="text/javascript" src="./language.json"></script>
+  
+  <!--[if gte IE 9]>
+    <style type="text/css">
+      .gradient {
+         filter: none;
+      }
+    </style>
+  <![endif]-->
+  <script src="./modernizr-custom.js.download"></script>
+  <script> 
+  if( !Modernizr.inputtypes.range ){  
+      document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+          $(document).ready(function(){
+        $.webshims.setOptions("waitReady", false);
+           $.webshims.polyfill('forms-ext');
+      });  
+      };  
+  
+  
+  </script>
+  
+  </head>
+  <body>
+  <div class="main">
+  <header id="silumatorTemp">
+    <div class="g99 logo">
+    </div>
+    <!-- end .g99 -->
+      <div class="g495 mainTitle">
+      <p id="expName" style="size: 11px;">Conversion of Galvanometer to Ammeter</p>
+    </div>
+    <!-- end .g495 -->
+      <div class="g198 menuSet">
+            
+    </div>
+    <!-- end .g198 -->
+  <div class="g792 bannerFoot">
+  
+  </div>
+      <!-- end .grid_8 -->
+  </header><!-- /header -->
+  <div class="g594 canvasHolder"> 
+      <div id="canvasBox">
+  <script type="text/javascript" language="javascript">var simPath="../PHY/CLA/Galvanometer_into_ammeter_and_voltmeter/";</script>
+  <div id="mainDiv">
+    <div id="scene_2" class="hide">
+      <img id="bg" class="posAbso" src="./BG.jpg">
+      
+      <img id="ammeter" class="posAbso" src="./ammeter_0.png">
+      <img id="galvano" class="posAbso" src="./galvano_0.png">
+      <p id="unit_ma">A</p>
+      <p id="unit_g">G</p>
+      <img id="ammeter_needle" class="posAbso" src="./needle.png">
+      <img id="ammeter_digital_bg" class="posAbso" src="./digital_bg.png">
+      <p id="ammeter_reding" class="digiReading">0.00</p>
+      <img id="galvo_needle" class="posAbso" src="./needle.png">
+      <img id="galvo_digital_bg" class="posAbso" src="./digital_bg.png">
+      <p id="galvo_reding" class="digiReading">0.00</p>
+      <img id="key_top" class="posAbso" src="./key_top.png">
+      <img id="rheo_move" class="posAbso" src="./rheostat_top.png">
+      <div id="key_drop" class="ui-droppable"></div>
+      <canvas id="connectionDrawing" class="connections"></canvas>
+      <img id="battery_key" class="posAbso" src="./battery_key.png">
+      <img id="key_ammeter" class="posAbso" src="./key_ammeter.png">
+      <img id="ammeter_glavano" class="posAbso" src="./ammeter_glavano.png">
+      <img id="galvano_rheo" class="posAbso" src="./galvano_rheo.png">
+      <img id="rheo_battery" class="posAbso" src="./rheo_battery.png">
+      <img id="wire_resistance" class="posAbso" src="./platinum.png">
+      <img id="key_img" class="posAbso ui-draggable ui-draggable-disabled ui-state-disabled" src="./key.png" aria-disabled="true">
+      <div id="battery_red" class="terminals ui-draggable ui-droppable"></div>
+      <div id="switch_T1" class="terminals ui-droppable ui-draggable"></div>
+      <div id="switch_T2" class="terminals ui-draggable ui-droppable"></div>
+      <div id="ammeter_black" class="terminals ui-droppable ui-draggable"></div>
+      <div id="ammeter_red" class="terminals ui-draggable ui-droppable"></div>
+      <div id="galvo_black" class="terminals ui-droppable ui-draggable"></div>
+      <div id="galvo_red" class="terminals ui-draggable ui-droppable"></div>
+      <div id="rheo_top" class="terminals ui-droppable ui-draggable"></div>
+      <div id="rheo_bottom" class="terminals ui-draggable ui-droppable"></div>
+      <div id="battery_black" class="terminals ui-droppable ui-draggable"></div>
+      <div id="cir_diagram">
+          <img id="cir_img" src="./circuit_diagram.png">
+      </div>
+      <!-- Check box for hide or show circuit diagram --> 
+      <p align="center" style="position:absolute;"><input type="checkbox" id="show_hide" value="show" onchange="showHidediagram(this)"><sapn class="varTitle" id="show_hide_txt">Show/hide circuit diagram</sapn></p><br><br>
+      <div id="help_elem_3"></div>
+    </div>
+    <div id="scene_1">
+      <img id="scene_2_bg" class="posAbso" src="./BG2.jpg">
+      <canvas id="shunt_wire"></canvas>
+      <div id="proceed">
+          <img id="proceed_img" class="posAbso" src="./proceed.png">
+          <p id="proceed_txt">Proceed</p>
+      </div>
+    </div>
+  </div>
+  <div id="whiteboard">
+      <div id="popup">
+          <img class="posAbso" src="./popup_img.png">
+          <p id="popup_msg" class="canText">Enter the value rounded in two decimal places.</p>
+      </div>
+      <div id="help_elem_1"></div>
+      <div id="help_elem_2"></div>
+      <table id="calc_scene_1">
+          <tbody><tr><td><p id="merit_txt" class="canText">Figure of merit(k) = </p></td><td><p id="k" class="canText align_lft">0.000662252</p></td></tr>
+          <tr><td><p id="ig_txt" class="canText">Ig = </p></td><td><p id="ig" class="canText align_lft">nk</p></td></tr>
+          <tr><td><p id="s_txt" class="canText" style="height:24px;">S = </p></td><td><p id="s" style="height:24px;" class="canText align_lft">Ig(G) / (I - Ig)</p></td></tr>
+          <tr><td><p class="canText">=</p></td><td align="left"><input type="number" placeholder="0.00" id="s_input">&nbsp;Ω&nbsp;&nbsp;<img id="check_mark" class="posAbso" src="./wrong.png"></td></tr>
+          <tr><td></td><td><p class="posAbso align_lft"><img id="submit_1" src="./submit.png">&nbsp;&nbsp;<img id="next" src="./next.png"></p></td></tr>
+      </tbody></table>
+       <table id="calc_scene_2" class="hide">
+          <tbody><tr><td><p id="density_txt" class="canText">Density of the material(ρ) =</p></td><td><p id="density_value" class="canText align_lft">1.06e-7</p></td></tr>
+          <tr><td><p id="l_txt" class="canText">Length of the wire(l) = </p></td><td><p class="canText align_lft" style="height:24px;">(πr<sup>2</sup>/ρ)*S</p></td></tr>
+          <tr><td><p id="l_txt_2" class="canText">=</p></td><td align="left"><input type="number" placeholder="0.00" id="l_input">&nbsp;m&nbsp;&nbsp;<img id="check_mark_2" class="posAbso" src="./wrong.png"></td></tr>
+          <tr><td></td><td><p class="posAbso align_lft"><img id="submit_2" src="./submit.png"></p></td></tr>
+      </tbody></table>
+      
+  </div></div>
+  </div>
+  <div class="g198 controlHolder">
+  <div class="nano has-scrollbar">
+  <ul style="right: -17px;" tabindex="0" class="overthrow content description">    
+      <li> 
+          <div class="varBox"> 
+              <!-- -Range of ammeter dropdown - -->
+              <p class="varTitle lblHeight" id="ammeter_range_lbl">Ammeter range(I):</p>
+              <select class="dropBox" id="ammeter_range" style="width:140px;" onchange="ammeterRange(this.value)"><option value="0">5A</option><option value="1">3A</option><option value="2">1A</option></select><br><br>
+              <!-- -Resistance of galvanometer dropdown - -->
+              <p class="varTitle lblHeight" id="galvano_resistance_lbl">Galvanometer resistance(G):</p>
+              <select class="dropBox" id="galvano_resistance" style="width:140px;" onchange="galvanoResistance(this.value)"><option value="0">60</option><option value="1">100</option><option value="2">120</option></select><br><br>
+              <!-- -Range of galvanometer dropdown - -->
+              <p class="varTitle lblHeight" id="galvano_range_lbl">Galvanometer range(n):</p>
+              <select class="dropBox" id="galvano_range" style="width:140px;" onchange="galvanoRange(this.value)"><option value="0">50</option><option value="1">30</option><option value="2">20</option></select><br><br>
+              <!-- Label for cell voltage --> 
+              <p align="center" class="lblHeight"><span class="varTitle" id="cell_voltage_lbl">Cell voltage: 2V</span></p>
+              <!-- -Material type dropdown - -->
+              <p class="varTitle lblHeight" id="material_type_lbl">Select material:</p>
+              <select class="dropBox" id="material_type" style="width:140px;" onchange="setMeterial(this.value)"><option value="0">Platinum</option><option value="1">Manganin</option><option value="2">Nichrome</option><option value="3">Constantan</option></select><br><br>
+              <!-- Label for radius of vire --> 
+              <p align="center" class="lblHeight"><span class="varTitle" id="radius_lbl">Radius of the wire(r):</span> <span class="varTitle" id="radius">0.1mm</span></p><br>
+              <!-- Button for insert key --> 
+              <p align="center"><input type="button" class="subButton" id="key" disabled="" onclick="insertKey()" value="Insert key"></p><br><br> 
+              <!-- Slider for rheostat resistance -->
+              <span class="varTitle" id="rheo_resistance_lbl">Rheostat resistance:</span>
+              <span class="varTitle sliderValueLbl" id="rheo_resistance_val">1Ω</span><br>
+              <input type="range" class="rangeSlider" id="rheo_resistance" disabled="" min="1" max="10" step="1" value="1" oninput="setRheoResistance(this.value)"><br>
+              <span id="rheo_resistance_min_lbl" class="varTitle minValue">1</span>
+              <span id="rheo_resistance_max_lbl" class="varTitle maxValue">10</span><br><br>
+              <!-- Button for reset simulation -->         
+        <p align="center"><input type="button" class="subButton" id="reload" value="Reset"></p><br>
+          </div>
+      </li>
+  </ul>
+  
+  
+  <div class="pane"><div class="slider" style="height: 243px; top: 98px;"></div></div><div class="pane"><div class="slider" style="height: 243px; top: 98px;"></div></div><div class="pane"><div class="slider" style="height: 243px; top: 98px;"></div></div></div></div>
+  <script type="text/javascript">
+   var expTitle="Conversion of Galvanometer to Ammeter";
+   document.getElementById("expName").style.size="11px";
+   document.getElementById("expName").innerHTML=expTitle;
+   
+  </script>    <!-- /footer -->
+  </div>
+  
+  
+  <script>
+  function simFullScreenOlab(){
+      var $ = function(selector,context){return(context||document).querySelector(selector)};
+          var iframe = $("iframe"),
+              domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+  
+              var fullscreen = function(elem){
+              var prefix;
+        
+              // Mozilla and webkit intialise fullscreen slightly differently
+              for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+        {
+                prefix = domPrefixes[i].toLowerCase();
+                if ( elem[prefix + 'EnterFullScreen'] ) {
+                  // Webkit uses EnterFullScreen for video
+                  return prefix + 'EnterFullScreen';
+                  break;
+                } else if( elem[prefix + 'RequestFullScreen'] ) {
+                  // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                  return prefix + 'RequestFullScreen';
+                  break;
+                }
+              }
+              return false;
+          }; 
+          // Webkit uses "requestFullScreen" for non video elements
+          var fullscreenother = fullscreen(document.createElement("iframe"));
+          if(!fullscreen) {
+              alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+              return;
+          }
+      iframe[fullscreenother]();
+      (this,this.document);
+        }
+  
+  </script>
+  </body></html>

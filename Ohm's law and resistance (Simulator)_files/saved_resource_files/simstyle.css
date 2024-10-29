@@ -1,0 +1,429 @@
+Date:22/05/2014
+file name:simstyle.css*/
+#canvasBox { overflow:hidden; }
+#bgDiv {
+	position:absolute;
+	width:568px;
+	height:440px;
+	top: -10px;
+}
+#wireCanvas {
+	z-index:99;
+	opacity:0.9;
+}
+ !important .varTitle {
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: 500;
+ color: #626262;
+ text-align: left !important;
+}
+.varTitleResult {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	color: #626262;
+	font-weight:bold;
+	text-align: left !important;
+}
+#resetBtn {
+	margin: 12px -1px 3px 27px;
+	width: 136px;
+	height: 25px;
+}
+#readingHdng {
+	margin:18px 0px 0px 9px;
+	text-decoration:underline;
+	display: none;
+}
+#voltageLbl { margin: 11px 10px 10px 0px; display: none;}
+#currentLbl { margin: -11px 10px 10px 0px;display: none; }
+#RheoResistLbl { margin: -11px 10px 10px 0px; }
+#wireLenLbl { margin: -11px 10px 10px 0px; }
+#batteryPos {
+	position:absolute;
+	width: 10px;
+	height: 20px;
+	left: 126px;
+	top: 122px;
+	z-index:3;
+	cursor:pointer;
+}
+#batteryNeg {
+	position:absolute;
+	width: 12px;
+	height: 20px;
+	left: 139px;
+	top: 122px;
+	z-index:3;
+	cursor:pointer;	
+}	
+
+#keyNeg {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 236px;
+	top: 155px;
+	z-index:3;
+	cursor:pointer;
+}
+#keyPos {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 278px;
+	top: 155px;
+	z-index:3;
+	cursor:pointer;
+}
+#rheoNeg {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 345px;
+	top: 123px;
+	z-index:3;
+	cursor:pointer;
+}
+#rheoPos {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 504px;
+	top: 64px;
+	z-index:3;
+	cursor:pointer;
+}
+#ammeterPos {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 65px;
+	top: 227px;
+	z-index:3;
+	cursor:pointer;
+}
+#ammeterNeg {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 124px;
+	top: 227px;
+	z-index:3;
+	cursor:pointer;
+}
+#voltPos {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 401px;
+	top: 225px;
+	z-index:3;
+	cursor:pointer;
+}
+#voltNeg {
+	position:absolute;
+	width: 20px;
+	height: 23px;
+	left: 454px;
+	top: 225px;
+	z-index:3;
+	cursor:pointer;
+}
+#switchKeyImg {
+	position:absolute;
+	cursor:pointer;
+	z-index: 4;
+	left: 8px;
+	top: 7px;
+	cursor:pointer;
+}
+#rheoKeyImg {
+	position:relative;
+	cursor:pointer;
+}
+#voltReading {
+	position: absolute;
+	width: 52px;
+	height: 17px;
+	left: 405px;
+	top: 190px;
+	font-family: digi;
+	font-size: 18px;
+	text-align:center;
+	cursor:default;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+}
+#ammeterReading {
+	position: absolute;
+	width: 52px;
+	height: 18px;
+	left: 85px;
+	top: 190px;
+	font-family: digi;
+	font-size: 18px;
+	text-align:center;
+	cursor:default;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+}
+#minVal,#minDiamterVal,#rheostatminVal { margin:-4px 22px -39px 0px; }
+#maxVal,#maxDiamterVal,#rheostatmaxVal { margin: 19px 0px 0px 144px; }
+#lengthRange {
+	margin: 7px 3px -5px 13px;
+	cursor:pointer;
+	width: 150px;
+}
+#diamterRange {
+	margin: 7px 3px -5px 13px;
+	cursor:pointer;
+	width: 150px;
+}
+#rheostatRange {
+	margin: 7px 3px -5px 13px;
+	cursor:pointer;
+	width: 150px;
+}
+#resultLbl {
+	margin: 18px 15px 6px 10px;
+	text-decoration: underline;
+}
+#circuitCheckBox {
+	left: 11px;
+	top: 9px;
+	position: absolute;
+	width: 17px;
+	height: 19px;
+	cursor:pointer;
+}
+#checkLbl {
+	position: absolute;
+	left: 30px;
+	top: 8px;
+	color: #E0E0E0;
+}
+#CheckLbl {
+	position: absolute;
+	left: 30px;
+	top: 8px;
+	color: #E0E0E0;
+}
+#InputTxtLbl1 {
+	margin:0px 4px 10px 0px;
+	width: 188px;
+	display: none;
+}
+#InputTxtLbl2,#answer1,#answer2 {
+	display: none;
+}
+
+#InputTxtLbl2,#InputTxtLbl3 {
+	margin:0px 4px 10px 0px;
+	width: 180px;
+}
+#answer1,#answer2,#answer3  {
+	width: 49px;
+	margin: 0px 0px 0px 61px;
+	text-align:right;
+}
+#ohmLabel {
+	margin: -22px 10px 10px 118px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #626262;
+	display: none;
+}
+#ohmLabel1 {
+	margin: -22px 10px 10px 116px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #626262;
+	display: none;
+}
+#ohmLabel3 {
+	margin: -22px 10px 10px 116px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #626262;
+
+}
+#WarningLbl {
+	margin: -4px 19px 2px 25px;
+	display:none;
+}
+#WarningLbl1 {
+	margin: -4px 19px 2px 25px;
+	display:none;
+}
+#WarningLbl3 {
+	margin: -4px 19px 2px 25px;
+	display:none;
+}
+#submit {
+	margin:5px 0px 3px 27px;
+	width: 136px;
+	height: 25px;
+}
+#sliderLbl,#diamterLbl,#rheostatLbl {
+	margin: 5px 4px 12px 0px;
+	width:156px;
+}
+#sliderVal {
+	margin:-29px 12px -3px 107px;
+    width: 55px;
+}
+#diamterVal {
+	margin:-29px 12px -3px 127px;
+    width: 55px;
+}
+#rheostatVal {
+	margin:-29px 12px -3px 149px;
+    width: 55px;
+}
+#correctImg {
+	display: none;
+	margin:-43px 24px 11px 147px;
+}
+#correctImg1 {
+	display: none;
+	margin:-40px 24px 9px 153px;
+}
+#correctImg3 {
+	display: none;
+	margin:-40px 24px 9px 153px;
+}
+#wrongImg {
+	display: none;
+	margin:-33px 24px 6px 147px;
+}
+#wrongImg1 {
+	display: none;
+	margin:-33px 24px 6px 153px;
+}
+#wrongImg3 {
+	display: none;
+	margin:-33px 24px 6px 153px;
+}
+#rheoKeyDiv {
+	position: absolute;
+	left: 349px;
+	top: 65px;
+	width: 131px;
+	height: 100px;
+}
+#batterytoKeyImg {
+	position:absolute;
+	left: 137px;
+	top: 138px;
+	display:none;
+}
+#keytoRheostatImg {
+	position: absolute;
+	left: 288px;
+	top: 131px;
+	display:none;
+}
+#rheotoAmmeImg {
+	position: absolute;
+	left: 463px;
+	top: 74px;
+	display:none;
+}
+#voltmetertoammeterImg {
+	position: absolute;
+	left: 134px;
+	top: 213px;
+	display:none;
+}
+#voltmetertobatteryImg {
+	position: absolute;
+	left: 17px;
+	top: 138px;
+	display:none;
+}
+#resiswireImg,#resiswireImg2 {
+	position: absolute;
+	left: 418px;
+	top: 231px;
+	cursor:pointer;
+	opacity:0;
+}
+#voltMeasure {
+	margin: -28px 10px 10px 76px;
+	width: 50px;
+	display:none;
+}
+#currentMeasure {
+	margin:-28px 10px 10px 126px;
+	width: 50px;
+	display:none;
+}
+#RheoresVal { margin: -21px 10px 10px 136px; }
+#circuitdiaDiv {
+	position: absolute;
+	z-index: 9;
+	left: 10px;
+	top: 33px;
+	width: 536px;
+	height: 294px;
+	overflow: hidden;
+	display:none;
+}
+#resultCheckBox {
+	margin:4px 13px 8px 12px;
+	width: 17px;
+	height: 19px;
+	cursor: pointer;
+}
+#resltLblCB { margin:-23px 15px 10px 31px; }
+#resiswireDiv {
+	position: absolute;
+	left: 230px;
+    top: 187px;
+    width: 33px;
+    height: 35px;
+	overflow: hidden;
+	cursor:pointer;
+}
+#resisImg,#resisImg2,#resisImg3,#resisImg4 {
+	position: absolute;
+	left: 0px;
+    top: 26px;
+}
+#resisShadowImg {
+	position: absolute;
+	left: 0px;
+    top: 29px;
+    opacity: 1;
+}
+#switchKeyDiv {
+	position:absolute;
+	width: 28px;
+	height: 29px;
+	left: 248px;
+	top: 123px;
+}
+.selectable
+{
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+}
+#showAns{
+	position: relative;
+}
+
+#answer{
+	margin: 9px 0px 0px 7px;
+}
+
+#answerLabel{
+	padding:8px 26px 0px 23px;
+}
+
+#resultLabel{
+	padding: 4px 0px 0px 2px;
+}

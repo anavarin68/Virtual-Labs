@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/font.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/reset.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/grid.css">
+<link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/nanoscroller.css" rel="stylesheet" type="text/css">
+<script src="./saved_resource_files/overthrow.min.js.download"></script>
+<script src="./saved_resource_files/jquery-1.7.1.js.download"></script>
+<script src="./saved_resource_files/jquery.nanoscroller.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/touchready.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/main.js.download"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" language="javascript">var simPath="../PHY/CLA/Zener_Diode_Characteristic/";</script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.i18n.js.download"></script>
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/trip.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./saved_resource_files/help.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/trip.min.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/simcontrols.js.download"></script>
+<script src="./saved_resource_files/jquery-ui.min.js.download" language="javascript"></script>
+
+
+<script type="text/javascript" language="javascript" src="./saved_resource_files/touchconvert.js.download"></script>
+<script language="javascript">
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	gt.gettext.setLocale(language);
+</script>
+<script type="text/javascript" src="./saved_resource_files/language.json"></script>  
+
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./saved_resource_files/modernizr-custom.js.download"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+</head>
+<body>
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName" style="size: 11px;">Zener Diode Characteristics</p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+<script type="text/javascript" language="javascript">var simPath="../PHY/CLA/Zener_Diode_Characteristic/";</script>
+<div id="mainDiv">
+    <img id="bg" class="posAbso" src="./saved_resource_files/BG.jpg"> 
+    <div id="help_terminal"></div>   
+    <p id="unit_ma">A</p>
+    <p id="unit_g">G</p>
+    <p id="ammeter_reding" class="digiReading">0.000</p>
+    <p id="voltmeter_reding" class="digiReading">0.000</p>
+    <img id="rheo_move" class="posAbso" src="./saved_resource_files/rheo_move.png">
+    <div id="key_drop" class="ui-droppable"></div>
+    <img id="key_top" class="posAbso" src="./saved_resource_files/key_top.png">
+    <canvas id="connectionDrawing" class="connections"></canvas>
+    <img id="key" class="posAbso ui-draggable ui-draggable-disabled ui-state-disabled" src="./saved_resource_files/key.png" aria-disabled="true">
+     <img id="battery_switch" class="hide" src="./saved_resource_files/battery_switch.png">
+     <img id="switch_rheo" class="hide" src="./saved_resource_files/switch_rheo.png">
+     <img id="rheo_resist" class="hide" src="./saved_resource_files/resistence_rheo.png">
+     <img id="resist_ammeter" class="hide" src="./saved_resource_files/ammeter_resistence.png">
+     <img id="ammeter_volt" class="hide" src="./saved_resource_files/volt_ammeter.png">
+     <img id="ammeter_diode" class="hide" src="./saved_resource_files/ammeter_diode.png">
+     <img id="diode_volt" class="hide" src="./saved_resource_files/volt_diode.png">
+     <img id="volt_battery" class="hide" src="./saved_resource_files/volt_battery.png">
+     <img id="volt_rheo" class="hide" src="./saved_resource_files/volt_rheo.png">
+    <div id="battery_red" class="terminals ui-draggable ui-droppable"></div>
+    <div id="switch_T1" class="terminals ui-droppable ui-draggable"></div>
+    <div id="switch_T2" class="terminals ui-draggable ui-droppable"></div>
+    <div id="ammeter_black" class="terminals ui-draggable ui-droppable"></div>
+    <div id="ammeter_black_diode" class="terminals ui-draggable ui-droppable"></div>
+    <div id="ammeter_red" class="terminals ui-droppable ui-draggable"></div>
+    <div id="volt_black" class="terminals ui-droppable ui-draggable"></div>
+    <div id="volt_black_cell" class="terminals ui-draggable ui-droppable"></div>
+    <div id="volt_black_rheo" class="terminals ui-draggable ui-droppable"></div>
+    <div id="volt_red" class="terminals ui-droppable ui-draggable"></div>
+    <div id="rheo_top" class="terminals ui-draggable ui-droppable"></div>
+    <div id="rheo_bottom_lft" class="terminals ui-droppable ui-draggable"></div>
+    <div id="rheo_bottom_rgt" class="terminals ui-droppable ui-draggable"></div>
+    <div id="battery_black" class="terminals ui-droppable ui-draggable"></div>
+    <div id="diode_pos" class="terminals ui-draggable ui-droppable"></div>
+    <div id="diode_neg" class="terminals ui-droppable ui-draggable"></div>
+    <div id="resist_lft" class="terminals ui-draggable ui-droppable"></div>
+    <div id="resist_rgt" class="terminals ui-droppable ui-draggable"></div>
+    <div id="cir_diagram" style="display: none;">
+        <img id="cir_img" src="./saved_resource_files/circuit_diagram.png">
+    </div>
+    <!-- Check box for hide or show circuit diagram --> 
+    <p id="show_hide_wrap"><input type="checkbox" id="show_hide" value="show" onchange="showHidediagram(this)"><sapn class="varTitle" id="show_hide_txt">Show/hide circuit diagram</sapn></p><br><br>
+</div>
+</div>
+</div>
+<div class="g198 controlHolder">
+<div class="nano has-scrollbar">
+<ul style="right: -17px;" tabindex="0" class="overthrow content description">    
+    <li> 
+        <div class="varBox"> 
+            <!-- -Range of ammeter dropdown - -->
+            <p class="varTitle lblHeight" id="diode_type_lbl">Select diode:</p>
+            <select class="dropBox" id="diode_type" style="width:140px;" onchange="setDiode(this.value)"><option value="0">BZX79C5V6</option><option value="1">BZX5C7V5</option><option value="2">1N4733A</option><option value="3">1N4739A</option><option value="4">1N4729A</option><option value="5">ZD5234A</option></select><br><br>
+            <br><br>
+            <!-- Slider for rheostat resistance -->
+            <span class="varTitle" id="rheo_resistance_lbl">Rheostat resistance:</span>
+            <span class="varTitle sliderValueLbl" id="rheo_resistance_val">1Ω</span><br>
+            <input type="range" class="rangeSlider dim" id="rheo_resistance" disabled="" min="1" max="100" step="1" value="1" oninput="setRheoResistance(this.value)"><br>
+            <span id="rheo_resistance_min_lbl" class="varTitle minValue">1</span>
+            <span id="rheo_resistance_max_lbl" class="varTitle maxValue">100</span><br><br>
+        <br><br><br><br><br><br><br><br><br>
+            <!-- Button for reset simulation -->         
+			<p align="center"><input type="button" class="subButton" style="width: 130px" id="reload" value="Reset"></p><br>
+        </div>
+    </li>
+</ul>
+
+
+<div class="pane" style="display: none;"><div class="slider" style="height: 326px;"></div></div></div></div>
+<script type="text/javascript">
+ var expTitle="Zener Diode Characteristics";
+ document.getElementById("expName").style.size="11px";
+ document.getElementById("expName").innerHTML=expTitle;
+ 
+</script>    
+</div>
+
+
+<script>
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+</script>
+</body></html>

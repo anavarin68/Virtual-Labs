@@ -1,0 +1,860 @@
+var oL,pL,oT,pT;
+var ctx,c;
+var mainHeight, mainWidth;
+var magnet_speed =1,count=0;
+var coil_speed = 1;
+var rheostat_speed;
+var rotateValue =338;
+var rotateValue2 = 380;
+var rotateValue3 =338;
+var rotateValue4 = 380;
+var changeSpeed,changeCoilSpeed;
+var speed = 1800;
+var speed2 = 100;
+var sliderCheckArr = [0,0,0,0]
+var sliderCheckArr2 = [0,0,0,0]
+var sliderCheckArr3 = [0,0,0,0]
+changeSpeed = speed/magnet_speed;
+changeCoilSpeed = speed2/coil_speed;
+var coilAnimSpeed = 5000;
+var helpMsg,inferenceMsg,helpcount;
+var inferenceCount =0;
+var helpcount=0,sliderStatus=0,expCount=0;
+var yy_imglength = 50;
+var yy_imgPath =
+    "../PHY/EMM/production_of_induced_emf_in_a_coil/images/COIL FORWARD/";
+var ImagcoilForward = [];
+//=======================coil forward image aaray======================//
+for (i = 1; i <= yy_imglength; i++) {
+    if (i < 10) {
+        ImagcoilForward.push(yy_imgPath + "FRONT000" + i + ".png");
+    } else if (i < 100 && i > 9) {
+        ImagcoilForward.push(yy_imgPath + "FRONT00" + i + ".png");
+    }
+}
+var imglength = 50;
+var imgPath =
+    "../PHY/EMM/production_of_induced_emf_in_a_coil/images/COIL BACKWARD/";
+var ImagcoilBackward = [];
+//=======================coil backward image aaray======================//
+for (i = 1; i <= imglength; i++) {
+    if (i < 10) {
+      ImagcoilBackward.push(imgPath + "BACK000" + i + ".png");
+    } else if (i < 100 && i > 9) {
+      ImagcoilBackward.push(imgPath + "BACK00" + i + ".png");
+    }
+}
+var coilLiftlength = 50;
+var coilLiftPath =
+    "../PHY/EMM/production_of_induced_emf_in_a_coil/images/COIL LIFT/";
+var ImgcoilLift = [];
+//=======================coil Lift image aaray======================//
+for (i = 1; i <= coilLiftlength; i++) {
+    if (i < 10) {
+      ImgcoilLift.push(coilLiftPath + "COIL LIFT000" + i + ".png");
+    } else if (i < 100 && i > 9) {
+      ImgcoilLift.push(coilLiftPath + "COIL LIFT00" + i + ".png");
+    }
+}
+var coilAwaylength = 50;
+var coilAwayPath =
+    "../PHY/EMM/production_of_induced_emf_in_a_coil/images/COIL FORWARD ANIM/";
+var ImgcoilAway = [];
+//=======================coil away image aaray======================//
+for (i = 1; i <= coilAwaylength; i++) {
+    if (i < 10) {
+      ImgcoilAway.push(coilAwayPath + "COIL FORWARD000" + i + ".png");
+    } else if (i < 100 && i > 9) {
+      ImgcoilAway.push(coilAwayPath + "COIL FORWARD00" + i + ".png");
+    }
+}
+var coilTowardslength = 60;
+var coilTowardsPath =
+    "../PHY/EMM/production_of_induced_emf_in_a_coil/images/COIL BACKWARD ANIM/";
+var ImgcoilTowards = [];
+//=======================coil Towards image aaray======================//
+for (i = 1; i <= coilTowardslength; i++) {
+    if (i < 10) {
+      ImgcoilTowards.push(coilTowardsPath + "COIL BACKWARD000" + i + ".png");
+    } else if (i < 100 && i > 9) {
+      ImgcoilTowards.push(coilTowardsPath + "COIL BACKWARD00" + i + ".png");
+    }
+}
+$(window).load(function () {
+  ImageInitLoad(ImagcoilForward, "coilForward", "coilForwarding", "coilForwardclass")
+  ImageInitLoad(ImagcoilBackward, "coilBackward", "coilBackwarding", "coilBackwardclass")
+  ImageInitLoad(ImgcoilLift, "coilLift", "coilLifting", "coilLiftclass")
+  ImageInitLoad(ImgcoilAway, "coilAway", "coilAwayfromGlass", "coilAwayclass")
+  ImageInitLoad(ImgcoilTowards, "coilTowards", "coilTowardsfromGlass", "coilTowardsclass")
+});
+$(window).resize(function () {
+    setTimeout(function () {
+        mainWidth = $("#mainDiv").width();
+        mainHeight = $("#mainDiv").height();
+        c = document.getElementById("connectionCanvas");
+        ctx = c.getContext("2d");
+        $("#connectionCanvas").css({ width: mainWidth, height: mainHeight });
+        oL = $("#mainDiv").offset().left;
+        pL = $("#mainDiv").position().left;
+        oT = $("#mainDiv").offset().top;
+        pT = $("#mainDiv").position().top;
+        ctx.canvas.width = ctx.canvas.clientWidth;
+        ctx.canvas.height = ctx.canvas.clientHeight;
+    }, 1000);
+})
+$(document).ready(function(){
+  inferenceMsg = ["When we bring magnet towards or away from the coil magnetic flux through <br> the coil changes. An emf induces in coil. As the speed of magnet changes <br> rate of change of magnetic flux through coil changes. Induced emf is <br> directly proportional to the rate of change of magnetic flux through the circuit. ",
+                  "As the speed of one coil changes rate of change of magnetic flux through <br> another coil changes. Induced emf in a coil is directly proportional <br> to the rate of change of magnetic flux through the circuit.",
+                  "As the current through one coil changes variation of magnetic flux through <br> another coil changes. It causes emf in another coil.",
+                  "When we switch on the current through the coil increases.  Magnetic field <br> increases as current increases through the coil. Magnetic flux through <br> another coil also increases. It causes an emf in that coil.Induced emf <br> in a coil is directly proportional to the rate of change of magnetic flux <br> through the circuit. ",
+                  "When we switch off the current through the coil decreases.  Magnetic field <br> decreases as current decreases through the coil. Magnetic flux through <br> another coil also decreases. It causes an emf in that coil.Induced emf <br>in a coil is directly proportional to the rate of change of magnetic flux <br> through the circuit. ",
+                  "When we change the common area between the coils magnetic flux through <br> another coil also changes. It causes an emf in that coil.Induced emf in a <br> coil is directly proportional to the rate of change of magnetic flux through <br> the circuit.",
+];
+helpMsg    =  ["Click on the check box to Show/Hide the circuit diagram",
+               "Connect the apparatus by referring the circuit diagram",
+               "Click on Magnet - A",
+               "Click on the Magnet to move the Magnet towards the Coil",
+               "Click on Magnet - B",
+               "Select the speed of the magnet",
+               "Click on the Inference button to view the observation",
+               "Click on the Next button",
+               "Select the experiment",
+               "Drag and drop the key into switch",
+               "Select the speed of the <br> 50 turns coil",
+               "Click on the 50 turns Coil to move towards the 100 turns Coil",
+               "Click on the Move slider button to move the rheostat slider",
+               "Click on the glass sheet",
+               "Click on the 50 turns coil",
+               "Drag and drop the key outside the switch",
+               "Click on the 50 turns coil to decrease the common area",
+               "Click on the 50 turns coil to increase the common area",
+               "Click on the 50 turns Coil to move away <br>from the 100 turns Coil",
+               "Click on the Reset button to redo the experiment",
+               "Click on the Magnet to move the Magnet away from the Coil",
+];
+  $("#checkCir2,#circuitDiagram2,#label2").css({display:"none"})
+  $("#magnetSpeed").attr("disabled", true); 
+  $("#coilSpeed").attr("disabled", true); 
+    setTimeout(function () {
+        mainWidth = $("#mainDiv").width();
+        mainHeight = $("#mainDiv").height();
+        c = document.getElementById("connectionCanvas");
+        ctx = c.getContext("2d");
+        $("#connectionCanvas").css({ width: mainWidth, height: mainHeight });
+        oL = $("#mainDiv").offset().left;
+        pL = $("#mainDiv").position().left;
+        oT = $("#mainDiv").offset().top;
+        pT = $("#mainDiv").position().top;
+        ctx.canvas.width = ctx.canvas.clientWidth;
+        ctx.canvas.height = ctx.canvas.clientHeight;
+    }, 1000);
+    connector('#coilLeft', '#galvanometerLeft', '#cable2');
+    connector('#galvanometerLeft', '#coilLeft', '#cable2');
+    connector('#galvanometerRight', '#coilRight', '#cable1');
+    connector('#coilRight', '#galvanometerRight', '#cable1');
+    getProps("#mainDiv")
+    $('#range').html(1);
+    $('#range2').html(1);
+          $("#checkCir").click(function () {
+            if ($(this).is(":checked")) {
+              removeTrip()
+              $("#circuitDiagram").show();
+              $("#screen1").css({display:"none"})
+            } else {
+              removeTrip()
+              helpcount = 1;
+              $("#circuitDiagram").hide();
+              $("#screen1").css({display:"block"})
+            }
+          });
+          $("#checkCir2").click(function () {
+            removeTrip()
+            if ($(this).is(":checked")) {
+              $("#circuitDiagram2").show();
+              $("#screen2").css({display:"none"})
+            } else {
+              helpcount = 10;
+              removeTrip();
+              $("#circuitDiagram2").hide();
+              $("#screen2").css({display:"block"})
+            }
+          });
+});
+function connector(startPoint, endPoint, connector) {
+    var wireColor = "#000000"
+    var elemX, elemY
+    $(startPoint).draggable({
+        containment: "#mainDiv",
+        revert: function (droped) {
+          if (!droped) {
+            ctx.clearRect(0, 0, mainWidth, mainHeight);
+            elementX = getPercentageWRT(elemX, mainWidth);
+            elementY = getPercentageWRT(elemY, mainHeight);
+            elementX = precisionRound(elementX, 2)
+            elementY = precisionRound(elementY, 2)
+                     $(startPoint).css({
+              left: elementX + "%",
+              top: elementY + "%"
+            });
+            removeTrip();
+            $(endPoint).css({ opacity: 0 });
+          }
+        },
+        start: function () {
+          elemX = $(startPoint).position().left;
+          elemY = $(startPoint).position().top;
+          var elemWidth = $(startPoint).width() / 2;
+          var elemHeight = $(startPoint).height() / 2;
+          startX = elemX;
+          startY = elemY;
+          droperInitPos = $(startPoint).css("left");
+          $(endPoint).css({ opacity: 0.5 });
+        },
+        stop: function () { },
+        drag: function (e, ui) {
+          elemXX = $(startPoint).position().left;
+          elemYY = $(startPoint).position().top;
+          var x = e.clientX - oL - pL;
+          var y = e.clientY - oT - pT;
+          mouseX = e.pageX - $(e.target).offset().left;
+          mouseY = e.pageY - $(e.target).offset().top;;
+          ctx.clearRect(0, 0, mainWidth, mainHeight);
+          ctx.strokeStyle = wireColor;
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(x, y);
+          ctx.stroke();
+        }
+      });
+    $(endPoint).droppable({
+        accept: startPoint.toString(),
+        tolerance: "touch",
+        drop: function () {
+count++;
+            helpcount =1;
+            if(sliderStatus == 1){
+              helpcount =10;
+            }
+            $(endPoint).draggable("disable");
+            $(startPoint).draggable("disable");
+            $(endPoint + "," + startPoint).css({ cursor: "default" });
+            $(endPoint).hide();
+            $(startPoint).hide();
+            removeTrip();
+            droped = true;
+            ctx.clearRect(0, 0, mainWidth, mainHeight);
+            $(connector).show();
+            if(count==2){
+              helpcount =2;
+              clickMagnet();
+            }
+            if(count==8){
+              helpcount = 11;
+              selectExperiment();
+            }
+        }
+    });
+}
+function precisionRound(number, precision) {
+    var factor = Math.pow(10, precision);
+    return Math.round(number * factor) / factor;
+  }                
+function speedValue(value)  // slider to change the speed of the magnet
+{
+  helpcount =4
+  removeTrip()
+  if(sliderStatus ==1){
+    helpcount = 5
+  }
+	magnet_speed = value;
+	$('#range').html(value); 
+  changeSpeed = speed/magnet_speed;
+  rotateValue = 338-(magnet_speed-1)*18
+  rotateValue2 = 380+(magnet_speed-1)*18
+}
+function coilSpeedValue(value)  // slider to change the speed of the 50 turns coil.
+{
+  helpcount = 14;
+  removeTrip()
+	coil_speed = value;
+	$('#range2').html(value); 
+  changeCoilSpeed = speed2/coil_speed;
+  rotateValue3 = 338-(coil_speed-1)*18
+  rotateValue4 = 380+(coil_speed-1)*18
+    if(coil_speed == 1){
+      coilAnimSpeed =5000;
+    }
+    else if(coil_speed == 2){
+      coilAnimSpeed =2500;
+    }
+    else if(coil_speed == 3){
+      coilAnimSpeed = 1650;
+    }
+    else if(coil_speed == 4){
+      coilAnimSpeed = 1300;
+    }
+}
+function clickMagnet(){                           //click the magnet towards the north pole.
+  $("#magnetC1").css({"cursor":"pointer"})
+  $("#magnetC1").click(function(){
+    helpcount = 4;
+    removeTrip()
+    $("#magnetdiv1").css({"opacity":"1","border": "solid 2px green"})
+    $("#magnet").css({"display":"block"})
+    $("#magnetC1").css({"cursor":"default"})
+    $("#magnetSpeed").attr("disabled", false);
+  })
+  $("#checkCir").css({"display":"none"})
+  $("#label").css({"display":"none"})
+  moveMagnet()
+}
+var clickStatus = 0 ;
+function moveMagnet(){      //  move magnet towards the coil.
+  $("#magnet").css({"cursor":"pointer"})
+  $("#magnet").click(function(){
+    helpcount = 4
+    removeTrip()
+    $("#magnetSpeed").prop("disabled",true)
+    switch(parseInt(magnet_speed)){
+      case 1:sliderCheckArr[0] =1;
+             break;
+      case 2:sliderCheckArr[1] =1;
+            break;
+      case 3:sliderCheckArr[2] =1;
+            break;
+      case 4:sliderCheckArr[3] =1;
+            break;
+    }
+    if(clickStatus==0){
+      clickStatus=1;
+      $("#magnet").css({"pointer-events": "none","cursor": "pointer"});
+      $("#magnet").animate({ "left": "41%"},changeSpeed)
+      $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+      helpcount = 26;
+      $("#coil").css({"z-index": "6"})  
+      setTimeout(function(){
+        $("#arrow").css({"transform": "rotate("+rotateValue+"deg)","transform-origin": "bottom"})
+        setTimeout(function(){
+          $("#arrow").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+          $("#magnet").css({"pointer-events": "","cursor": "pointer"});
+          $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+        },500)
+      },900);
+    }                                          
+    else{  
+      helpcount =3;
+      clickStatus=0;
+      $("#magnet").css({"pointer-events": "none","cursor": "pointer"});
+      $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+      $("#magnet").animate({ "left": "61%"},changeSpeed)        //  move magnet away from the coil.
+      setTimeout(function(){
+        $("#arrow").css({"transform": "rotate("+rotateValue2+"deg)","transform-origin": "bottom"})
+        setTimeout(function(){
+          $("#arrow").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+          $("#magnet").css({"pointer-events": "","cursor": "pointer"});
+          $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+          $("#magnetSpeed").prop("disabled",false)  
+          if((sliderCheckArr[0]==1)&&(sliderCheckArr[1]==1)&&(sliderCheckArr[2]==1)&&(sliderCheckArr[3]==1))     
+          {
+            helpcount =6;
+            sliderStatus=1;           
+            $("#magnet").css({"display":"none"})      //magnet hide in canvas (north pole.  
+            $("#magnetC1").css({ "pointer-events": "none"});     //disable the magnet on controls.
+            $("#magnetSpeed").attr("disabled", true); 
+            $("#magnetdiv1").css({"opacity":"0.5","border": "solid 2px gray"})
+            $("#magnetC2").css({"cursor":"pointer"})
+            $("#magnetC2").click(function(){
+              $("#magnetSpeed").attr("disabled", false); 
+              magnet_speed = 1;
+              $("#magnetSpeed" ).val(1)     // refresh the slider value.
+              speedValue(magnet_speed)
+              // helpcount =3;
+              helpcount =5;
+              $("#magnetdiv2").css({"opacity":"1","border": "solid 2px green"})
+              $("#magnetCanvas").css({"display":"block"}) 
+              $("#magnetC2").css({"cursor":"default"})
+              moveMagnet2();
+            })
+          }
+        },500)
+      },900);
+    }
+    });
+}
+var clickStatus2 = 0;
+function moveMagnet2(){
+  $("#magnetCanvas").css({"cursor":"pointer"})
+  $("#magnetCanvas").click(function(){
+    helpcount = 5
+    removeTrip()
+    $("#magnetSpeed").prop("disabled",true)
+    switch(parseInt(magnet_speed)){
+      case 1:sliderCheckArr2[0] =1;
+             break;
+      case 2:sliderCheckArr2[1] =1;
+            break;
+      case 3:sliderCheckArr2[2] =1;
+            break;
+      case 4:sliderCheckArr2[3] =1;
+            break;
+    }
+    if(clickStatus2 == 0){
+      clickStatus2 = 1;
+      $("#magnetCanvas").css({"pointer-events": "none","cursor": "pointer"});
+      $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+      $("#magnetCanvas").animate({ "left": "40%"},changeSpeed)
+      helpcount = 27;
+        setTimeout(function(){
+        $("#arrow").css({"transform": "rotate("+rotateValue2+"deg)","transform-origin": "bottom"})
+        setTimeout(function(){
+          $("#arrow").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+          $("#magnetCanvas").css({"pointer-events": "","cursor": "pointer"});
+          $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+        },500)
+      },900);
+    }
+    else{
+      helpcount = 3;
+      clickStatus2 = 0;
+      $("#magnetCanvas").css({"pointer-events": "none","cursor": "pointer"});
+      $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+      $("#magnetCanvas").animate({ "left": "61%"},changeSpeed)
+        setTimeout(function(){
+        $("#arrow").css({"transform": "rotate("+rotateValue+"deg)","transform-origin": "bottom"})
+        setTimeout(function(){
+          $("#arrow").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+          $("#magnetCanvas").css({"pointer-events": "","cursor": "pointer"});
+          $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+          $("#magnetSpeed").prop("disabled",false)  
+          if((sliderCheckArr2[0]==1)&&(sliderCheckArr2[1]==1)&&(sliderCheckArr2[2]==1)&&(sliderCheckArr2[3]==1))     
+          {
+            $("#magnetdiv2").css({"opacity":"0.5","border": "solid 2px gray"})
+            $("#magnetCanvas").css({"display":"none"})      //magnet hide in canvas (south pole) 
+            $("#magnetC2").css({ "pointer-events": "none"});     //disable the magnet on controls.
+            helpcount =7;
+            $("#inference").css({"display":"block"})
+            $("#magnetSpeed").prop("disabled",true)  
+            $(".nextbutton").click(function(){
+              removeTrip()
+              $("#inference").css({"display":"none"})
+              $("#screen2").show();                 // screen - 2
+              helpcount = 9;
+              $("#slider1").hide();
+              $("#screen1").hide(); 
+              $("#controlDiv1").css({display:"none"})
+              $("#controlDiv2").css({display:"block"})
+              $("#exp").attr("disabled", true);         //disable drop-down
+              $("#checkCir,#circuitDiagram,#label").css({display:"none"})
+              $("#checkCir2,#label2").css({display:"block"})
+              connector('#galvanometer2Left', '#coil_100_left','#wire3');
+              connector('#coil_100_left','#galvanometer2Left', '#wire3');
+              connector('#galvanometer2right', '#coil_100_right','#wire4');
+              connector('#coil_100_right', '#galvanometer2right','#wire4');
+              connector('#rhLowerend', '#coil_50_left','#wire5');
+              connector('#coil_50_left', '#rhLowerend','#wire5');
+              connector('#rhUpperend', '#switchleft','#wire6');
+              connector('#switchleft', '#rhUpperend','#wire6');
+              connector('#batteryright', '#switchright','#wire7');
+              connector('#switchright', '#batteryright','#wire7');
+              connector('#batteryleft', '#coil_50_right','#wire8');
+              connector('#coil_50_right', '#batteryleft','#wire8');
+            })
+          }
+        },500)
+      },900);
+    }
+  });
+}
+var val;
+var rhClickStatus =0;
+function selectExperiment(){
+  $("#checkCir2").css({"display":"none"})
+  $("#label2").css({"display":"none"})
+  $("#exp").attr("disabled", false);     //enable drop-down
+  $("#exp").change(function () {    //drop down change   
+    removeTrip()
+    val = $("#exp").val();
+    // ******************  select option-1 (Induced emf by moving coil) **********************//
+    if(val == 1){    
+      expCount++;
+      $(".key").css({ left: 62 + "%", top: 54 + "%" })    // key outside the key holder 
+      $("#exp").attr("disabled", true); 
+      $("#labelhead2,#screen3,#screen4,#screen5,#secondExpLabel,#move,#inference").css({"display":"none"})
+      $("#screen2,#slider1,#expName1,#labelhead1").css({"display":"block"})
+    helpcount = 12;
+      $(".key").draggable("enable")               // drag and drop the key to switch (close key)
+  $(".key").css({"cursor":"pointer","z-index": "11"})
+  $(".key").draggable(
+    {
+      containment: "#mainDiv",
+      revert: "invalid",
+      drag: function () {
+        removeTrip();
+      }
+    })
+    $(".keyDropArea1").droppable(
+      {
+        accept: ".key",
+        tolerance: "touch",
+        drop: function () {
+          helpcount = 14;
+          $("#coilSpeed").attr("disabled", false); 
+          $(".key").css({ left: 83 + "%", top: 25 + "%" })
+          $(".key").draggable("disable")
+          $(".key").css({ "cursor": "default" });
+          $("#arrow2").css({"transform": "rotate("+338+"deg)","transform-origin": "bottom"})
+          setTimeout(function(){
+            $("#arrow2").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+          },500)
+          $("#coil_50").css({"cursor":"pointer","z-index":"10"})
+      $("#coil_50").click(function(){   //click the 50 turns coil
+        removeTrip()
+        $("#exp option[value='1']").attr("disabled", true);  //disable option1
+        switch(parseInt(coil_speed)){
+          case 1:sliderCheckArr3[0] =1;
+                 break;
+          case 2:sliderCheckArr3[1] =1;
+                break;
+          case 3:sliderCheckArr3[2] =1;
+                break;
+          case 4:sliderCheckArr3[3] =1;
+                break;
+        }
+          $("#coilForward").css({"display":"block"})
+          $("#coil_50,#wire5,#wire8").css({"display":"none"})
+          $(".coilForwardclass").css({"z-index":"10"})
+          $("#coilSpeed").attr("disabled", true);
+          ImageAnimationOneTime("coilForwardclass", "coilForwarding", ImagcoilForward, changeCoilSpeed, 0) //coilForward Animation
+          animCount=1;
+          $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+          setTimeout(function(){
+            $("#arrow2").css({"transform": "rotate("+rotateValue3+"deg)","transform-origin": "bottom"})  ////needle animation
+            setTimeout(function(){
+              $("#arrow2").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+              $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+            },500)
+            helpcount = 15;
+            $("#coilForwardingDiv").click(function(){
+              helpcount =13;
+              removeTrip()
+              $(".coilBackwardclass").css({"z-index":"10"})
+              $("#coilForwardingDiv,#coilForwarding49").css({"display":"none"})
+              ImageAnimationOneTime("coilBackwardclass", "coilBackwarding", ImagcoilBackward, changeCoilSpeed, 0) //coilBackward Animation
+              animCount=2;
+              $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+              setTimeout(function(){
+                $("#arrow2").css({"transform": "rotate("+rotateValue4+"deg)","transform-origin": "bottom"})  ////needle animation
+                setTimeout(function(){
+                  $("#arrow2").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                  $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+                },500)
+                $("#coilSpeed").attr("disabled", false);
+                if((sliderCheckArr3[0]==1)&&(sliderCheckArr3[1]==1)&&(sliderCheckArr3[2]==1)&&(sliderCheckArr3[3]==1))     
+                  {
+                    inferenceCount = 1;
+                    helpcount = 7;
+                  $("#inference").css({"display":"block"})
+                  $("#coilSpeed").attr("disabled", true);
+                  $("#exp").attr("disabled", false); 
+                  }  
+              },coilAnimSpeed);
+            })
+        },coilAnimSpeed)   
+      })
+        }
+      })  
+    }
+    // ******************  select option-2  (Induced emf by changing current) **********************//
+    else if (val == 2){  
+      expCount++;
+      $(".key").css({ left: 62 + "%", top: 54 + "%" })       // key outside the key holder 
+      $("#exp").attr("disabled", true); 
+      $("#inference").css({"display":"none"})
+      $("#screen2,#screen4,#screen5,#labelhead1,#slider1").css({"display":"none"})
+      $("#labelhead2,#screen3").css({"display":"block"})
+      $("#wire3,#wire4,#wire5,#wire6,#wire7,#wire8,#move").css({"display":"block"})
+      helpcount = 23;
+      $(".key").draggable("enable")         // close key 
+      $(".key").css({"cursor":"pointer","z-index": "11"})
+      $(".key").draggable(
+        {
+          containment: "#mainDiv",
+          revert: "invalid",
+          drag: function () {
+            removeTrip();
+          }
+        })
+        $(".keyDropArea1").droppable(
+          {
+            accept: ".key",
+            tolerance: "touch",
+            drop: function () {
+              helpcount = 16;
+              $(".key").css({ left: 83 + "%", top: 25 + "%" })
+              $(".key").draggable("disable")
+              $(".key").css({ "cursor": "default" });
+              $("#move").attr("disabled", false); 
+              $("#move").click(function(){
+              if(rhClickStatus==0){
+                removeTrip()
+                rhClickStatus=1;
+                  $("#move").attr("disabled", true);
+                  $(".rheo_move").animate({  "left": "56%"})
+                  setTimeout(function(){
+                    $("#arrow3").css({"transform": "rotate("+415+"deg)","transform-origin": "bottom"})
+                        setTimeout(function(){
+                          $("#arrow3").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                          $("#move").attr("disabled", false);
+                        },500)
+                  },500);
+              }
+              else{
+                rhClickStatus=0;
+                removeTrip()
+                  $("#move").attr("disabled", true);
+                  $(".rheo_move").animate({ "left": "41%"})
+                  setTimeout(function(){
+                    $("#arrow3").css({"transform": "rotate("+304+"deg)","transform-origin": "bottom"})
+                      setTimeout(function(){
+                        $("#arrow3").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                        inferenceCount =2;
+                        helpcount = 7;
+                            $("#inference").css({"display":"block"})
+                            $("#exp").attr("disabled", false); 
+                            $("#exp option[value='2']").attr("disabled", true);
+                            $("#move").attr("disabled", false);
+                      },500);
+                  },500)
+              }
+            });
+            }
+          })
+    }
+    // ******************  select option-3   (Induced emf by closing or opening key) **********************//
+    else if (val == 3){  
+      expCount++;
+      $("#move").css({"display":"none"});
+      $(".key").css({ left: 69 + "%", top: 48 + "%" })       // key outside the key holder 
+      $("#exp").attr("disabled", true); 
+      $("#inference").css({"display":"none"})
+      $("#exp option[value='3']").attr("disabled", true); 
+      $("#screen2,#screen3,#screen5,#labelhead2,#slider1").css({"display":"none"})
+      $("#screen4,#glasssheet").css({"display":"block"})
+      helpcount = 17;
+      $("#glasssheet").click(function(){
+        removeTrip()
+        helpcount = 18;
+      $("#glasssheet").hide();
+      $("#glasssheetCanvas").show();
+      $("#coilLiftArea").css({"cursor":"pointer"})
+      $("#coilLiftArea").click(function(){
+        removeTrip()
+        helpcount =19;
+        $("#coils,#glasssheetCanvas").hide();
+        ImageAnimationOneTime("coilLiftclass", "coilLifting", ImgcoilLift, 100, 0) //     coilLift Animation
+         animCount=3;
+         $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+        setTimeout(function(){
+        // $("#coilLifting49").show();
+        $("#coilLiftArea").hide();
+        $(".key").draggable("enable")         // close key (drag &drop key in to key holder)
+        $(".key").css({"cursor":"pointer","z-index": "11"})
+        $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+        $(".key").draggable(
+          {
+            containment: "#mainDiv",
+            revert: "invalid",
+            drag: function () {
+              removeTrip();
+            }
+          })
+          $("#keyDropArea3").droppable(
+            {
+              accept: ".key",
+              tolerance: "touch",
+              drop: function () {
+                // helpcount = 16;
+                $(".key").css({ left: 82 + "%", top: 31 + "%" })
+                $(".key").draggable("disable")
+                $(".key").css({ "cursor": "default" });
+                $("#arrow4").css({"transform": "rotate("+304+"deg)","transform-origin": "bottom"})
+                setTimeout(function(){
+                  $("#arrow4").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                  $("#exp").attr("disabled", false); 
+                  inferenceCount =3;
+                  helpcount = 7;
+                  $("#inference").css({"display":"block"})
+                  $(".key").css({"cursor":"pointer","z-index": "11"})
+                  $(".key").draggable("enable")      // open key 
+                   $(".key").draggable(
+                      {
+                        containment: "#mainDiv",
+                        revert: "invalid",
+                        drag: function () {
+                        removeTrip();
+                        $("#inference").css({"display":"none"})
+                          }
+                      })
+                  $(".keyDropArea2").droppable(
+                      {
+                        accept: ".key",
+                        tolerance: "touch",
+                        drop: function () {
+                        $(".key").css({ left: 62 + "%", top: 54 + "%" })
+                        $(".key").draggable("disable")
+                        $("#arrow4").css({"transform": "rotate("+417+"deg)","transform-origin": "bottom"})
+                        setTimeout(function(){
+                        $("#arrow4").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                        inferenceCount =4;
+                        helpcount = 7;
+                        $("#inference").css({"display":"block"})
+                        $("#nextbutton2").click(function(){
+                          removeTrip()
+                          helpcount = 24;
+                        $("#inference,#screen4").css({"display":"none"})
+                        $("#screen5").css({"display":"block"})
+                      })
+                        $(".key").css({ left: 62 + "%", top: 54 + "%" })   //// key outside the key holder 
+                        $(".key").draggable("enable")         // close key (drag &drop key in to key holder)
+                        $(".key").css({"cursor":"pointer","z-index": "11"})
+                        $(".key").draggable(
+                          {
+                            containment: "#mainDiv",
+                            revert: "invalid",
+                            drag: function () {
+                              removeTrip();
+                            }
+                          })
+                          $("#keyDropArea4").droppable(
+                            {
+                              accept: ".key",
+                              tolerance: "touch",
+                              drop: function () {
+                                // helpcount = 16;
+                                $(".key").css({ left: 82 + "%", top: 31 + "%" })
+                                $(".key").draggable("disable")
+                                $(".key").css({ "cursor": "default" });
+                                $("#coilAwayDiv").css({"display":"block"})
+                                helpcount = 21;
+                        $("#coilAwayDiv").click(function(){
+                          removeTrip();
+                          $("#coil-lift-last").css({"display":"none"})
+                           ImageAnimationOneTime("coilAwayclass", "coilAwayfromGlass", ImgcoilAway, 100, 0)//  coil away from 100-turns coil Animation.
+                            animCount=4;
+                            $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+                          setTimeout(function(){
+                            $("#arrow5").css({"transform": "rotate("+415+"deg)","transform-origin": "bottom"})
+                            setTimeout(function(){
+                              $("#arrow5").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                              $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+                            },500)
+                            // $("#coilAwayfromGlass49").css({"display":"block"})
+                            $("#coilAwayDiv").css({"display":"none"})
+                            // $("#coilTowardsDiv").css({"display":"block"})
+                            helpcount = 22;
+                            $("#coilTowardsDiv").click(function(){
+                              removeTrip();
+                              $("#coilAwayfromGlass49").css({"display":"none"})
+                              ImageAnimationOneTime("coilTowardsclass", "coilTowardsfromGlass", ImgcoilTowards, 100, 0) //  coil towards from 100-turns coil Animation.
+                                animCount=5;
+                                $("#simHelp").css({"pointer-events": "none","cursor": "none"});
+                              setTimeout(function(){
+                                $("#arrow5").css({"transform": "rotate("+304+"deg)","transform-origin": "bottom"})
+                                setTimeout(function(){
+                                  $("#arrow5").css({"transform": "rotate(0deg)","transform-origin": "bottom"})
+                                  $("#simHelp").css({"pointer-events": "","cursor": "pointer"});
+                                },500)
+                                $("#coilTowardsDiv").css({"display":"none"})
+                                $("#exp").attr("disabled", false); 
+                                inferenceCount =5;
+                                helpcount = 7;
+                                $("#inference").css({"display":"block"})
+                              },6000)
+                            })
+                          },5000)
+                        })
+                              }
+                            });
+                  },500)
+                  }
+                  });
+                },500);
+              }
+            });
+        },5000);
+      });
+      });
+    }
+  });
+}
+//===================== ANIMATION FUNCTION ===============
+function ImageInitLoad(ANIMATIONImageArray, ANIMATIONDivName, ANIMATIONImageIdName, ANIMATIONImageClassName) {
+
+  for (var ANIMATIONForloop = 0; ANIMATIONForloop < ANIMATIONImageArray.length; ANIMATIONForloop++) {
+
+      var $tempx2 = $("<img src='" + ANIMATIONImageArray[ANIMATIONForloop] + "'/>").attr({ id: ANIMATIONImageIdName + ANIMATIONForloop, class: ANIMATIONImageClassName, display: "none" });
+
+      $("#" + ANIMATIONDivName).append($tempx2);
+
+  }
+
+}
+function ImageAnimationOneTime(ANIMATIONImageClassName, ANIMATIONImageIdName, ANIMATIONImageArray, ANIMATIONSpeed, ANIMATIONTimes) {
+
+  var GlobalVariable = 0;
+
+  var ANIMATIONTimesReached = 0;
+
+  var CLEARImageAnimation = setInterval(function () {
+
+      $('#' + ANIMATIONImageIdName + (GlobalVariable - 1)).css({ 'display': 'none' });
+
+      $('#' + ANIMATIONImageIdName + GlobalVariable).css({ 'display': 'block' });
+
+      GlobalVariable++;
+
+      if (GlobalVariable == ANIMATIONImageArray.length) {
+
+          $('.' + ANIMATIONImageClassName).css({ 'display': 'none' });
+
+          $('#' + ANIMATIONImageIdName + (0)).css({ 'display': 'block' });
+
+          if (ANIMATIONTimesReached >= ANIMATIONTimes) {
+
+              $('.' + ANIMATIONImageClassName).css({ 'display': 'none' });
+              if(animCount ==1)
+						    userDefinedFunctionForAnimate();
+              else if(animCount==2)
+                userDefinedFunction2ForAnimate();
+              else if(animCount==3)
+                userDefinedFunction3ForAnimate();
+              else if(animCount==4)
+                userDefinedFunction4ForAnimate();
+              else if(animCount==5)
+                userDefinedFunction5ForAnimate();
+              clearInterval(CLEARImageAnimation);
+          }
+          else {
+              GlobalVariable = 0;
+              ANIMATIONTimesReached++;
+          }
+      }
+  }, ANIMATIONSpeed);
+}
+function userDefinedFunctionForAnimate(){
+    $("#coilForwarding49").css({"display":"block"})
+    $("#coilForwardingDiv").css({"display":"block"})
+}
+function userDefinedFunction2ForAnimate(){
+  $("#coil_50,#wire5,#wire8").css({"display":"block"})
+}
+function userDefinedFunction3ForAnimate(){
+  $("#coilLifting49").show();
+}
+function userDefinedFunction4ForAnimate(){
+  $("#coilAwayfromGlass49").css({"display":"block"})
+  $("#coilTowardsDiv").css({"display":"block"})
+}
+function userDefinedFunction5ForAnimate(){
+  $("#coilTowardsfromGlass59").css({"display":"block"})
+}

@@ -1,0 +1,414 @@
+@font-face {
+	font-family: MRKGPEN;
+	src: url(MRKGPEN.TTF);
+}
+@font-face {
+	font-family: digi;
+	src: url(DS-DIGII.TTF);
+}
+.userSelect {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.main {
+	overflow: hidden;
+}
+.varResult {
+	padding: 5px 0px 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	color: #000;
+	text-align: left;
+}
+.posAbso{
+	position:absolute;
+}
+#popupMsg{
+  position: absolute;
+  left: 7px;
+  top: 18px;
+  font-size: 1.7em;
+  font-family: MRKGPEN;
+  width: 114px;
+  text-align: center;
+}
+#components{
+	position: absolute;
+	left: 5px;
+	top: -10px;
+}
+#rightVal{
+	padding-left:2px;
+	cursor: default;
+}
+#sliderspan{
+	padding-left:1px;
+}
+#rightmaxvals2{
+	padding-left:140px;
+}
+#rightmaxvals{
+	padding-left:140px;
+}
+#rightmaxvals1{
+	padding-left:145px;
+}
+#firstPrimCell{
+	position: absolute;
+	left: 149px;
+	top: 275px;
+}
+#secondPrimCell{
+	position: absolute;
+	left: 234px;
+	top: 241px;
+}
+.terminals{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+
+}
+.connections{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 570px;
+	height: 345px;
+}
+#rheoBottom{
+	left: 341px;
+	top: 51px;
+}
+
+#ammeterPosi{
+	left: 93px;
+	top: 55px;
+}
+#rheo_ammeter{
+	position: absolute;
+	left: 105px;
+	top: 58px;
+	display: none;
+}
+#ammeterNegative{
+	left: 60px;
+	top: 55px;
+}
+#switch_1w_T1{
+	left: 40px;
+	top: 145px;
+}
+#ammeter_1w_T1{
+	left: 50px;
+	top: 61px;
+	display: none;
+}
+#switch_1w_T2{
+	left: 77px;
+	top: 145px;
+}
+#batteryNegative{
+	left: 25px;
+	top: 235px;
+}
+#oneWay_T2_batteryNegative{
+	left: 37px;
+	top: 148px;
+	display: none;
+}
+#batteryPositive{
+	left: 85px;
+	top: 235px;
+}
+#terminalP_1,#terminalP_2,#terminalP_3{
+	left: 203px;
+	top: 190px;
+}
+#batteryPositive_terminalP_1{
+	left: 100px;
+	top: 202px;
+	display: none;
+}
+#firstCellPos{
+	left: 146px;
+	top: 265px;
+}
+#firstCellPos_terminalP_2{
+	left: 163px;
+	top: 201px;
+	display: none;
+}
+#secondCellPos{
+	left: 235px;
+	top: 231px;
+}
+#secondCellPos_terminalP_3{
+	left: 216px;
+	top: 200px;
+	display: none;
+}
+#firstCellNeg{
+	left: 163px;
+	top: 267px;
+}
+#twoWay_T1{
+	left: 274px;
+	top: 301px;
+}
+#firstCellNeg_twoWay_T1{
+	left: 173px;
+	top: 275px;
+	display: none;
+}
+#secondCellNeg{
+	left: 246px;
+	top: 235px;
+}
+#twoWay_T2{
+	left: 271px;
+	top: 288px;
+}
+#secondCellNeg_twoWay_T2{
+	left: 258px;
+	top: 245px;
+	display: none;	
+}
+#twoWay_T3{
+	left: 324px;
+	top: 295px;
+}
+#resisBox_T1{
+	left: 516px;
+	top: 244px;
+}
+#twoWay_T3_resisBox_T1{
+	left: 336px;
+	top: 257px;
+	display: none;	
+}
+#resisBox_T2{
+	left: 482px;
+	top: 244px;
+}
+#galvanoPos{
+	left:417px;
+	top: 268px;
+}
+#resisBox_T2_galvanoPos{
+	left: 431px;
+	top: 258px;
+	display: none;
+}
+#jockey{
+	left: 239px;
+	top: 187px;
+	height: 40px;
+}
+#galvanoNeg{
+	left: 382px;
+	top: 265px;
+}
+#jockey_img{
+	left: 10px;
+	top: 10px;
+}
+#jockeyPoint{
+	left: 236px;
+	top: 211px;
+}
+#galvanoNeg_jockeyPoint{
+	left: 250px;
+	top: 223px;
+	display: none;
+}
+#terminalQ{
+	left: 203px;
+	top: 111px;
+}
+#rheoTop{
+	left: 485px;
+	top: 0px;
+}
+#terminalQ_rheoTop{
+	left: 216px;
+	top: 13px;
+	display: none;
+}
+#oneWayKey{
+	left: 60px;
+	top: 125px;
+}
+#oneWayKey_img{
+	left: 10px;
+	top: 10px;
+}
+#oneWayCover{
+	left: 49px;
+	top: 169px;
+}
+#twoWayKey{
+	left: 295px;
+	top: 262px;
+}
+#twoWayKey_img{
+	left: 10px;
+	top: 10px;
+}
+#twoWayCover{
+	left: 305px;
+	top: 310px;
+}
+#twoWayCover2{
+	left: 309px;
+	top: 318px;
+}
+#oneWayDropArea{
+	position: absolute;
+	left: 46px;
+	top: 150px;
+	width: 50px;
+	height: 30px;
+}
+#twoWayDropArea{
+	position: absolute;
+	left: 288px;
+	top: 287px;
+	width: 50px;
+	height: 40px;
+}
+#rheostatTop{
+	left: 443px;
+	top: 4px;
+}
+.readings{
+	position: absolute;
+	width: 49px;
+    height: 22px;
+    font-family: digi;
+    font-size: 22px;
+    text-align: center;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+}
+#ammeterValue{
+	left:66px;
+	top: 28px; 
+}
+#galvanoValue{
+	left: 386px;
+	top: 242px;
+}
+#popup_img{
+	position: absolute;
+	left: -17px;
+	top: -32px;
+	display: none;
+}
+#jockeyReading{
+	position: absolute;
+	width: 44px;
+	height: 16px;
+	left: -9px;
+	top: -27px;
+	font-size: 18px;
+	text-align: center;
+	display: none;
+}
+#circuit{
+	position: absolute;
+	left: 2px;
+	top:3px;
+	cursor: pointer;
+}
+#circuit_txt{
+	position: absolute;
+	left: 21px;
+	top:4px;
+	font-size: 14px;
+	color: #ffffff;
+	width: 130px;
+    height: 15px;
+    cursor: default;
+}
+#circuit_img{
+	position: absolute;
+	left: 6px;
+	top: 6px;
+	width: 549px;
+    height: 327px;
+	display: none;
+	background-color: rgba(174, 177, 198, 0.9);
+}
+#resultWrap{
+	width: 182px;
+	height: 30px;
+}
+#result{
+	margin: 0px 0 0px 44px;
+	cursor: pointer;
+}
+#result_txt{
+	padding: 0px 0px 0px 0px;
+    cursor: default;
+}
+#resultLabel{
+	margin: 7px 0px 0px 55px;
+	font-size: 15px;
+	display: none;
+}
+#helpPoint{
+	left: 153px;
+	top: 111px;
+}
+#rsisBoxLbl{
+	position: absolute;
+	left: 498px;
+	top: 290px;
+}
+#lineGlow{
+	position: absolute;
+	left: 242px;
+	top: 197px;
+	display: none;
+}
+#popup_txt{
+  position: absolute;
+  left: 63px;
+  top: 21px;
+  font-size: 1.2em;
+  font-family: MRKGPEN;
+  width: 114px;
+  text-align: center;
+  cursor: default;
+}
+#popupMsg{
+  position: absolute;
+  left: 20px;
+  top: 59px;
+  display: none;
+}
+#popup_2_txt{
+  position: absolute;
+  left: 5px;
+  top: 21px;
+  font-size: 1.8em;
+  font-family: MRKGPEN;
+  width: 114px;
+  text-align: center;
+  cursor: default;
+}
+#popupMsg_2{
+  position: absolute;
+  left: 165px;
+  top: 230px;
+  display: none;
+}

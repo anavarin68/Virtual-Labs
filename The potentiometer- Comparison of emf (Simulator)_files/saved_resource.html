@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/font.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/reset.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/grid.css">
+<link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/nanoscroller.css" rel="stylesheet" type="text/css">
+<script src="./saved_resource_files/overthrow.min.js.download"></script>
+<script src="./saved_resource_files/jquery-1.7.1.js.download"></script>
+<script src="./saved_resource_files/jquery.nanoscroller.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/touchready.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/main.js.download"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" language="javascript">var simPath="../PHY/EMM/EMF_of_Two_Primary_Cells/";</script>
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/trip.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.i18n.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/help.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/trip.min.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/simcontrols.js.download"></script>
+<script src="./saved_resource_files/jquery-ui.min.js.download" language="javascript"></script>
+
+
+<script type="text/javascript" language="javascript" src="./saved_resource_files/touchconvert.js.download"></script>
+<script language="javascript">
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	gt.gettext.setLocale(language);
+</script>
+<script type="text/javascript" src="./saved_resource_files/language.json"></script>
+
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./saved_resource_files/modernizr-custom.js.download"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+</head>
+<body>
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName" style="size: 11px;">Potentiometer - Comparison of emf</p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+<script type="text/javascript" language="javascript">var simPath="../PHY/EMM/EMF_of_Two_Primary_Cells/";</script>
+
+<div id="mainDiv" class="userSelect">
+  <img id="bg" class="posAbso" src="./saved_resource_files/BG.png">
+  <img id="components" class="posAbso" src="./saved_resource_files/objects-total.png">
+  <img id="rsisBoxLbl" class="posAbso" src="./saved_resource_files/resistance_box_label.png">
+  <img id="lineGlow" class="posAbso" src="./saved_resource_files/lineGlow.png">
+  <div id="ammeterValue" class="readings">0.000</div>
+  <div id="galvanoValue" class="readings">0</div>
+  <canvas id="connectionDrawing" class="connections"></canvas>
+  <img id="rheostatTop" class="posAbso" src="./saved_resource_files/rheostat_top.png" style="left: 443px;">
+  <img id="rheo_ammeter" class="posAbso" src="./saved_resource_files/Ammeter_rheo_wire.png">
+  <img id="ammeter_1w_T1" class="posAbso" src="./saved_resource_files/Ammeter_switch_wire.png">
+  <img id="oneWay_T2_batteryNegative" class="posAbso" src="./saved_resource_files/Switch_battery_wire.png">
+  <img id="batteryPositive_terminalP_1" class="posAbso" src="./saved_resource_files/Battery_poten.png">
+  <img id="firstCellPos_terminalP_2" class="posAbso" src="./saved_resource_files/Cell_poten_wire2.png">
+  <img id="secondCellPos_terminalP_3" class="posAbso" src="./saved_resource_files/Cell_poten_wire1.png">
+  <img id="firstCellNeg_twoWay_T1" class="posAbso" src="./saved_resource_files/Switch_cell_wire1.png">
+  <img id="secondCellNeg_twoWay_T2" class="posAbso" src="./saved_resource_files/Switch_cell_wire2.png">
+  <img id="twoWay_T3_resisBox_T1" class="posAbso" src="./saved_resource_files/res_box_switch_wire.png">
+  <img id="resisBox_T2_galvanoPos" class="posAbso" src="./saved_resource_files/Galva_resis_wire.png">
+  <img id="galvanoNeg_jockeyPoint" class="posAbso" src="./saved_resource_files/jockey_galvo_wire.png">
+  <img id="terminalQ_rheoTop" class="posAbso" src="./saved_resource_files/Rheo_poten_wire.png">
+  <img id="firstPrimCell" class="posAbso" onmouseover="cellOneOver()" onmouseout="hidePopUp()" src="./saved_resource_files/dechlacheCell.png">
+  <img id="secondPrimCell" class="posAbso" onmouseover="cellTwoOver()" onmouseout="hidePopUp()" src="./saved_resource_files/dechlacheCell.png">
+  <div id="oneWayDropArea" class="ui-droppable"></div>
+  <div id="twoWayDropArea" class="ui-droppable"></div>
+  <div id="rheoBottom" class="terminals ui-draggable ui-droppable"></div>
+  <div id="ammeterPosi" class="terminals ui-droppable ui-draggable"></div>  
+  <div id="ammeterNegative" class="terminals ui-draggable ui-droppable"></div>
+  <div id="switch_1w_T1" class="terminals ui-droppable ui-draggable"></div>
+  <div id="switch_1w_T2" class="terminals ui-draggable ui-droppable"></div>
+  <div id="batteryNegative" class="terminals ui-droppable ui-draggable"></div>
+  <div id="batteryPositive" class="terminals ui-draggable ui-droppable"></div>
+  <div id="terminalP_3" class="terminals ui-droppable ui-draggable"></div>
+  <div id="terminalP_2" class="terminals ui-droppable ui-draggable"></div>
+  <div id="terminalP_1" class="terminals ui-droppable ui-draggable"></div>
+  <div id="firstCellPos" class="terminals ui-draggable ui-droppable"></div>
+  <div id="secondCellPos" class="terminals ui-draggable ui-droppable"></div>
+  <div id="firstCellNeg" class="terminals ui-draggable ui-droppable"></div>
+  <div id="twoWay_T1" class="terminals ui-droppable ui-draggable"></div>
+  <div id="secondCellNeg" class="terminals ui-draggable ui-droppable"></div>
+  <div id="twoWay_T2" class="terminals ui-droppable ui-draggable"></div>
+  <div id="twoWay_T3" class="terminals ui-draggable ui-droppable"></div>
+  <div id="resisBox_T1" class="terminals ui-droppable ui-draggable"></div>
+  <div id="resisBox_T2" class="terminals ui-draggable ui-droppable"></div>
+  <div id="galvanoPos" class="terminals ui-droppable ui-draggable"></div>
+  <div id="galvanoNeg" class="terminals ui-draggable ui-droppable"></div>
+  <div id="terminalQ" class="terminals ui-draggable ui-droppable"></div>
+  <div id="rheoTop" class="terminals ui-droppable ui-draggable"></div>
+  <div id="helpPoint" class="terminals"></div>
+  <div id="popupMsg">
+    <img class="posAbso" src="./saved_resource_files/popup.png">
+    <p id="popup_txt">Insert key</p>
+  </div>
+  <div id="popupMsg_2">
+    <img class="posAbso" src="./saved_resource_files/popup.png">
+    <p id="popup_2_txt"></p>
+  </div>
+  <div id="oneWayKey" class="posAbso terminals ui-draggable ui-draggable-disabled ui-state-disabled" aria-disabled="true"><img id="oneWayKey_img" class="posAbso" src="./saved_resource_files/key_oneWay.png"></div>
+  <img id="oneWayCover" class="posAbso" src="./saved_resource_files/key_oneWay_cover.png">
+  <div id="twoWayKey" class="posAbso terminals ui-draggable ui-draggable-disabled ui-state-disabled" aria-disabled="true"><img id="twoWayKey_img" class="posAbso" src="./saved_resource_files/key_twoWay.png"></div>
+  <img id="twoWayCover" class="posAbso" src="./saved_resource_files/key_twoWay_cover.png">
+  <img id="twoWayCover2" class="posAbso" src="./saved_resource_files/key_twoWay_cover2.png">
+  <div id="jockey" class="posAbso terminals ui-draggable ui-draggable-disabled ui-state-disabled" aria-disabled="true">
+    <img id="jockey_img" class="posAbso" src="./saved_resource_files/jockey.png">
+    <img id="popup_img" class="posAbso" src="./saved_resource_files/tooltip.png">
+    <div id="jockeyReading">0</div>
+  </div>
+  <div id="jockeyPoint" class="terminals ui-droppable ui-draggable"></div>
+  <img id="circuit_img" class="posAbso" src="./saved_resource_files/CircuitDiagram.png" style="display: none;">
+  <input type="checkbox" id="circuit" name="circuit"> <div id="circuit_txt">Show circuit diagram</div>
+  
+</div>
+</div>
+</div>
+<div class="g198 controlHolder">
+<div class="nano has-scrollbar">
+<ul style="right: -17px;" tabindex="0" class="overthrow content description">    
+    <li> 
+        <div class="varBox"> 
+         <p class="varTitle" id="Ins1">Select the first primary cell: </p> 
+            <!---     First primary cell      -->
+            <select class="dropBox" id="firstCell" style="width:150px; margin:4px 0px 4px 20px;"><option value="0">Leclanche cell (1.5V)</option><option value="1">Daniel cell (1.08V)</option><option value="2">Other cell</option></select>
+            <br> 
+             <p class="varTitle" id="Ins2">Select the second primary cell:</p>
+             <!---    Second primary cell     -->
+            <select class="dropBox" id="secondCell" style="width:150px; margin:4px 0px 4px 20px;"><option value="0">Leclanche cell (1.5V)</option><option value="1">Daniel cell (1.08V)</option><option value="2">Other cell</option></select><br><br>
+            
+            <!---emf of first cell---->
+            <span class="varTitle" id="slidertxt1">Emf of first other cell:</span>
+            <span id="sliderspan1" class="varTitle">0.5 V</span><br>
+            <input style="margin:4px 0px 0px 20px;width:150px;" type="range" class="rangeSlider" min="0.5" max="2" id="slide_val2" name="slide_val2" disabled="disabled" value="0.5" step="0.1" oninput="setfirstEmf(this.value)"><br>
+            <span id="rightminvals2" class="varTitle">0.5</span>
+            <span id="rightmaxvals2" class="varTitle">2</span><br><br> 
+           <!---emf of second cell---->
+            <span class="varTitle" id="Ins01">Emf of second other cell:</span>
+            <span id="rightVal" class="varTitle">0.5V</span> 
+            <input style="margin:4px 0px 0px 20px;width:150px;" type="range" class="rangeSlider" min="0.5" max="2" id="slide_val1" name="slide_val1" disabled="" value="0.5" step="0.1" oninput="setsecondEmf(this.value)"><br>
+            <span id="rightminvals" class="varTitle">0.5</span>
+            <span id="rightmaxvals" class="varTitle">2</span><br><br>
+           
+            <!---Rheostat to set resistance ---->
+            <span class="varTitle" id="slidertxt" style="padding:0px 0px 0px 12px;">Rheostat reistance:</span>
+            <span id="sliderspan" class="varTitle">1 Ω</span><br>
+            <input style="margin:4px 0px 0px 20px;width:150px;" type="range" class="rangeSlider" min="1" max="10" id="slide_val3" name="slide_val3" value="1" step="1" onmousemove="setResistance(this.value)" oninput="setResistance(this.value)"><br>
+            <span id="rightminvals1" class="varTitle">1</span>
+            <span id="rightmaxvals1" class="varTitle">10</span><br><br>
+            <input type="checkbox" id="result" name="result"> <span id="result_txt" class="varTitle">Show result</span>
+            <p id="resultLabel">L1/L2 = 0.7 cm</p>
+           <!-- 
+            <br />
+			<p align="center"><input type="button" class="subButton" id="inserKey_1"/></p>
+            <br />
+            <p align="center"><input type="button" class="subButton" id="inserKey_2"/></p>
+            <br />
+            <p align="center"><input type="button" class="subButton" id="inserKey_3"/></p>
+            <br /><br /> -->
+            <br><br>
+			<p align="center"><input type="button" class="subButton" id="reload" value="Reset"></p><br>
+        </div>
+    </li>
+</ul>
+
+
+<div class="pane"><div class="slider" style="height: 293px; top: 0px;"></div></div><div class="pane"><div class="slider" style="height: 293px; top: 0px;"></div></div></div></div>
+<script type="text/javascript">
+ var expTitle="Potentiometer - Comparison of emf";
+ document.getElementById("expName").style.size="11px";
+ document.getElementById("expName").innerHTML=expTitle;
+ 
+</script>    
+</div>
+
+
+<script>
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+</script>
+</body></html>

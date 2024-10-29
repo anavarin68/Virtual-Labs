@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-IN" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+	<title>Zener Diode (Theory) : Physics Virtual Lab : Suryansh</title>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<link href="./Zener Diode (Theory)_files/tabs.css" rel="stylesheet" type="text/css"><link href="./Zener Diode (Theory)_files/main.css" rel="stylesheet" type="text/css"><link href="./Zener Diode (Theory)_files/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="./Zener Diode (Theory)_files/custom.css" rel="stylesheet" type="text/css"><style>
+	#fl_banner div{
+		position:absolute;
+		}
+	div.mouseoverclass
+	{
+		background-color:#ffffff;
+		opacity:0.8;
+		filter:alpha(opacity=60); /* For IE8 and earlier */
+		position:absolute;
+		/*margin-left:220px;*/
+		width:180px;
+		text-align:center;
+		height:30px;
+		margin-top:20px;
+		font-size:24px;
+		vertical-align:middle;
+		margin-left:7px;
+		margin-right:5px;
+		/*
+		border:2px solid black;
+		text-align:center;
+		vertical-align:middle;*/
+	}
+	body{
+		background-color:#C0C0C0;
+		
+	}
+	
+	</style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</head>
+	<body>
+	
+	
+	
+	
+	<div class="container" style="background-color:#e8e8e8;">
+		<div class=" row expContent">
+			
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 col-xs-12 detailsTop">
+					<div class="title">Zener Diode</div>			</div>
+			</div>
+	
+			
+	
+			<div>
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-xs-12">
+						<div class="tabContent">
+							<div class="Row">
+								<div class="Cell hidden-xs hidden-sm" id="lcurve" style="width:24px; height:144px"></div>
+	
+								<div class="Cell">
+									<nav class="navbar" id="mcurve">
+										<div class="navbar-header" id="navBrand">
+											
+											<ul class="nav nav-tabs"><li class="active" id="activeTab"><a href="Zener Diode (Theory).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_1.png">Theory </p>
+														</a></li>
+												</ul>
+											
+										</div>
+										<div class="collapse navbar-collapse" id="myNavbar">
+											<ul class="nav navbar-nav nav_2 nav-tabs" id="tab">
+	
+	
+	
+	
+	
+																								<li class="active"><a href="Zener Diode (Theory).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_1.png">Theory </p>
+														</a></li>
+																								<li class=""><a href="Zener Diode (Procedure).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_2.png">Procedure </p>
+														</a></li>
+																								<li class=""><a href="Zener Diode (Simulator).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_4.png">Simulator </p>
+														</a></li>
+																								<li class=""><a href="Zener Diode (Video).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_9.png">Video </p>
+														</a></li>
+																								<li class=""><a href="Zener Diode (Viva Voce).html">
+															<p style="display:inline"><img src="./Zener Diode (Theory)_files/content_94.png">Viva Voce </p>
+														</a></li>
+																								
+																								
+																						</ul>
+										</div>
+									</nav>
+								</div>
+	
+								<div class="Cell hidden-xs hidden-sm" id="rcurve" style="width:24px; height:144px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="divContent"><h1>Our Objective:</h1>
+	
+	<p>To draw the reverse characteristic curve of a Zener diode and to find its reverse breakdown voltage.</p>
+	
+	<h1>The Theory:</h1>
+	
+	<h2>Zener diode</h2>
+	
+	<p>A Zener diode is a heavily doped silicon crystal diode which allows current to flow in the forward direction in the same manner as an ideal diode. It also permits the current to flow in the reverse direction when the voltage is above a certain value known as the breakdown voltage. Breakdown voltage is also known as Zener knee voltage.</p>
+	
+	<p>The device was named after an American Physicist, Clarence Zener, who described the property concerning the breakdown of electrical insulators.</p>
+	
+	<p>The device consists of a reverse biased, highly doped, p-n junction diode operating in the breakdown region. Conventional diodes and rectifiers never operate in the breakdown region, but the Zener diode can safely be operated at this point.</p>
+	
+	<h2>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <img alt="" src="./Zener Diode (Theory)_files/1456113090_Zener.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <img alt="" src="./Zener Diode (Theory)_files/1456113102_zener-diode.jpg"></h2>
+	
+	<h2>Working of Zener diode</h2>
+	
+	<p>As the reverse voltage applied to the Zener diode increases, it reaches the breakdown voltage at which Zener current increases to a large value. In the breakdown region, further increase in reverse voltage will not increase the voltage across the Zener diode, it only increases the current. Thus, a constant voltage called Zener voltage (V<sub>z</sub>) is maintained across the Zener diode when the supply voltage changes. Hence, it acts as a voltage regulator.</p>
+	
+	<p>The reverse characteristic is obtained by taking reverse voltage along – ve X-axis and reverse current along –ve Y-axis. As the reverse voltage reaches a certain value, the reverse current increases to a large value, but the voltage across the diode remains a constant. This is the break down voltage V<sub>z</sub>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="./Zener Diode (Theory)_files/1456113130_graph.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	
+	<h1>Learning Outcomes:</h1>
+	
+	<ul>
+		<li>Students understand the terms Zener diode, breakdown voltage, etc.</li>
+		<li>Students are able to do the experiment in the real laboratory, once they understand the procedure.<br>
+		&nbsp;</li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div></div>			
+			</div>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body></html>

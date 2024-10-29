@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Enable IE9 Standards mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  
+  <title></title>
+  <link rel="stylesheet" type="text/css" media="all" href="./font(1).css">
+  <link rel="stylesheet" type="text/css" media="all" href="./reset.css">
+  <link rel="stylesheet" type="text/css" media="all" href="./grid.css">
+  <link href="./mainstyle.css" rel="stylesheet" type="text/css">
+  <link href="./nanoscroller.css" rel="stylesheet" type="text/css">
+  <script src="./overthrow.min.js.download"></script>
+  <script src="./jquery-1.7.1.js.download"></script>
+  <script src="./jquery.nanoscroller.js.download"></script>
+  <script type="text/javascript" src="./touchready.js.download"></script>
+  <script type="text/javascript" src="./main.js.download"></script>
+  <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+  <link href="./simstyle.css" rel="stylesheet" type="text/css">
+  <link href="./trip.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" language="javascript">
+    var simPath="../PHY/CLA/IV_characteristic_curve_of_diode/";
+  </script>
+  <script language="javascript" type="text/javascript" src="./jquery.i18n.js.download"></script>
+  <script type="text/javascript" language="javascript" src="./jquery-ui-1.10.2.custom.min.js.download"></script>
+  <script language="javascript" type="text/javascript" src="./help.js.download"></script>
+  <script language="javascript" type="text/javascript" src="./trip.min.js.download"></script>
+  <script type="text/javascript" language="javascript" src="./touchconvert.js.download"></script>
+  
+  
+  <style>
+  
+  </style>
+  <script language="javascript">
+  var language_script= 'en-IN';
+  var language=language_script.toString();
+    language=language.slice(0, 2);
+    var gt=$;
+    gt.gettext.setLocale(language);
+  </script>
+  <script type="text/javascript" src="./language.json"></script>  
+  <!--[if gte IE 9]>
+    <style type="text/css">
+      .gradient {
+         filter: none;
+      }
+    </style>
+  <![endif]-->
+  <script src="./modernizr-custom.js.download"></script>
+  <script> 
+  if( !Modernizr.inputtypes.range ){  
+      document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+          $(document).ready(function(){
+        $.webshims.setOptions("waitReady", false);
+           $.webshims.polyfill('forms-ext');
+      });  
+      };  
+  
+  
+  </script>
+  
+  </head>
+  <body>
+  <div class="main">
+  <header id="silumatorTemp">
+    <div class="g99 logo">
+    </div>
+    <!-- end .g99 -->
+      <div class="g495 mainTitle">
+      <p id="expName">Diode Characteristics</p>
+    </div>
+    <!-- end .g495 -->
+      <div class="g198 menuSet">
+            
+    </div>
+    <!-- end .g198 -->
+  <div class="g792 bannerFoot">
+  
+  </div>
+      <!-- end .grid_8 -->
+  </header><!-- /header -->
+  <div class="g594 canvasHolder"> 
+      <div id="canvasBox">
+  <script type="text/javascript" language="javascript">
+    var simPath="../PHY/CLA/IV_characteristic_curve_of_diode/";
+  </script>
+  <div id="mainDiv" class="selectable">
+    <div id="bgDiv">
+      <img src="./BG.jpg">
+    </div>
+  
+  
+  <div id="apparatus_div">
+    <img src="./All_apparatus.png" id="apparatus_img">
+    <img src="./Diode_forward.png" id="Diodeforward_img">
+    <div id="rheoKey_Div"><img src="./rheostatto_move.png" id="rheostatmovemnt_img"></div>
+  </div>
+  
+    <div id="box5_bg" class="boxprop"></div>
+    <canvas id="wireCanvas" style="border:1px solid;" width="568" height="440"></canvas>
+    
+    <div id="Volt_readng" class="digireadng">00:00</div>
+    <div id="Amm_readng" class="digireadng">00:00</div>
+    <img id="Rheo_diodeImg" src="./Rheostat_diode.png">
+    <img id="Rheostat_ammeterImg" src="./Rheostat_ammeter.png">
+    <img id="Rheostatfront_keyImg" src="./Rheostatfront_key.png">
+    <img id="Rheostatfront_ammeterImg" src="./Rheostatfront_ammeter.png">
+    <img id="Rheostatfront_voltmeterImg" src="./Rheostatfront_voltmeter.png">
+    <img id="Diode_voltmeterImg" src="./Diode_voltmeter.png">
+    <img id="Rheostatfront_batteryImg" src="./Rheostatfront_battery.png">
+    <img id="Battery_keyImg" src="./Battery_key.png">
+    <div id="switchKeyDiv">
+      <img src="./key.png" id="key_img">
+       <img id="key_cover1" src="./keytop_cover.png">
+    </div>
+     <div id="popupMsg">
+      <img class="posAbso" src="./popup.png">
+      <p id="popup_txt">Insert key</p>
+    </div>
+    <div id="Connectiondiv_1" class="connection_prop ui-draggable ui-droppable" style="top: 82px; left: 201px; cursor: pointer;"></div><div id="Connectiondiv_2" class="connection_prop ui-draggable ui-droppable" style="top: 82px; left: 201px; cursor: pointer;"></div><div id="Connectiondiv_3" class="connection_prop ui-draggable ui-droppable" style="top: 139px; left: 175px; cursor: pointer;"></div><div id="Connectiondiv_4" class="connection_prop ui-draggable ui-droppable" style="top: 139px; left: 175px; cursor: pointer;"></div><div id="Connectiondiv_5" class="connection_prop ui-draggable ui-droppable" style="top: 139px; left: 175px; cursor: pointer;"></div><div id="Connectiondiv_6" class="connection_prop ui-droppable ui-draggable" style="top: 105px; left: 280px; cursor: pointer;"></div><div id="Connectiondiv_7" class="connection_prop ui-droppable ui-draggable" style="top: 261px; left: 416px; cursor: pointer;"></div><div id="Connectiondiv_8" class="connection_prop ui-droppable ui-draggable" style="top: 256px; left: 298px; cursor: pointer;"></div><div id="Connectiondiv_9" class="connection_prop ui-droppable ui-draggable" style="top: 261px; left: 497px; cursor: pointer;"></div><div id="Connectiondiv_10" class="connection_prop ui-droppable ui-draggable" style="top: 120px; left: 455px; cursor: pointer;"></div><div id="Connectiondiv_11" class="connection_prop ui-draggable ui-droppable" style="top: 158px; left: 277px; cursor: pointer;"></div><div id="Connectiondiv_12" class="connection_prop ui-droppable ui-draggable" style="top: 121px; left: 386px; cursor: pointer;"></div><div id="Connectiondiv_13" class="connection_prop ui-draggable ui-droppable" style="top: 140px; left: 51px; cursor: pointer;"></div><div id="Connectiondiv_14" class="connection_prop ui-droppable ui-draggable" style="top: 200px; left: 54px; cursor: pointer;"></div><div id="Connectiondiv_15" class="connection_prop ui-draggable ui-droppable" style="top: 199px; left: 131px; cursor: pointer;"></div><div id="Connectiondiv_16" class="connection_prop ui-droppable ui-draggable" style="top: 259px; left: 251px; cursor: pointer;"></div><div id="Connectiondiv_1" class="connection_prop"></div><div id="Connectiondiv_2" class="connection_prop"></div><div id="Connectiondiv_3" class="connection_prop"></div><div id="Connectiondiv_4" class="connection_prop"></div><div id="Connectiondiv_5" class="connection_prop"></div><div id="Connectiondiv_6" class="connection_prop"></div><div id="Connectiondiv_7" class="connection_prop"></div><div id="Connectiondiv_8" class="connection_prop"></div><div id="Connectiondiv_9" class="connection_prop"></div><div id="Connectiondiv_10" class="connection_prop"></div><div id="Connectiondiv_11" class="connection_prop"></div><div id="Connectiondiv_12" class="connection_prop"></div><div id="Connectiondiv_13" class="connection_prop"></div><div id="Connectiondiv_14" class="connection_prop"></div><div id="Connectiondiv_15" class="connection_prop"></div><div id="Connectiondiv_16" class="connection_prop"></div><div id="Connectiondiv_1" class="connection_prop"></div><div id="Connectiondiv_2" class="connection_prop"></div><div id="Connectiondiv_3" class="connection_prop"></div><div id="Connectiondiv_4" class="connection_prop"></div><div id="Connectiondiv_5" class="connection_prop"></div><div id="Connectiondiv_6" class="connection_prop"></div><div id="Connectiondiv_7" class="connection_prop"></div><div id="Connectiondiv_8" class="connection_prop"></div><div id="Connectiondiv_9" class="connection_prop"></div><div id="Connectiondiv_10" class="connection_prop"></div><div id="Connectiondiv_11" class="connection_prop"></div><div id="Connectiondiv_12" class="connection_prop"></div><div id="Connectiondiv_13" class="connection_prop"></div><div id="Connectiondiv_14" class="connection_prop"></div><div id="Connectiondiv_15" class="connection_prop"></div><div id="Connectiondiv_16" class="connection_prop"></div><input type="checkbox" name="circuitCheckBox" id="circuitCheckBox">
+        <p id="checkLbl" class="varTitle" style="font-size:13px;">Show circuit diagram</p> 
+        <div id="circuitdiaDiv">
+        <img id="circuitdiaImg" src="./circuitdiagram.png">
+    </div>
+    
+    <br>
+  
+  </div>
+  <script type="text/javascript" src="./simcontrols.js.download"></script>
+  
+  </div>
+  </div>
+  <div class="g198 controlHolder">
+  <div class="nano has-scrollbar">
+  <ul style="right:-17px;" tabindex="0" class="overthrow content description">
+    <li>    
+      <div class="varBox">
+      <p class="varTitle">
+        <span id="selectDioLbl">Characteristics of diode:</span><!-- Test dropbox label -->
+        <select class="dropBox" id="Diodetype" style="margin:8px 0px 11px 8px; width:150px;"><option value="0">Forward-biasing</option><option value="1">Reverse-biasing</option></select>   <!-- Test select dropbox -->
+      </p>  
+          <p class="varTitle">
+        <span id="selectDioLbl1">Select diode:</span><!-- Test dropbox label -->
+        <select class="dropBox" id="Diodetype2" style="margin:8px 0px 11px 8px; width:150px;"><option value="0">IN 4007</option><option value="1">IN 4004 1A</option><option value="2">IN 3891</option><option value="3">IN 5711</option><option value="4">IN 270</option><option value="5">IN 34 A</option></select>   <!-- Test select dropbox -->
+      </p>
+          <p><span id="Rheostat_label" class="varTitle">Rheostat resistance:</span>  <span id="Rheostat_vals" class="slidervals">1Ω</span></p><!-- rheostat slider --><br>
+              <input type="range" class="rangeSlider" min="1" max="30" id="Rheostat_" name="Rheostat_" value="1" step="1" disabled=""><br>
+              <span class="rightminval varTitle">1</span>
+              <span class="rightmaxval varTitle">30</span><br>
+           <br><br>
+            <p><span id="Temperature_label" class="varTitle">Room Temperature:</span>  <span id="Temperature_vals" class="slidervals">10°C</span></p><!-- Temperature slider --><br>
+              <input type="range" class="rangeSlider" min="10" max="50" id="Temperature_" name="Temperature_" value="10" step="1" disabled=""><br>
+                   <span class="rightminval varTitle">10</span>
+              <span class="rightmaxval varTitle">50</span><br>
+           <br>
+  <!--              <div id="answer">
+        <p><input type="checkbox" id="showAns"/><span id="resultLabel" class="varTitle"></span></p>
+        <div id="answerLabel" class="varTitle"></div>
+      </div> --> <br>
+      <p align="center"><input type="button" class="subButton scale" id="resetBtn" name="resetBtn" onclick="window.location.reload();" value="Reset"> </p> 
+    </div>
+    </li>
+  </ul><div class="pane" style="display: none;"><div class="slider" style="height: 326px;"></div></div><div class="pane" style="display: none;"><div class="slider" style="height: 326px;"></div></div><div class="pane" style="display: none;"><div class="slider" style="height: 326px;"></div></div></div>
+  </div>
+  <script type="text/javascript">
+   var expTitle=" Diode characteristics";
+   document.getElementById("expName").innerHTML=expTitle;
+  </script>    
+  </div>
+  
+  
+  <script>
+  function simFullScreenOlab(){
+      var $ = function(selector,context){return(context||document).querySelector(selector)};
+          var iframe = $("iframe"),
+              domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+  
+              var fullscreen = function(elem){
+              var prefix;
+        
+              // Mozilla and webkit intialise fullscreen slightly differently
+              for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+        {
+                prefix = domPrefixes[i].toLowerCase();
+                if ( elem[prefix + 'EnterFullScreen'] ) {
+                  // Webkit uses EnterFullScreen for video
+                  return prefix + 'EnterFullScreen';
+                  break;
+                } else if( elem[prefix + 'RequestFullScreen'] ) {
+                  // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                  return prefix + 'RequestFullScreen';
+                  break;
+                }
+              }
+              return false;
+          }; 
+          // Webkit uses "requestFullScreen" for non video elements
+          var fullscreenother = fullscreen(document.createElement("iframe"));
+          if(!fullscreen) {
+              alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+              return;
+          }
+      iframe[fullscreenother]();
+      (this,this.document);
+        }
+  
+  </script>
+  </body></html>

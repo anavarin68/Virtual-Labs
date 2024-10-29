@@ -1,0 +1,411 @@
+@font-face {
+	font-family: MRKGPEN;
+	src: url(MRKGPEN.TTF);
+}
+@font-face {
+	font-family: digi;
+	src: url(DS-DIGII.TTF);
+}
+.main {
+	overflow: hidden;
+}
+.varResult {
+	padding: 5px 0px 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	color: #000;
+	text-align: left;
+}
+.posAbso{
+	position:absolute;
+}
+.maxValue{
+	padding-left: 100px;
+}
+.minValue{
+	padding-left: 30px;
+}
+.sliderValueLbl{
+	padding-left: 0px;
+}
+.terminals{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 15px;
+	background-color: #ff0000;
+	opacity: 0;
+}
+.connections{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 570px;
+	height: 345px;
+}
+.hide{
+	position: absolute;
+	display: none;
+}
+.digiReading{
+	position: absolute;
+	font-size: 26px;
+	color: #000;
+	width: 72px;
+	height: 30px;
+	text-align: center;
+	font-family: digi;
+}
+.tranFont{
+	position: absolute;
+	font-size: 22px;
+	color: #000000;
+	font-family: MRKGPEN;
+}
+.dim{
+	opacity: 0.4;
+}
+.bright{
+	opacity: 1;
+}
+#bg{
+	position: absolute;
+	left:-5px; 
+}
+#help_terminal{
+	position: absolute;
+	left: 148px;
+	top: 62px;
+	width: 5px;
+	height: 5px; 
+}
+#show_hide_wrap{
+	left: 7px;
+	top: 7px;
+	text-align: center;
+	width: 198px;
+}
+#key_1{
+	position: absolute;
+	left: 130px;
+	top: 295px;
+	cursor: pointer;
+}
+#key_2{
+	position: absolute;
+	left: 414px;
+	top: 295px;
+	cursor: pointer;
+}
+#rheo_move{
+	position: absolute;
+	left: 161px;
+	top: 105px;
+}
+#rheo_move_2{
+	position: absolute;
+	left: 353px;
+	top: 105px;
+}
+#key_top{
+	position: absolute;
+	left: 109px;
+	top: 326px;
+}
+#key_top_2{
+	position: absolute;
+	left: 390px;
+	top: 326px;
+}
+#ammeter_trans{
+	left: 126px;
+	top: 43px;
+	display: none;
+}
+#trans_rheo{
+	left: 186px;
+	top: 45px;
+}
+#trans_ammeter{
+	left: 278px;
+	top: 42px;
+}
+#ammeter_rheo{
+	left: 479px;
+	top: 40px;
+}
+#rheo_volt_2{
+	left:376px;
+	top: 114px;
+}
+#rheo_cell_2{
+	left:447px;
+	top: 174px;
+}
+#cell_key_2{
+	left:428px;
+	top: 198px;
+}
+#key_volt_2{
+	left:356px;
+	top: 175px;
+}
+#rheo_bottom_vol_2{
+	left:329px;
+	top: 172px;
+}
+#key_volt_1{
+	left:152px;
+	top: 173px;
+}
+#rheo_volt_1{
+	left:7px;
+	top: 115px;
+}
+#rheo_bottom_vol_1{
+	left:185px;
+	top: 173px;
+}
+#rheo_rheo{
+	left:185px;
+	top: 173px;
+}
+#cell_key_1{
+	left:82px;
+	top: 195px;
+}
+#rheo_cell_1{
+	left:24px;
+	top: 173px;
+}
+#micro_rheo{
+	left:7px;
+	top: 43px;
+}
+#ammeter_1_red{
+	left: 63px;
+	top: 38px;
+}
+#ammeter_1_black{
+	left: 114px;
+	top: 38px;
+}
+#trans_base{
+	left: 238px;
+	top: 55px;
+}
+#trans_emiter{
+	left: 246px;
+	top: 44px;
+}
+#trans_collector{
+	left: 266px;
+	top: 37px;
+}
+#rheo_1_rgt_emi{
+	left: 173px;
+	top: 162px;
+}
+#rheo_1_rgt_rheo{
+	left: 173px;
+	top: 162px;
+}
+#rheo_1_rgt_volt_1{
+	left: 173px;
+	top: 162px;
+}
+#rheo_1_lft{
+	left: 49px;
+	top: 162px;
+}
+#ammeter_2_black{
+	left: 411px;
+	top: 38px;
+}
+#ammeter_2_red{
+	left: 465px;
+	top: 38px;
+}
+#rheo_2_top_amtr{
+	left: 509px;
+	top: 104px;
+}
+#rheo_2_top_volt{
+	left: 509px;
+	top: 104px;
+}
+#rheo_2_rgt{
+	left: 465px;
+	top: 163px;
+}
+#rheo_2_lft_rheo{
+	left: 343px;
+	top: 163px;
+}
+#rheo_2_lft_volt{
+	left: 343px;
+	top: 163px;
+}
+#cell_2_black{
+	left: 517px;
+	top: 197px;
+}
+#cell_2_red{
+	left: 459px;
+	top: 197px;
+}
+#volt_2_red{
+	left: 363px;
+	top: 197px;
+}
+#volt_2_black{
+	left: 317px;
+	top: 197px;
+}
+#volt_2_black_rheo{
+	left: 343px;
+	top: 163px;
+}
+#volt_1_black_switch{
+	left: 173px;
+	top: 162px;
+}
+#volt_1_black_rheo{
+	left: 225px;
+	top: 197px;
+}
+#volt_1_red_rheo{
+	left: 181px;
+	top: 197px;
+}
+#cell_1_black{
+	left: 70px;
+	top: 197px;
+}
+#cell_1_red{
+	left: 11px;
+	top: 197px;
+}
+#switch_2_cell{
+	left: 415px;
+	top: 305px;
+}
+#switch_2_volt{
+	left: 379px;
+	top: 305px;
+}
+#switch_1_volt{
+	left: 138.5px;
+	top: 305px;
+}
+#switch_1_cell{
+	left: 103px;
+	top: 305px;
+}
+#rheo_1_top_volt{
+	left: 7px;
+	top: 104px;
+}
+#rheo_1_top_amtr{
+	left: 7px;
+	top: 104px;
+}
+#popup{
+	position: absolute;
+	left: 420px;
+	top: 220px;
+	visibility: hidden;
+  	opacity: 0;
+  	transition: visibility 0s, opacity 0.5s linear;
+}
+#popup_txt{
+	width: 123px;
+	height: 30px;
+	text-align: center;
+	font-family: MRKGPEN;
+	font-size: 18px;
+	margin: 22px 1px;
+}
+#ammeter_1_reding{
+	position: absolute;
+	left: 63.5px;
+	top: 13px;
+	display: none;
+}
+#ammeter_2_reding{
+	position: absolute;
+	left: 415px;
+	top: 13px;
+	display: none;
+}
+#voltmeter_1_reding{
+	position: absolute;
+	left: 181px;
+	top: 240px;
+	display: none;
+}
+#voltmeter_2_reding{
+	position: absolute;
+	left: 318px;
+	top: 241px;
+	display: none;
+}
+#key_1_drop{
+	position: absolute;
+	left: 110px;
+	top: 292px;
+	width: 47px;
+	height: 43px;
+}
+#key_2_drop{
+	position: absolute;
+	left: 389px;
+	top: 292px;
+	width: 47px;
+	height: 43px;
+}
+#cir_diagram{
+	position: absolute;
+	background-color: #ECECEC;
+	opacity: 0.9;
+	width: 570px;
+	height: 345px;
+	display: none;
+	left: 0;
+	top: 0;
+}
+#cir_img{
+	display: block;
+	margin: 40px auto;
+}
+#show_hide_txt{
+	padding-left: 0px;
+}
+#base{
+	left: 233px;
+	top: 34px;
+	display: none;
+}
+#emitter{
+	left: 256px;
+	top: 24px;
+	display: none;
+}
+#collector{
+	left: 302px;
+	top: 25px;
+	display: none;
+}
+#input{
+	left: 8px;
+	top: 140px;
+}
+#output{
+	left: 527px;
+	top: 140px;
+}
+#reload{
+	width: 125px;
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-IN" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+
+
+	<title>Transistor characteristics (Theory) : Physics Virtual Lab : Suryansh</title>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<link href="./Transistor characteristics (Theory)_files/tabs.css" rel="stylesheet" type="text/css"><link href="./Transistor characteristics (Theory)_files/main.css" rel="stylesheet" type="text/css"><link href="./Transistor characteristics (Theory)_files/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="./Transistor characteristics (Theory)_files/custom.css" rel="stylesheet" type="text/css"><style>
+	#fl_banner div{
+		position:absolute;
+		}
+	div.mouseoverclass
+	{
+		background-color:#ffffff;
+		opacity:0.8;
+		filter:alpha(opacity=60); /* For IE8 and earlier */
+		position:absolute;
+		/*margin-left:220px;*/
+		width:180px;
+		text-align:center;
+		height:30px;
+		margin-top:20px;
+		font-size:24px;
+		vertical-align:middle;
+		margin-left:7px;
+		margin-right:5px;
+		/*
+		border:2px solid black;
+		text-align:center;
+		vertical-align:middle;*/
+	}
+	body{
+		background-color:#C0C0C0;
+		
+	}
+	
+	</style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</head>
+	<body>
+	
+	
+	
+	
+	<div class="container" style="background-color:#e8e8e8;">
+		<div class=" row expContent">
+			
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 col-xs-12 detailsTop">
+					<div class="title">Transistor characteristics</div>			</div>
+			</div>
+	
+			
+	
+			<div>
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-xs-12">
+						<div class="tabContent">
+							<div class="Row">
+								<div class="Cell hidden-xs hidden-sm" id="lcurve" style="width:24px; height:144px"></div>
+	
+								<div class="Cell">
+									<nav class="navbar" id="mcurve">
+										<div class="navbar-header" id="navBrand">
+											
+											<ul class="nav nav-tabs"><li class="active" id="activeTab"><a href="Transistor characteristics (Theory).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_1.png">Theory </p>
+														</a></li>
+												</ul>
+											
+										</div>
+										<div class="collapse navbar-collapse" id="myNavbar">
+											<ul class="nav navbar-nav nav_2 nav-tabs" id="tab">
+	
+	
+	
+	
+	
+																								<li class="active"><a href="Transistor characteristics (Theory).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_1.png">Theory </p>
+														</a></li>
+																								<li class=""><a href="Transistor characteristics (Procedure).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_2.png">Procedure </p>
+														</a></li>
+																								<li class=""><a href="Transistor characteristics (Animation).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_44.png">Animation </p>
+														</a></li>
+																								<li class=""><a href="Transistor characteristics (Simulator).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_4.png">Simulator </p>
+														</a></li>
+																								<li class=""><a href="Transistor characteristics (Viva Voce).html">
+															<p style="display:inline"><img src="./Transistor characteristics (Theory)_files/content_94.png">Viva voce </p>
+														</a></li>
+																								
+																								
+																						</ul>
+										</div>
+									</nav>
+								</div>
+	
+								<div class="Cell hidden-xs hidden-sm" id="rcurve" style="width:24px; height:144px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="divContent"><h1>Our Objective:</h1>
+	
+	<p>&nbsp;To study the static characteristic of a transistor (Common Emitter Configuration)</p>
+	
+	<h1>The Theory:</h1>
+	
+	<p>A transistor is a semiconductor device used to amplify or switch electronic signals and electrical power. It is composed of semiconductor material with at least three terminals for connection to an external circuit. A voltage or current applied to one pair of the transistor's terminals changes the current through another pair of terminals. Because the controlled (output) power can be higher than the controlling (input) power, a transistor can amplify a signal.</p>
+	
+	<h2>Bipolar Junction Transistors</h2>
+	
+	<p>Bipolar Junction Transistors are transistors which are made up of 3 regions, the base, the collector, and the emitter. A small current entering in the base region of the transistor causes a much larger current flow from the emitter to the collector region. Bipolar junction transistors come in two main types, npn and pnp. A npn transistor is one in which the majority current carrier are electrons. Electron flowing from the emitter to the collector forms the base of the majority of current flow through the transistor. The other type of charge,holes, are a minority. pnp transistors are the opposite. In pnp transistors, the majority current carriers are holes.</p>
+	
+	<p>The circuit diagram for npn transistor is shown below.</p>
+	
+	<p><img alt="" src="./Transistor characteristics (Theory)_files/1457620685_circuit-dia.jpg"></p>
+	
+	<h2>Transistor characteristics:</h2>
+	
+	<h3><strong>1) Input characteristics</strong></h3>
+	
+	<p>Keeping the collector- emitter (V<sub>CE</sub>) voltage constant, the base- emitter (V<sub>BE</sub>) voltage is increased from 0 and the corresponding base current (I<sub>B</sub>) values are noted. This is repeated for increasing values of V<sub>CE</sub>. The family of curve obtained by plotting I<sub>B</sub> against V<sub>BE</sub> for each V<sub>CE</sub> value is called input characteristics.</p>
+	
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="./Transistor characteristics (Theory)_files/1457620698_input-char.jpg"></p>
+	
+	<h3><strong>2) Output Characteristics</strong></h3>
+	
+	<p>By keeping the base current (I<sub>B</sub>) constant, collector- emitter (V<sub>CE</sub>) voltage is varied and the corresponding I<sub>C</sub> values are obtained. This is repeated for increasing values of I<sub>B</sub>. The family of curves obtained by plotting I<sub>C</sub> against V<sub>CE</sub> for each value of I<sub>B</sub> is called output characteristics.</p>
+	
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="./Transistor characteristics (Theory)_files/1457620737_output-char.jpg"></p>
+	
+	<h1>Learning Outcomes:</h1>
+	
+	<p>Students understand the following terms:</p>
+	
+	<ul>
+		<li>Transistor</li>
+		<li>pnp and npn transistors</li>
+		<li>Transistor characteristics</li>
+	</ul>
+	
+	<p>Students will be able to do the experiment, once they understand the procedure.<br>
+	&nbsp;</p>
+	</div></div>			
+			</div>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body></html>

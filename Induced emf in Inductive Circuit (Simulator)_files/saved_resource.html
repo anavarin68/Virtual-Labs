@@ -1,0 +1,201 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+       
+    </style>
+    <title></title>
+    <link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+    <script src="./saved_resource_files/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="./saved_resource_files/touchready.js"></script>
+    <script type="text/javascript" src="./saved_resource_files/main.js"></script>
+
+    <script language="javascript" type="text/javascript" src="./saved_resource_files/responsive.js"></script>
+    <script type="text/javascript" language="javascript">var simPath="./saved_resource_files/";</script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<!-- <script language="javascript" type="text/javascript" src="./js/jquery/ui/1.10.2/jquery-ui-1.10.2.custom.min.js"></script> -->
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<link href="" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/trip.css" rel="stylesheet" type="text/css">
+
+
+<script language="javascript" type="text/javascript" src="./saved_resource_files/help.js"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/trip.js"></script>
+
+<script type="text/javascript" src="./saved_resource_files/simcontrols.js"></script>
+<script src="./saved_resource_files/jquery-ui.min.js" language="javascript"></script>
+
+<link rel="gettext" type="application/x-po" href="./saved_resource_files/messages.po">  
+<!-- <script language="javascript" type="text/javascript" src="../PHY/EMM/largeEmfInduced/js/jquery-1.12.4.js"></script> -->
+<!-- <script language="javascript" type="text/javascript" src="../PHY/EMM/largeEmfInduced/js/jquery-ui.js"></script> -->
+<script type="text/javascript" src="./saved_resource_files/Gettext.js"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/touchconvert.js"></script>
+
+
+</head>
+
+<body>
+    <div class="sim-body" oncontextmenu="return false" style="width: 100%; height: 400.06px; display: block; top: 0px;">
+        <div class="flex-container flex-col w-full h-full flex-aligen-stretch">
+            <div class="sim-head" id="expName" style="size: 11px;">Induced emf in Inductive Circuit</div>
+            <div class="sim-buttons flex-container flex-row-reverse ">
+            </div><div class="flex-container sim-interactive-area" style="background-size: 14px 43px;">
+    <div class="sim-controls" style="height: 383px;">
+        <div class="control-div">
+            <div class="control-scroll-area">
+                <div class="saltBox control-box flex-container flex-col px-20"> 
+  
+  <div class="varTitle">
+    <!-- <h2></h2> -->
+  </div>
+  <div class="flex-container flex-1 flex-col  w-full ">
+
+  <h5 id="selInduct">Self Inductance, L: <span id="valueofInductance">0.95</span></h5>
+<input class="rangeSlider" type="range" min="0.95" max="1.25" name="selfInductance" id="selfInductance" value="0.95" step="0.05" oninput="valueofInductance()" disabled="disabled">
+<div class="flexbox">
+<span class="leftVal" id="leftminval">0.95</span>
+<span class="rightVal" id="leftmaxval">1.25</span>
+</div>
+
+  <h5 id="changeInCurr">Change in Current, di/dt: <span id="valueofChangeInCurrent">215</span></h5>
+<input class="rangeSlider" type="range" min="215" max="250" name="changeInCurrent" id="changeInCurrent" value="215" step="5" oninput="valueofChangeInCurrent()" disabled="disabled">
+<div class="flexbox">
+
+<span class="leftVal" id="leftminval">215</span>
+<span class="rightVal" id="leftmaxval">250</span>
+</div>
+ <br>
+ <br>
+
+<label for="check">
+<input type="checkbox" id="check" disabled=""><span id="text" oninput="fetchData()">Show Result</span>
+  </label>
+  <br>
+  <div id="resultData">
+  <table>
+  <tbody><tr>
+    <th>Self Inductance (L)</th>
+    <td>= <span id="resSelfInductance"></span><span>V</span></td>
+  </tr>
+  <tr>
+  <th>Change in Current (di/dt) </th>
+  <td>= <span id="resChangeInCurrent"></span><span>A</span></td>
+  </tr>
+  <tr>
+  <th rowspan="2">Induced emf (ε) </th>
+  <td>= -L*(di/dt)</td>
+  </tr>
+  <tr>
+  <td>= <span id="valueEmf"></span><span>V</span></td>
+  </tr>
+</tbody></table>
+      
+</div>
+  </div>
+</div>
+
+ 
+            </div>
+        </div>
+    </div>
+    <div class="sim-div">
+        <div class="sim-canvas">
+            <div id="mainDiv" style="">
+            <!-- The page content-->
+           
+            <img id="bg" src="./saved_resource_files/bg.png">
+            <img id="battery" src="./saved_resource_files/Battery.png" style="">           
+            <img id="keyboard" src="./saved_resource_files/SWITCH.png" style="">
+            <img src="./saved_resource_files/SWITCHKEY.png" id="key" style="">
+            <img src="./saved_resource_files/SWITCHFRONT.png" id="keyboardpiece" style="">
+            <img id="inductor" src="./saved_resource_files/INDUCTOR.png" style="">
+            <img id="bulb" src="./saved_resource_files/NEONBULB.png" style="">
+            <canvas id="connectionDrawing" class="connections" width="475" style="width: 475px; height: 291px;" height="291"></canvas>
+            <canvas id="shunt_wire" style=""></canvas>
+            <img id="bulbLow" src="./saved_resource_files/GLOW1.png" style="">
+            <img id="bulbMedium" src="./saved_resource_files/GLOW2.png" style="">
+            <img id="bulbBright" src="./saved_resource_files/GLOW3.png" style="">
+            <img id="inferenceImg" src="./saved_resource_files/inference.png" style="">
+
+            <!-- bulbLowAnimation -->
+            <img id="bulbLow1" src="./saved_resource_files/NEONBULB.png" style="">
+            <img id="bulbLow2" src="./saved_resource_files/GLOW1.png" style="">
+            <!-- bulbLowAnimation -->
+
+            <!-- bulbmediumAnimation -->
+            <img id="bulbMedium1" src="./saved_resource_files/NEONBULB.png" style="">
+            <img id="bulbMedium2" src="./saved_resource_files/GLOW2.png" style="">
+            <!-- bulbmediumAnimation -->
+
+            <!-- bulbBrightAnimation -->
+            <img id="bulbBright1" src="./saved_resource_files/NEONBULB.png" style="">
+            <img id="bulbBright2" src="./saved_resource_files/GLOW3.png" style="">
+            <!-- bulbBrightAnimation -->
+
+            <div id="bulbLeft" class="terminals ui-draggable ui-droppable" style=""></div>
+            <div id="bulbRight" class="terminals ui-draggable ui-droppable" style=""></div>
+            <div id="inductLeft" class="terminals ui-draggable ui-droppable" style=""></div>
+            <div id="inductRight" class="terminals ui-draggable ui-droppable" style=""></div>
+            <div id="inductBulbLeft" class="terminals ui-droppable ui-draggable" style=""></div>
+            <div id="inductBulbRight" class="terminals ui-droppable ui-draggable" style=""></div>
+            <div id="switchLeft" class="terminals ui-droppable ui-draggable" style=""></div>
+            <div id="switchRight" class="terminals ui-draggable ui-droppable" style=""></div>
+            <div id="batPos" class="terminals ui-droppable ui-draggable" style=""></div>
+            <div id="batNeg" class="terminals ui-droppable ui-draggable" style=""></div>
+            <div id="cirHelp" style=""></div>
+            <div id="bulbLefInductLefWireMain" style="">
+            <img id="bulbConnLeft" src="./saved_resource_files/COPPER3.png" style="">
+            <img id="inductConnLeft" src="./saved_resource_files/COPPER1.png" style="">
+            <img src="./saved_resource_files/WIRE2.png" id="bulbLefInductLefWire" style="">
+
+</div>
+
+<div id="bulbRigInductRigWireMain" style="">
+<img id="bulbConnRight" src="./saved_resource_files/COPPER4.png" style="">
+<img id="inductConnRight" src="./saved_resource_files/COPPER2.png" style="">
+
+<img src="./saved_resource_files/WIRE1.png" id="bulbRigInductRigWire" style="">
+ </div>
+
+
+    <div id="inducLefSwitchLefWireMain" style="">
+            <img src="./saved_resource_files/WIRE3.png" id="inducLefSwitchLefWire" style="">
+            <img id="inductConnLeft1" src="./saved_resource_files/COPPER1.png" style="">
+
+</div>
+
+<div id="inducRigBatNegWireMain" style="">
+
+            <img src="./saved_resource_files/WIRE4.png" id="inducRigBatNegWire" style="">
+            <img id="inductConnRight1" src="./saved_resource_files/COPPER2.png" style="">
+</div>
+
+
+            <img src="./saved_resource_files/WIRE5.png" id="switchRigBatPosWire" style="">
+            <img src="./saved_resource_files/SHADE.png" id="shadowCircuit" style="">       
+            <div id="keyDropArea" style=""></div>
+            <div id="keyOutArea" style=""></div>
+            <div id="keyOutArea1" style=""></div>
+            <div id="keyOutArea2" style=""></div>
+            <div id="keyOutArea3" style=""></div>
+
+            
+            <img src="./saved_resource_files/circuit_diagram.png" id="circuitDiagram" style="display: none;">
+
+<label for="checkCircuit">
+<input type="checkbox" id="checkCir"><span id="text1">Show/Hide the circuit diagram</span>
+</label>    
+</div>        </div>
+    </div>
+</div>
+<script type="text/javascript">
+ var expTitle="Induced emf in Inductive Circuit";
+ document.getElementById("expName").style.size="11px";
+ document.getElementById("expName").innerHTML=expTitle;
+ 
+</script>
+</div>
+</div>
+</body></html>

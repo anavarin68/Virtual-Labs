@@ -1,0 +1,923 @@
+#bg{
+    width: 100%;
+    height: 100%;
+}
+.userSelect,#mainDiv,.sim-footer div,.sim-body{
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select: none;
+}
+#mainDiv,img,.sim-buttons{
+    
+    -webkit-user-drag: none;
+    -khtml-user-drag:none;
+    -moz-user-drag:none;
+    -ms-user-drag:none;
+}
+#screen1{
+  width: 100%;
+  height: 100%;
+}
+#screen2{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#screen3{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#screen4{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#screen5{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#coil{
+  position: absolute;
+  left: 31%;
+  top: 55%;
+  width: 20%;
+  height: 30%;
+}
+#galvanometer{
+  position: absolute;
+  width: 28%;
+  height: 46%;
+  top: 12%;
+  left: 25%;
+}
+#magnet{
+  position: absolute;
+  top: 70%;
+  left: 61%;
+  width: 20%;
+  height: 8%;
+  z-index: 5;
+  display: none;
+}
+#magnetCanvas{
+  position: absolute;
+  top: 72%;
+  left: 61%;
+  width: 20%;
+  height: 8%;
+  z-index: 5;
+  display: none;
+}
+.flexbox{
+  display: flex;
+}
+  .leftVal{
+    flex:1;
+  }
+  #coilLeft{
+    position: absolute;
+    top: 57%;
+    left: 34%;
+    width: 4%;
+    height: 4%;
+    cursor: pointer;
+    z-index: 5;
+  }
+  #coilRight{
+    position: absolute;
+    top: 56%;
+    left: 47%;
+    width: 3%;
+    height: 5%;
+    cursor: pointer;
+    z-index: 5;
+  }
+  #galvanometerLeft{
+    position: absolute;
+    top: 40%;
+    left: 34%;
+    width: 5%;
+    height: 6%;
+    cursor: pointer;
+    z-index: 5;
+  }
+  #galvanometerRight{
+    position: absolute;
+    top: 41%;
+    left: 47%;
+    width: 5%;
+    height: 6%;
+    cursor: pointer;
+    z-index: 5;
+  }
+  #cable1Div{
+    position: absolute;
+    top: 41%;
+    left: 45.5%;
+    width: 18%;
+    height: 29%;
+  }
+  #cable1{
+    position: absolute;
+    top: 2%;
+    left: 3.5%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+  }
+  #cable2Div{
+    position: absolute;
+    top: 39%;
+    left: 17.5%;
+    width: 18%;
+    height: 33%;
+  }
+  #cable2{
+    position: absolute;
+    top: 3%;
+    left: 2.5%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+  }
+  #connectionCanvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+#checkCir{
+  height: 6%;
+  top: 13%;
+  width: 3%;
+  left: 56%;
+  cursor: pointer;
+  position: absolute;
+  z-index: 5;
+}
+#checkCir2{
+  height: 6%;
+  top: 12%;
+  width: 3%;
+  left: 64%;
+  cursor: pointer;
+  position: absolute;
+  z-index: 5;
+}
+#circuitDiagram{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+#circuitDiagram2{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+#label{
+  position: absolute;
+  top: 14%;
+  left: 60%;
+  width: 40%;
+  text-align: left;
+  font-size: 0.9vw;
+}
+#label2{
+  position: absolute;
+  top: 14%;
+  left: 68%;
+  width: 40%;
+  font-size: 0.9vw;
+}
+.terminals {
+  width: 5%;
+  height: 5%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: red;
+  opacity: 0;
+}
+.terminal2{
+  width: 5%;
+  height: 5%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color:red;
+  opacity: 0;
+}
+#arrow{
+  position: absolute;
+  width: 1%;
+  height: 11%;
+  left: 42%;
+  top: 18.7%;
+}
+#arrow2{
+  position: absolute;
+  width: 1%;
+  height: 10%;
+  left: 18%;
+  top: 19.2%;
+}
+#labelDiv1{
+  position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 1%;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.3vw;
+}
+/* Next button CSS */
+.nextbutton {
+  background-color: #36A9AE;
+  border: 1px solid #2A8387;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: none;
+  font-size: 17px;
+  line-height: 40%;
+  padding: 11px 7px 12px;
+  width: 22%;
+  position: absolute;
+  top: 75%;
+  left: 72%;
+  z-index: 5;
+}
+.nextbutton:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+/* Next button CSS  */
+#nextbutton2 {
+  background-color: #36A9AE;
+  border: 1px solid #2A8387;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: none;
+  font-size: 17px;
+  line-height: 40%;
+  padding: 11px 5px 12px;
+  width: 21%;
+  position: absolute;
+  top: 4%;
+  left: 78%;
+  z-index: 5;
+}
+#nextbutton2:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+#inference{
+  position: absolute;
+  left: 1%;
+  top: 10%;
+  z-index: 5;
+  display: none;
+  cursor: pointer;
+}
+.key{
+  position: absolute;
+  width: 6%;
+  height: 9%;
+  top: 54%;
+  left: 62%;
+  z-index: 3;
+}
+#switch1{
+  position: absolute;
+  left: 77%;
+  top: 26%;
+  width: 19%;
+  height: 12%;
+}
+#switch2{
+  position: absolute;
+  left: 76%;
+  top: 33%;
+  width: 19%;
+  height: 12%;
+}
+#galvanometer2{
+  position: absolute;
+  left: 1%;
+  top: 12%;
+  width: 28%;
+  height: 45%;
+}
+#coil_100{
+  position: absolute;
+  width: 42%;
+  height: 31%;
+  top: 55%;
+  left: -2%;
+}
+#coil_50{
+  position: absolute;
+  width: 8.5%;
+  height: 28%;
+  top: 56%;
+  left: 36%;
+}
+#rh{
+  position: absolute;
+  top: 23%;
+  left: 37%;
+  height: 16%;
+  width: 29%;
+}
+#magnetC1{
+  width: 93%;
+  height: 39%;
+  padding-top: 21px;
+  left: 13px;
+  padding-left: 5%;
+}
+#magnetC2{
+  width: 100%;
+  width: 93%;
+  padding-top: 21px;
+  padding-left: 5%;
+  height: 39%;
+}
+#magnetdiv1{
+  width: 77%;
+  height: 70px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  margin-left: 8%;
+  margin-top: 10%;
+  border: solid 2px gray;
+  opacity: 0.5;
+}
+#magnetdiv2{
+  width: 77%;
+  height: 70px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  margin-left: 8%;
+  margin-top: 12%;
+  border: solid 2px gray;
+  opacity: 0.5;
+}
+#labelMagnet_A{
+  padding-left: 23%;
+  padding-top: 5%;
+  font-size: 1.3vw;
+}
+#labelMagnet_B{
+  padding-left: 23%;
+  padding-top: 4%;
+  font-size: 1.3vw;
+}
+#galvanometer2Left{
+  position: absolute;
+  top: 37%;
+  left: 9%;
+  width: 5%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#coil_100_left{
+  position: absolute;
+  top: 56%;
+  left: 11%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire3{
+  position: absolute;
+  top: 40%;
+  left: 1.3%;
+  width: 11%;
+  height: 35%;
+  z-index: 10;
+  display: none;
+}
+#galvanometer2right{
+  position: absolute;
+  top: 39%;
+  left: 23%;
+  width: 5%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#coil_100_right{
+  position: absolute;
+  top: 56%;
+  left: 25%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire4{
+  position: absolute;
+  top: 41%;
+  left: 23%;
+  width: 10%;
+  height: 32%;
+  z-index: 10;
+  display: none;
+}
+#rhLowerend{
+  position: absolute;
+  top: 34%;
+  left: 41%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#coil_50_left{
+  position: absolute;
+  top: 57%;
+  left: 37%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire5{
+  position: absolute;
+  top: 32%;
+  left: 37%;
+  width: 6%;
+  height: 28%;
+  z-index: 10;
+  display: none;
+}
+#rhUpperend{
+  position: absolute;
+  top: 23%;
+  left: 63%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#switchleft{
+  position: absolute;
+  top: 28%;
+  left: 80%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire6{
+  position: absolute;
+  top: 18%;
+  left: 65%;
+  width: 15.5%;
+  transform: rotate(335deg);
+  height: 18%;
+  z-index: 10;
+  display: none;
+}
+#batteryright{
+  position: absolute;
+  top: 69%;
+  left: 85%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#switchright{
+  position: absolute;
+  top: 28%;
+  left: 89%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire7{
+  position: absolute;
+  top: 29%;
+  left: 84%;
+  width: 15%;
+  height: 51%;
+  z-index: 10;
+  display: none;
+}
+#batteryleft{
+  position: absolute;
+  top: 69%;
+  left: 82%;
+  width: 2%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#coil_50_right{
+  position: absolute;
+  top: 57%;
+  left: 42%;
+  width: 3%;
+  height: 6%;
+  cursor: pointer;
+  z-index: 5;
+}
+#wire8{
+  position: absolute;
+  top: 55%;
+  height: 30%;
+  left: 43%;
+  width: 41.5%;
+  display: none;
+}
+#move{
+  margin-top: 22%;
+  margin-left: 23%;
+  background-color: lavender;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: none;
+}
+#controlDiv1{
+  margin-top: 7%;
+}
+#magnetSpeed{
+  width: 94%;
+}
+#controlDiv2{
+  margin-top: 7%;
+  display: none;
+}
+#exp{
+  padding-top: 4%;
+  padding-bottom: 4%;
+  background-color: lavender;
+  border: groove;
+  width: 95%;
+}
+#secondExpLabel{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 1%;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1vw;
+}
+#expName1{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: -2%;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1vw;
+  display: none;
+}
+#expLabel1{
+  width: 100%;
+  top: -44%;
+  position: absolute;
+  margin-top: 5%;
+}
+#expName2{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: -2%;
+  font-size: 1.1vw;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+#expLabel2{
+  width: 100%;
+  top: -44%;
+  position: absolute;
+  margin-top: 5%;
+}
+#expName3{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: -2%;
+  font-size: 1.1vw;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+#expLabel3{
+  width: 100%;
+  top: -44%;
+  position: absolute;
+  margin-top: 5%;
+}
+#expName4{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: -2%;
+  font-size: 1.1vw;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+#expLabel4{
+  width: 100%;
+  top: -44%;
+  position: absolute;
+  margin-top: 5%;
+}
+#coilSpeed{
+  width: 94%;
+}
+.rheo_move{
+  position: absolute;
+  top: 22%;
+  left: 41%;
+  height: 9%;
+  width: 4%;
+}
+#rheo_move5{
+  position: absolute;
+  top: 32%;
+  left: 42%;
+  height: 9%;
+  width: 4%;
+}
+#rheo_move4{
+  position: absolute;
+  top: 33%;
+  left: 42%;
+  height: 9%;
+  width: 4%;
+}
+#keyDropArea{
+  position: absolute;
+  height: 10%;
+  width: 16%;
+  left: 77%;
+  top: 33%;
+  display: none;
+  z-index: 100;
+}
+.coilForwardclass{
+  position: absolute;
+  width: 87%;
+  height: 96%;
+  left: 10%;
+  top: -22%;
+  display: none;
+}
+#coilForward
+	{
+    top: 46%;
+    position: absolute;
+    width: 66%;
+    height: 52%;
+    left: 21%;
+}
+#coilForwardingDiv{
+  position: absolute;
+  width: 6%;
+  height: 19%;
+  left: 28%;
+  top: 60%;
+  display: none;
+  cursor: pointer;
+  z-index: 10;
+}
+.coilBackwardclass{
+  position: absolute;
+  width: 87%;
+  height: 98%;
+  left: 10%;
+  top: -26%;
+  display: none;
+}
+#coilBackward
+	{
+    top: 46%;
+    position: absolute;
+    width: 66%;
+    height: 52%;
+    left: 21%;
+}
+#glasssheet {
+    width: 100%;
+    margin-top: 20%;
+    z-index: 5;
+    display: none;
+    cursor: pointer;
+}
+#glasssheetCanvas{
+  z-index: 3;
+  position: absolute;
+  width: 48%;
+  top: 57%;
+  height: 8%;
+  left: 0%;
+  display: none;
+}
+.coilLiftclass{
+  position: absolute;
+  width: 107%;
+  height: 79%;
+  left: -25%;
+  top: -6%;
+  display: none;
+}
+#coilLift
+	{
+    top: 39%;
+    position: absolute;
+    width: 87%;
+    height: 61%;
+    left: 21%;
+}
+#coils{
+  position: absolute;
+  width: 84.2%;
+  height: 39%;
+  left: 9%;
+  top: 45%;
+}
+#galvanometer3 {
+  position: absolute;
+  left: 4%;
+  top: 30%;
+  width: 17%;
+  height: 31%;
+}
+#galvanometer4{
+  position: absolute;
+  left: 4%;
+  top: 29%;
+  width: 20%;
+  height: 31%;
+}
+#rh3 {
+  position: absolute;
+  top: 34%;
+  left: 38%;
+  height: 18%;
+  width: 26%;
+}
+#arrow3 {
+  position: absolute;
+  width: 1%;
+  height: 8%;
+  left: 18%;
+  top: 21%;
+}
+#wire6InScreen4 {
+  position: absolute;
+  top: 28%;
+  left: 62%;
+  width: 18.5%;
+  transform: rotate(333deg);
+  height: 15%;
+  z-index: 10;
+}
+#wire7InScreen4{
+  position: absolute;
+  top: 38.5%;
+  left: 84%;
+  width: 16%;
+  height: 41%;
+  z-index: 10;
+}
+#coilAway{
+  position: absolute;
+  width: 87%;
+  height: 48%;
+  left: 2%;
+  top: 55%;
+  z-index: 11;
+}
+/* #coil-lift-last{
+  position: absolute;
+  width: 94%;
+  height: 54%;
+  left: -1%;
+  top: 32%;
+  z-index: 10;
+} */
+#coil-lift-last {
+  position: absolute;
+  width: 93%;
+  height: 54%;
+  left: 0%;
+  top: 32%;
+  z-index: 10;
+}
+.coilAwayclass{
+  position: absolute;
+  width: 97%;
+  height: 79%;
+  left: -3%;
+  top: -25%;
+  display: none;
+}
+#battery {
+    position: absolute;
+    width: 23%;
+    height: 20%;
+    top: 55%;
+    left: 77%;
+}
+#coilAwayDiv{
+  position: absolute;
+  width: 13%;
+  height: 10%;
+  left: 17%;
+  top: 49%;
+  display: none;
+  cursor: pointer;
+  z-index: 10;
+}
+#coilTowardsDiv{
+  position: absolute;
+  width: 12%;
+  height: 10%;
+  left: 32%;
+  top: 49%;
+  display: none;
+  cursor: pointer;
+  z-index: 11;
+}
+#coilTowards{
+  position: absolute;
+  width: 87%;
+  height: 48%;
+  left: 2%;
+  top: 55%;
+  z-index: 11;
+}
+.coilTowardsclass{
+  position: absolute;
+  width: 97%;
+  height: 77%;
+  left: -3%;
+  top: -25%;
+  display: none;
+}
+.keyDropArea1{
+  position: absolute;
+  width: 16%;
+  height: 10%;
+  left: 78%;
+  top: 27%;
+  z-index: 1;
+}
+.keyDropArea2{
+  position: absolute;
+  width: 18%;
+  height: 19%;
+  left: 58%;
+  top: 39%;
+  z-index: 1;
+}
+#keyDropArea3{
+  position: absolute;
+  width: 16%;
+  height: 10%;
+  left: 77%;
+  top: 33%;
+  z-index: 1;
+}
+#keyDropArea4{
+  position: absolute;
+  width: 16%;
+  height: 10%;
+  left: 77%;
+  top: 33%;
+  z-index: 1;
+}
+#coilLiftArea{
+  position: absolute;
+  width: 14%;
+  height: 9%;
+  left: 55%;
+  top: 66%;
+  z-index: 5;
+}
+#arrow4 {
+  position: absolute;
+  left: 14.3%;
+  width: 1%;
+  height: 7%;
+  top: 35%;
+}
+#arrow5{
+  position: absolute;
+  top: 34%;
+  left: 16.1%;
+  height: 7%;
+  width: 1%;
+}

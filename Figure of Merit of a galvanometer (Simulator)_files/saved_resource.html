@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/font.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/reset.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/grid.css">
+<link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/nanoscroller.css" rel="stylesheet" type="text/css">
+<script src="./saved_resource_files/overthrow.min.js.download"></script>
+<script src="./saved_resource_files/jquery-1.7.1.js.download"></script>
+<script src="./saved_resource_files/jquery.nanoscroller.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/touchready.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/main.js.download"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/trip.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript">
+	var simPath="../PHY/CLA/Figure_Of_Merit/";
+</script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.i18n.js.download"></script>
+<script type="text/javascript" language="javascript" src="./saved_resource_files/jquery-ui-1.10.2.custom.min.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/help.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/trip.min.js.download"></script>
+<script type="text/javascript" language="javascript" src="./saved_resource_files/touchconvert.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.qtip-1.0.0.min.js.download"></script>
+
+<style>
+@font-face {
+
+	font-family:digi;
+
+	src: url(../PHY/CLA/Figure_Of_Merit/css/DS-DIGII.TTF);
+
+}
+</style>
+<script language="javascript">
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	var gt=$;
+	gt.gettext.setLocale(language);
+</script>
+<script type="text/javascript" src="./saved_resource_files/language.json"></script>  
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./saved_resource_files/modernizr-custom.js.download"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+</head>
+<body>
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName">Figure of Merit of a Galvanometer</p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+<script type="text/javascript" language="javascript">
+	var simPath="./saved_resource_files/";
+</script>
+<div id="mainDiv" class="selectable">
+	<div id="bgDiv">
+		<img src="./saved_resource_files/BG.jpg">
+	</div>
+
+
+	<div id="Galvanometer_box">
+		<img id="measure_reading30" src="./saved_resource_files/measure_number30.png">
+		<img id="pointer_needle" src="./saved_resource_files/pointer.png" style="transform: rotate(0deg);">
+		<img id="glavanometer_glass" src="./saved_resource_files/glavanometer_glass.png">
+		<p id="Galvano_digireadng">00:00</p>
+	</div>
+	<img id="Shunt_key2BImg" src="./saved_resource_files/Black_wire1.png">
+	
+	<img id="Resis_BatteryBImg" src="./saved_resource_files/Black_wire3.png">
+
+	<img id="Shunt_galvanoRImg" src="./saved_resource_files/Red_wire1.png">
+	<img id="Resis_galvanoBImg" src="./saved_resource_files/Black_wire2.png">
+	<img id="Batery_key1RImg" src="./saved_resource_files/Red_wire2.png">
+
+	<div id="Connectiondiv_1" class="connection_prop ui-draggable" style="top: 82px; left: 109px; cursor: pointer;"></div><div id="Connectiondiv_2" class="connection_prop ui-draggable" style="top: 109px; left: 444px; cursor: pointer;"></div><div id="Connectiondiv_3" class="connection_prop ui-draggable" style="top: 148px; left: 24px; cursor: pointer;"></div><div id="Connectiondiv_4" class="connection_prop ui-draggable" style="top: 201px; left: 108px; cursor: pointer;"></div><div id="Connectiondiv_5" class="connection_prop ui-draggable" style="top: 201px; left: 200px; cursor: pointer;"></div><div id="Connectiondiv_6" class="connection_prop ui-draggable" style="top: 281px; left: 472px; cursor: pointer;"></div><div id="Connectiondiv_7" class="connection_prop ui-draggable" style="top: 281px; left: 516px; cursor: pointer;"></div><div id="Connectiondiv_8" class="connection_prop ui-draggable" style="top: 215px; left: 373px; cursor: pointer;"></div><div id="Connectiondiv_9" class="connection_prop ui-draggable" style="top: 215px; left: 373px; cursor: pointer;"></div><div id="Connectiondiv_10" class="connection_prop ui-draggable" style="top: 109px; left: 476px; cursor: pointer;"></div><div id="Connectiondiv_11" class="connection_prop ui-draggable" style="top: 82px; left: 79px; cursor: pointer;"></div><div id="Connectiondiv_12" class="connection_prop ui-draggable" style="top: 214px; left: 275px; cursor: pointer;"></div><div id="Connectiondiv_13" class="connection_prop ui-draggable" style="top: 214px; left: 275px; cursor: pointer;"></div><div id="Connectiondiv_14" class="connection_prop ui-draggable" style="top: 148px; left: 59px; cursor: pointer;"></div><img id="Key2_galvanoRImg" src="./saved_resource_files/Red_wire3.png">
+	<img id="Galvano_key1BImg" src="./saved_resource_files/Black_wire4.png">
+
+	<canvas id="wireCanvas" style="border:1px solid;" width="568" height="440"></canvas>
+
+	<div id="Tooltip_box1" class="boxprop"></div>
+	<div id="Tooltip_box2" class="boxprop"></div>
+	<div id="Tooltip_box3" class="boxprop"></div>
+	<div id="Tooltip_box4" class="boxprop"></div>
+	<div id="box5_bg" class="boxprop"></div>
+		<div id="switchKeyDiv" style="top: 271px; left: 500px;">
+		<img src="./saved_resource_files/key.png">
+		<!-- <img  id ="key_cover" src="../PHY/CLA/Figure_Of_Merit/images/keytop_cover.png"/> -->
+	</div>
+	<div id="switchKeyDiv1" class="ui-draggable ui-draggable-disabled ui-state-disabled" aria-disabled="true" style="top: 101px; left: 465px;">
+		<img src="./saved_resource_files/key.png">
+<!-- 		<img  id ="key_cover1" src="../PHY/CLA/Figure_Of_Merit/images/keytop_cover.png"/>
+ -->	</div>
+	<input type="checkbox" name="circuitCheckBox" id="circuitCheckBox" onchange="showCircuit(this)">
+	    <p id="checkLbl" class="varTitle" style="font-size:13px;">Show circuit diagram</p> 
+	    <div id="circuitdiaDiv">
+	    <img id="circuitdiaImg" src="./saved_resource_files/circuitdiagram.png">
+	</div>
+	
+	<br>
+
+</div>
+<script type="text/javascript" src="./saved_resource_files/simcontrols.js.download"></script>
+
+</div>
+</div>
+<div class="g198 controlHolder">
+<div class="nano has-scrollbar">
+<ul style="right: -15px;" tabindex="0" class="overthrow content description">
+  <li>    
+    <div class="varBox">
+    <p class="varTitle">
+      <span id="selectGalvaLbl">Select the Galvanometer type:</span><!-- Test dropbox label -->
+      <select class="dropBox" id="Galvanotype" style="margin:8px 0px 11px 8px; width:150px;"><option value="0">Galvanometer 1</option><option value="1">Galvanometer 2</option><option value="2">Galvanometer 3</option></select>   <!-- Test select dropbox -->
+    </p>  
+    <p class="varTitle" id="resitance_label">Select Resistance</p> <br>
+    <div id="white_boxdiv" style="height: 170px; width: 150px;"> 
+      <img id="whitebox" src="./saved_resource_files/box.png">
+      <div id="resValue">
+        <form name="listForm" id="resistance_frm">
+          <p>&nbsp;<input type="radio" name="resistanceopt" id="radio1" checked="" class="radios"><span class="varTitle" style="padding: 0px 0px 0px 1px;" id="radioLarge">Large</span>
+         &nbsp;&nbsp;<input type="radio" name="resistanceopt" id="radio2" class="radios"><span class="varTitle" style="padding: 0px 0px 0px 1px;" id="radioSmall">Small</span></p>
+         <br><div id="stoke_Line"></div>
+          <div id="radioOpt1div">
+            <p><input type="checkbox" name="choice" value="1" checked="checked" style="margin: 11px 3px 3px 4px;" class="res_value" disabled="disabled"><span class="spantxt">1</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="2" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">2</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="2" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">2</span>
+            </p>
+            <p><input type="checkbox" name="choice" value="5" checked="checked" class="res_value" disabled="disabled"> <span class="spantxt">5</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="10" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">10</span> &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="20" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">20</span>
+            </p>
+<!--               <p><input type="checkbox" name="choice" value="10" checked="checked" class="res_value"> <span>10</span> &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="10" checked="checked" class="res_value"><span>10</span> &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="20" checked="checked" class="res_value"><span>20</span>
+            </p> -->
+            <p><input type="checkbox" name="choice" value="20" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">20</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="50" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">50</span> &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice" value="100" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">100</span>
+            </p> 
+             
+            <p><input type="checkbox" name="choice" value="200" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">200</span>&nbsp;&nbsp;&nbsp;
+              <input type="checkbox" name="choice" value="200" checked="checked" class="res_value" disabled="disabled"> <span class="spantxt">200</span>&nbsp;
+            <input type="checkbox" value="500" name="choice" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">500</span>
+            </p>
+
+          <p><input type="checkbox" name="choice" value="1000" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">1000</span>&nbsp;
+           <input type="checkbox" name="choice" value="2000" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">2000</span>
+            <input type="checkbox" value="2000" name="choice" checked="checked" class="res_value" disabled="disabled"><span class="spantxt">2000</span></p>
+            
+
+
+            <p><input type="checkbox" name="choice" value="5000" checked="checked" class="res_value" disabled="disabled"> <span class="spantxt">5000</span>
+            <input type="checkbox" name="choice" value="10000" checked="checked" class="res_value" disabled="disabled"> <span class="spantxt">10000</span>
+            <input type="checkbox" value="0" name="choice" checked="checked" class="res_value" id="infi_val" disabled="disabled"><span class="spantxt">INF</span>
+           </p>
+
+            <!-- <p><input type="checkbox"  name="choice"  value="1000" checked="checked" class="res_value"> <span>1000</span>&nbsp; 
+            <input type="checkbox" value="2000" name="choice"  checked="checked" class="res_value"><span>2000</span>
+             <input type="checkbox" name="choice"  value="2000" checked="checked" class="res_value"><span>2000</span></p> -->
+        </div>
+        <div id="radioOpt2div" style="display: none;">
+              <p><input type="checkbox" name="choice1" value="0.1" checked="checked" style="margin: 10px 3px 3px 4px;" class="res_value" disabled="disabled"><span>0.1</span> &nbsp;&nbsp;
+            <input type="checkbox" name="choice1" value="0.2" checked="checked" class="res_value" disabled="disabled"><span>0.2</span>&nbsp;&nbsp;
+            <input type="checkbox" name="choice1" value="0.2" checked="checked" class="res_value" disabled="disabled"><span>0.2</span>
+            </p>
+            <p>
+              <input type="checkbox" name="choice1" value="0.5" checked="checked" class="res_value" disabled="disabled"><span>0.5</span> &nbsp;&nbsp;
+              <input type="checkbox" name="choice1" value="1" checked="checked" class="res_value" disabled="disabled"><span>1</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice1" value="2" checked="checked" class="res_value" disabled="disabled"><span>2</span>
+            </p>
+            <p>  <input type="checkbox" name="choice1" value="2" checked="checked" class="res_value" disabled="disabled"><span>2</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="checkbox" name="choice1" value="5" checked="checked" class="res_value" disabled="disabled"> <span>5</span>  &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="choice1" value="10" checked="checked" class="res_value" disabled="disabled"><span>10</span>
+         
+            </p>
+            <p>   <input type="checkbox" name="choice1" value="20" checked="checked" class="res_value" disabled="disabled"><span>20</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="checkbox" name="choice1" value="20" checked="checked" class="res_value" disabled="disabled"><span>20</span>&nbsp;&nbsp;&nbsp; 
+            <input type="checkbox" name="choice1" value="50" checked="checked" class="res_value" disabled="disabled"><span>50</span> 
+         </p> 
+            
+  <p>  <input type="checkbox" name="choice1" value="100" checked="checked" class="res_value" disabled="disabled"><span>100</span>&nbsp;&nbsp;
+        <input type="checkbox" name="choice1" value="0" checked="checked" class="res_value" id="infi_val1" disabled="disabled"><span>INF</span>
+  </p> 
+        </div>
+
+
+        </form>
+      </div>
+    </div>
+    <div id="answer">
+      <p><input type="checkbox" id="showAns" disabled=""><span id="resultLabel" class="varTitle">Show result</span></p>
+      
+      <div id="answerLabel" class="varTitle" style="display: none;"></div>
+    </div> <br>
+<!--     <p align="center"><input type="button" class="subButton scale" id="Insrtkey1" name="Insrtkey1" /> </p> </br>
+    <p align="center"><input type="button" class="subButton scale" id="Insrtkey2" name="Insrtkey2"/> </p> </br>  -->
+    <p align="center"><input type="button" class="subButton scale" id="resetBtn" name="resetBtn" onclick="window.location.reload();" value="Reset"> </p> 
+  </div>
+  </li>
+</ul><div class="pane"><div class="slider" style="height: 322px; top: 15.8333px;"></div></div></div>
+</div>
+<script type="text/javascript">
+ var expTitle="Ohm's Law";
+ document.getElementById("expName").innerHTML=expTitle;
+</script>    
+</div>
+
+
+<script>
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+</script>
+<div qtip="1" class="qtip qtip-cream" style="border-radius: 0px; position: absolute; width: 124px; display: none; padding: 0px 0px 14px; left: 368px; top: 107px;"><div class="qtip-tip" dir="ltr" rel="bottomLeft" style="position: absolute; height: 14px; width: 14px; margin: 0px auto; line-height: 0.1px; font-size: 1px; bottom: 0px; left: 3px;"><canvas height="14" width="14"></canvas></div>  <div class="qtip-wrapper" style="position:relative; overflow:hidden; text-align:left;"><div class="qtip-borderTop" dir="ltr" style="height:3px; margin-left:3px; line-height:0.1px; font-size:1px; padding:0;"><div rel="topLeft" style="left:0; position:absolute; height:3px; width:3px; overflow:hidden; line-height:0.1px; font-size:1px"><canvas height="3" width="3" style="vertical-align: top"></canvas></div><div rel="topRight" style="right:0; position:absolute; height:3px; width:3px; overflow:hidden; line-height:0.1px; font-size:1px"><canvas height="3" width="3" style="vertical-align: top"></canvas></div><div class="qtip-betweenCorners" style="height:3px; width:118px; overflow:hidden; background-color:#F9E98E; line-height:0.1px; font-size:1px;"></div></div>    <div class="qtip-contentWrapper" style="overflow: hidden; background: rgb(251, 247, 170); border-width: 0px 3px; border-style: solid; border-color: rgb(249, 233, 142); border-image: initial;">       <div class="qtip-content qtip-content" style="background: rgb(251, 247, 170); color: rgb(89, 62, 26); overflow: hidden; text-align: center; padding: 5px 9px; font-size: 13px;">Shunt Resistance Box</div></div><div class="qtip-borderBottom" dir="ltr" style="height:3px; margin-left:3px; line-height:0.1px; font-size:1px; padding:0;"><div rel="bottomLeft" style="left:0; position:absolute; height:3px; width:3px; overflow:hidden; line-height:0.1px; font-size:1px"><canvas height="3" width="3" style="vertical-align: top"></canvas></div><div rel="bottomRight" style="right:0; position:absolute; height:3px; width:3px; overflow:hidden; line-height:0.1px; font-size:1px"><canvas height="3" width="3" style="vertical-align: top"></canvas></div><div class="qtip-betweenCorners" style="height:3px; width:118px; overflow:hidden; background-color:#F9E98E; line-height:0.1px; font-size:1px;"></div></div></div></div></body></html>

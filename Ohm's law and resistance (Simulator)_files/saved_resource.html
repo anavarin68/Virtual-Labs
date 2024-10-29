@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class=" overthrow-enabled js canvas geolocation video audio localstorage sessionstorage texttrackapi track"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/font.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/reset.css">
+<link rel="stylesheet" type="text/css" media="all" href="./saved_resource_files/grid.css">
+<link href="./saved_resource_files/mainstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/nanoscroller.css" rel="stylesheet" type="text/css">
+<script src="./saved_resource_files/overthrow.min.js.download"></script>
+<script src="./saved_resource_files/jquery-1.7.1.js.download"></script>
+<script src="./saved_resource_files/jquery.nanoscroller.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/touchready.js.download"></script>
+<script type="text/javascript" src="./saved_resource_files/main.js.download"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<link href="./saved_resource_files/simstyle.css" rel="stylesheet" type="text/css">
+<link href="./saved_resource_files/trip.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript">
+	var simPath="../PHY/EMM/OhmsLaw_Resistance/";
+</script>
+<script type="text/javascript" language="javascript" src="./saved_resource_files/jquery-ui-1.10.2.custom.min.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/jquery.i18n.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/help.js.download"></script>
+<script language="javascript" type="text/javascript" src="./saved_resource_files/trip.min.js.download"></script>
+<script type="text/javascript" language="javascript" src="./saved_resource_files/touchconvert.js.download"></script>
+<style>
+@font-face {
+
+	font-family:digi;
+
+	src: url(../PHY/EMM/OhmsLaw_Resistance/css/DS-DIGII.TTF);
+
+}
+</style>
+<script language="javascript">
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	var gt=$;
+	gt.gettext.setLocale(language);
+</script>
+<script type="text/javascript" src="./saved_resource_files/language.json"></script>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./saved_resource_files/modernizr-custom.js.download"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+</head>
+<body>
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName">Ohm's Law</p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+
+<script type="text/javascript" language="javascript">
+	var simPath="../PHY/EMM/OhmsLaw_Resistance/";
+</script>
+<div id="bgDiv" style="background:url(./saved_resource_files/BG.jpg) no-repeat;)"></div>
+
+<canvas id="wireCanvas" style="border:1px solid;" width="568" height="440"></canvas>
+<div id="switchKeyDiv" class="selectable">
+	<img id="switchKeyImg" src="./saved_resource_files/key.png">
+</div>
+<img id="voltmetertoammeterImg" class="selectable" src="./saved_resource_files/voltmetertoammeter.png">
+<div id="resiswireDiv" class="selectable ui-draggable">	
+    <img id="resisShadowImg" src="./saved_resource_files/wireShadow.png">
+    <img id="resisImg" src="./saved_resource_files/wireSilverGlazing.png">
+	<img id="resisImg2" src="./saved_resource_files/wireSilver.png">    
+</div>
+<div id="rheoKeyDiv" class="selectable"><img id="rheoKeyImg" src="./saved_resource_files/rheostatKey.png" class="ui-draggable"></div>
+<img id="batterytoKeyImg" class="selectable" src="./saved_resource_files/batterytokey.png">
+<img id="keytoRheostatImg" class="selectable" src="./saved_resource_files/keytorheostat.png">
+<img id="rheotoAmmeImg" class="selectable" src="./saved_resource_files/rheotoamme.png">
+<img id="voltmetertobatteryImg" class="selectable" src="./saved_resource_files/voltmetertobattery.png">
+<img id="resiswireImg" src="./saved_resource_files/resiswireSilverGlazing.png">
+<img id="resiswireImg2" src="./saved_resource_files/resiswireSilver.png">
+<div id="ammeterReading">00.000</div>
+<div id="voltReading">00.000</div>
+<div id="batteryNeg" class="ui-draggable"></div>
+<div id="batteryPos" class="ui-draggable"></div>
+<div id="keyNeg" class="ui-draggable"></div>
+<div id="keyPos" class="ui-draggable"></div>
+<div id="rheoNeg" class="ui-draggable"></div>
+<div id="rheoPos" class="ui-draggable"></div>
+<div id="ammeterPos" class="ui-draggable"></div>
+<div id="ammeterNeg" class="ui-draggable"></div>
+<div id="voltNeg" class="ui-draggable"></div>
+<div id="voltPos" class="ui-draggable"></div>
+
+<input type="checkbox" name="circuitCheckBox" id="circuitCheckBox" onchange="showCircuit(this)">
+    <p id="checkLbl" class="varTitle" style="font-size:13px;">Show circuit diagram</p> 
+    <div id="circuitdiaDiv">
+    <img id="circuitdiaImg" src="./saved_resource_files/circuitdiagram.png">
+</div>
+<br>
+<script type="text/javascript" src="./saved_resource_files/simcontrols.js.download"></script>
+
+</div>
+</div>
+<div class="g198 controlHolder">
+<div class="nano has-scrollbar">
+<ul style="right:-17px;" tabindex="0" class="overthrow content description">
+  <li>		
+      <div class="varBox">
+          <p class="varTitle">
+               <!-- Test dropbox label -->
+              <span id="selectMetalLbl">Select the metal:</span>
+               <!-- Test select dropbox -->
+              <select class="dropBox" id="selectMetal" onchange="changeMetal()"><option value="0">Silver</option><option value="1">Copper</option><option value="2">Gold</option><option value="3">Aluminium</option><option value="4">Iron</option><option value="5">Nichrome</option><option value="6">Stainless steel</option></select>
+          </p>  
+          <p id="sliderLbl" class="varTitle" style="font-size:12px;">Length of the wire:</p> 
+          <p id="sliderVal" class="varTitle" style="font-size:12px;">10cm</p>   
+          <input type="range" class="rangeSlider" min="10" max="100" id="lengthRange" name="lengthRange" value="10" step="1" onchange="changeResisLength(this.value)">
+          <p id="minVal" class="varTitle" style="font-size:13px;">10</p>
+          <p id="maxVal" class="varTitle" style="font-size:13px;">100</p> 
+          <p id="diamterLbl" class="varTitle" style="font-size:12px;">Diameter of the wire:</p> 
+          <p id="diamterVal" class="varTitle" style="font-size:12px;">0.2mm</p>   
+          <input type="range" class="rangeSlider" min="0.2" max="1" id="diamterRange" name="diamterRange" value="0.2" step="0.01" onchange="changeDiameter(this.value)">
+          <p id="minDiamterVal" class="varTitle" style="font-size:13px;">0.2</p>
+          <p id="maxDiamterVal" class="varTitle" style="font-size:13px;">1</p> 
+          <p id="rheostatLbl" class="varTitle" style="font-size:12px;">Resistance of the rheostat:</p> 
+          <p id="rheostatVal" class="varTitle" style="font-size:12px;">1</p>   
+          <input type="range" class="rangeSlider" min="1" max="100" id="rheostatRange" name="rheostatRange" value="1" step="1" onchange="changeRheostat(this.value)">
+          <p id="rheostatminVal" class="varTitle" style="font-size:13px;">1</p>
+          <p id="rheostatmaxVal" class="varTitle" style="font-size:13px;">100</p> 
+          <p id="readingHdng" class="varTitleResult">Readings</p> 
+          <p id="voltageLbl" class="varTitle" style="font-size:13px;">Voltage (V) :</p> <p id="voltMeasure" class="varTitle" style="font-size:13px;">0 V</p>
+          <p id="currentLbl" class="varTitle" style="font-size:13px;">Ammeter reading (I) :</p> <p id="currentMeasure" class="varTitle" style="font-size:13px;">0 A</p>
+          <p id="wireLenLbl" class="varTitle"></p>        
+          <p id="resultLbl" class="varTitleResult" style="display:none">Results</p>
+          <p id="inputTxtLbl1" class="varTitle" style="font-size:13px;display:none">Enter the resistance of the wire:</p> 
+          <input type="text" class="wideTxtArea" id="answer1" name="answer1" disabled="disabled" onkeypress="validate(event)">
+          <p id="ohmLabel" class="varTitle">Ω</p> 
+          <img id="correctImg" src="./saved_resource_files/right.png">
+          <img id="wrongImg" src="./saved_resource_files/wrong.png">
+          <p id="WarningLbl" class="varTitle">Please enter the value</p>
+          <p id="inputTxtLbl2" class="varTitle" style="display:none">Enter the resistance / cm of the wire:</p>
+          <input type="text" class="wideTxtArea" id="answer2" name="answer2" disabled="disabled" onkeypress="validate(event)">
+          <p id="ohmLabel1" class="varTitle">Ω/cm</p> 
+          <img id="correctImg1" src="./saved_resource_files/right.png">
+          <img id="wrongImg1" src="./saved_resource_files/wrong.png">
+          <p id="WarningLbl1" class="varTitle">Please enter the value</p>
+          <p id="inputTxtLbl3" class="varTitle" style="display:none">Enter the resistivity of the wire:</p>
+          <input type="text" class="wideTxtArea" id="answer3" name="answer3" disabled="disabled" onkeypress="validate(event)" style="display:none">
+          <p id="ohmLabel3" class="varTitle" style="display:none">Ωm</p> 
+          <img id="correctImg3" src="./saved_resource_files/right.png">
+          <img id="wrongImg3" src="./saved_resource_files/wrong.png">
+          <p id="WarningLbl3" class="varTitle">Please enter the value</p>
+          <input type="button" class="subButton" disabled="disabled" id="submit" name="submit" onclick="checkAnswer()" style="display:none" value="Check">
+          <div id="answer">
+              <input type="checkbox" id="showAns" disabled="disabled">
+              <span id="resultLabel" class="varTitle"> Show result</span>
+              <div id="answerLabel" class="varTitle"></div>
+          </div>
+          <input type="button" class="subButton scale" id="resetBtn" name="resetBtn" onclick="window.location.reload();" value="Reset">
+	    </div>
+  </li>
+</ul>
+<script type="text/javascript">
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+	      if(inputs[i].type == 'range') {
+		        inputs[i].addEventListener('click', function() { this.focus(); });
+        }
+    }  
+</script>
+
+<div class="pane" style="display: none;"><div class="slider" style="height: 326px;"></div></div></div>
+</div>
+<script type="text/javascript">
+ var expTitle="Ohm's Law";
+ document.getElementById("expName").innerHTML=expTitle;
+</script>    
+</div>
+
+
+<script>
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+</script>
+</body></html>
