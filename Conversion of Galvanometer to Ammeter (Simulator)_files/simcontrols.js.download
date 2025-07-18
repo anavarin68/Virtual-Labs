@@ -216,6 +216,7 @@ window.onload = function() {
 		}
 		function addintoDropDown(getId,valueSet){//Function for adding option in combo box---		
 			var selected = getId;
+        selected.empty(); // Clear old options to prevent duplication
 			$.each(valueSet, function(val, text) {
 			selected.append($('<option></option>').val(val).html(text));});			
 		}
