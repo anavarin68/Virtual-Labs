@@ -88,6 +88,7 @@ window.onload = function init(){
 		addintoDropDown($('#selectMetal'),metals);		
 		//-------Function to add values into combobox------
 		function addintoDropDown(getId,valueSet){
+			selected.empty();
 			$.each(valueSet, function(val, text) {
 				getId.append(
 					$('<option ></option>').val(val).html(text) 

@@ -86,6 +86,7 @@ window.onload = function init(){
   /** Adding items to the drop down list */
   function addintoDropDown(getId,valueSet){	
 	var _selected = getId;
+	selected.empty();
 	$.each(valueSet, function(val, text){
 	  _selected.append(
 	    $('<option></option>').val(val).html(text)

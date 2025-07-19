@@ -50,6 +50,7 @@ window.onload = function init(){// function called on loading..
 		addintoDropDown($('#Diodetype2'),Combo_vals[1]);	
 		$('#popup_txt').html(gt.gettext("Insert key"));
 		function addintoDropDown(getId,valueSet){//Function to add values into combobox------
+			selected.empty();
 			$.each(valueSet, function(val, text) {getId.append($('<option ></option>').val(val).html(text));});
 		}
 		$(".dropBox").change(function(){//combo box change 

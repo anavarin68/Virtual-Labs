@@ -56,6 +56,7 @@ window.onload = function init(){// function called on loading..
 		$("#resistance_frm :input,#Insrtkey1,#Insrtkey2,#showAns").prop("disabled", true);
 		addintoDropDown($('#Galvanotype'),Galvanomtr_type);		
 		function addintoDropDown(getId,valueSet){//Function to add values into combobox------
+			selected.empty();
 			$.each(valueSet, function(val, text) {getId.append($('<option ></option>').val(val).html(text));});
 		}
 		for(var k=0;k<4;k++){
